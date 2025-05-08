@@ -1,4 +1,4 @@
-package src;
+package src.Consumers;
 
 public class ArcticFox {
     
