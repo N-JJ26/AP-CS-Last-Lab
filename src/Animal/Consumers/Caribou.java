@@ -1,4 +1,4 @@
-package src.Consumers;
+package src.Animal.Consumers;
 
 public class Caribou {
     
