@@ -1,6 +1,6 @@
 package src.Plants.Producers;
-
 import src.Plants.Plant;
+
 /**
  * class Artic Daisy
  *
@@ -9,8 +9,8 @@ import src.Plants.Plant;
  */
 public class ArcticDaisy extends Plant
 {
-    private static final int INITIAL_MASS = 0.35;  //individual ArcticDaisy dry mass in grams
-    private static final double GROWTH_RATE = 20.0;  //miligrams per gram per day
+    private static final int INITIAL_MASS = 20;  //individual ArcticDaisy dry mass in grams
+    private static final double GROWTH_RATE = 0.35;  //miligrams per gram per day
     
     /**
      * generates all of the ArcticDaisies
