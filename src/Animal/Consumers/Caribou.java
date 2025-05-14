@@ -17,21 +17,31 @@ public class Caribou extends Animal implements Herbivore
     private static final int WEANING_AGE = 120;
     private static final int ONSET_FERT_MALE = 680;
     private static final double MAX_LIFE_SPAN = 14.0; // in years
+    private static final int GRAMS_PER_DAY = 5000;
+
+    private boolean hasEaten;
 
     public Caribou()
     {
         super(BODY_MASS_NEW_BORN, BODY_MASS_ADULT, WEANING_AGE, ONSET_FERT_MALE, MAX_LIFE_SPAN);
+
+        hasEaten = false;
     }
 
-    public void eat(Plant p)
+    public void eat( Plant p )
     {
-        //TODO: Implement the logic for eating a plant
+        p.consumed(GRAMS_PER_DAY);
+
+        hasEaten = true;
     }
 
     public boolean isHungry()
     {
-        //TODO: Implement the logic to determine if the Caribou is hungry
-        return true;
+        return hasEaten;
     }
-    
+
+    public void resetDay()
+    {
+        hasEaten = false;
+    }
 }

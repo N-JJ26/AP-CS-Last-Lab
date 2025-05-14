@@ -2,6 +2,12 @@ package src.Animal.Consumers;
 
 import src.Animal.*;
 
+/**
+ * Female Caribou
+ *
+ * @author Nate Johnson
+ * @version 5/14/2025
+ */
 public class FCaribou extends Caribou implements Female {
     public FCaribou()
     {
