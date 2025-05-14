@@ -8,6 +8,10 @@ package src.Animal;
  */
 public abstract class Animal
 {
+    /*TODO:
+     * fix getCarcass()
+     */
+
     /** the percent chance of living to the adulthood as 15% */
     public static final double ADULT_CHANCE = 0.15;
     /** number of days in a non-leapyear */
