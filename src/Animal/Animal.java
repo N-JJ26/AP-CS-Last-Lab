@@ -3,8 +3,8 @@ package src.Animal;
 /**
  * abstract Animal keeps track of all Animal objects and aging
  *
- * @author Nate Johnson
- * @version 5/13/2025
+ * @author Nate Johnson, Austin Benedicto
+ * @version 5/14/2025
  */
 public abstract class Animal
 {
@@ -102,7 +102,10 @@ public abstract class Animal
      */
     public int getCarcass()
     {
-        return isAdult() ? bodyMassAdult / 2 : bodyMassNewBorn / 2;
+        if(isAdult())
+            return bodyMassAdult / 2;
+
+        return (( bodyMassAdult - bodyMassNewBorn ) / age) / 2;
     }
 
     /**
