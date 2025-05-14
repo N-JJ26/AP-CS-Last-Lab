@@ -1,5 +1,6 @@
 package src.Plants.Producers;
 
+import src.Plants.Plant;
 /**
  * class Artic Daisy
  *
