@@ -9,19 +9,25 @@ import src.Plants.*;
  * The Arctic Fox in the Tundra biome
  *
  * @author Nate Johnson
- * @version 5/14/2025
+ * @version 5/15/2025
  */
 public class ArcticFox extends Animal implements Carnivore, Herbivore {
     /*TODO:
      * finish up code
      */
 
+    private static final int BODY_MASS_NEWBORN = 50;
+    private static final int BODY_MASS_ADULT = 5200;
+    private static final int WEANING_AGE = 14;
+    private static final int ONSET_FERTILITY_MALE = 304;
+    private static final double MAX_LIFE_SPAN = 16.3;
+
     private static final double HUNTING_EFFICIENCY = 0.6;
 
     public ArcticFox()
     {
-        super( 50 + ( int )( Math.random() * 7 ), 5200,
-                 14 + ( int )( Math.random() * 11 ), 304, 16.3 );
+        super( BODY_MASS_NEWBORN + ( int )( Math.random() * 7 ), BODY_MASS_ADULT,
+                WEANING_AGE + ( int )( Math.random() * 11 ), ONSET_FERTILITY_MALE, MAX_LIFE_SPAN );
     }
 
     public boolean isHungry()
