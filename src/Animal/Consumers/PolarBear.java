@@ -14,13 +14,13 @@ import src.Animal.Carnivore;
  //TODO: ADD IN JAVA DOCS AND SOME OTHER STUFF
 public class PolarBear extends Animal implements Carnivore
 {
-    private static final int BODY_MASS_NEW_BORN = 6500;
-    private static final int BODY_MASS_ADULT = 101250;
-    private static final int WEANING_AGE = 120;
-    private static final int ONSET_FERT_MALE = 680;
-    private static final double MAX_LIFE_SPAN = 14.0; // in years
-    private static final int GRAMS_PER_DAY = 5000;
-    private static final double HUNTING_EFFICIENCY = 0.6;
+    private static final int BODY_MASS_NEW_BORN = 600;
+    private static final int BODY_MASS_ADULT = 500000;
+    private static final int WEANING_AGE = 900;
+    private static final int ONSET_FERT_MALE = 2190;
+    private static final double MAX_LIFE_SPAN = 30; // in years
+    private static final int GRAMS_PER_DAY = 0;
+    private static final double HUNTING_EFFICIENCY = 0.0;
 
     public PolarBear()
     {
