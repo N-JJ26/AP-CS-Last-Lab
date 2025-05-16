@@ -8,7 +8,8 @@ import src.Animal.*;
  * @author Nate Johnson
  * @version 5/14/2025
  */
-public class FCaribou extends Caribou implements Female {
+public class FCaribou extends Caribou implements Female
+{
     public FCaribou()
     {
         super();
@@ -16,6 +17,13 @@ public class FCaribou extends Caribou implements Female {
 
     public boolean reproduceWith( Animal male )
     {
+        if(!this.isAlive() || !this.isAdult() || !this.isPregnant())
+            return false;
+
+
+        if(male == null || !male.isAlive() || male.isAlive() || male instanceof Female || !(male instanceof Caribou))
+            return false;
+
         return false;
     }
 

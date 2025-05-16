@@ -19,8 +19,8 @@ public class PolarBear extends Animal implements Carnivore
     private static final int WEANING_AGE = 900;
     private static final int ONSET_FERT_MALE = 2190;
     private static final double MAX_LIFE_SPAN = 30; // in years
-    private static final int GRAMS_PER_DAY = 0;
-    private static final double HUNTING_EFFICIENCY = 0.0;
+
+    private static final double HUNTING_EFFICIENCY = 0.92;
 
     public PolarBear()
     {
@@ -32,19 +32,22 @@ public class PolarBear extends Animal implements Carnivore
      *  based of a chance between 60 and 73 percent
      */
     @Override
-    public void eat(Animal a) {
+    public void eat(Animal a)
+    {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'eat'");
     }
 
     @Override
-    public boolean wasHuntSuccessful() {
+    public boolean wasHuntSuccessful()
+    {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'wasHuntSuccessful'");
     }
 
     @Override
-    public boolean isHungry() {
+    public boolean isHungry()
+    {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'isHungry'");
     }

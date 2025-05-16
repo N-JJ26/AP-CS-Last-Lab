@@ -19,18 +19,21 @@ public class TundraWolf extends Animal implements Carnivore
         super(BODY_MASS_NEW_BORN, BODY_MASS_ADULT, (int)(Math.random()*69) + 40, ONSET_FERT_MALE, MAX_LIFE_SPAN);
     }
 
-    @Override
-    public void eat(Animal a) {
+    
+    public void eat(Animal a)
+    {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'eat'");
     }
-    @Override
-    public boolean wasHuntSuccessful() {
+    
+    public boolean wasHuntSuccessful()
+    {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'wasHuntSuccessful'");
     }
-    @Override
-    public boolean isHungry() {
+    
+    public boolean isHungry()
+    {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'isHungry'");
     }
