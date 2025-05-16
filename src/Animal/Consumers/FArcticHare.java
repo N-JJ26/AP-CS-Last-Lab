@@ -10,6 +10,13 @@ import src.Animal.Female;
  */
 public class FArcticHare extends ArcticHare implements Female
 {
+    private static final int GESTATION_DURATION = 0;
+    private int gestationCount;
+    private Animal[] litter;
+    private int totalBorn;
+    private boolean pregnant = false;
+    private int interbirthCount;
+
     /**
      * Default constructor for FArcticHare
      * Initializes the FArcticHare object with default values.
