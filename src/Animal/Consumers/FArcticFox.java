@@ -81,6 +81,6 @@ public class FArcticFox extends ArcticFox implements Female
 
     public boolean isPregnant()
     {
-        return false;
+        return pregnant;
     }
 }
