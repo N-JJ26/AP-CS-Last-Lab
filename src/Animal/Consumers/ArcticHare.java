@@ -12,18 +12,27 @@ public class ArcticHare extends Animal implements Herbivore
     private static final int ONSET_FERT_MALE = 680;
     private static final double MAX_LIFE_SPAN = 14.0; // in years
 
+    /**
+     * Creates a new ArcticHare object via Animal().
+     */
     public ArcticHare()
     {
         super(BODY_MASS_NEW_BORN, BODY_MASS_ADULT, WEANING_AGE, ONSET_FERT_MALE, MAX_LIFE_SPAN);
     }
 
-    @Override
+    /**
+     * Simulates an ArcticHare eating another plant.
+     */
     public void eat(Plant p) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'eat'");
     }
 
-    @Override
+    /**
+     * Returns whether the animal isHungry
+     * 
+     * @return true if the animal is hungry, false otherwise.
+     */
     public boolean isHungry() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'isHungry'");
