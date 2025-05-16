@@ -10,6 +10,13 @@ import src.Animal.Female;
  */
 public class FArcticHare extends ArcticHare implements Female
 {
+    private static final int GESTATION_DURATION = 0;
+    private int gestationCount;
+    private Animal[] litter;
+    private int totalBorn;
+    private boolean pregnant = false;
+    private int interbirthCount;
+
     /**
      * Default constructor for FArcticHare
      * Initializes the FArcticHare object with default values.
@@ -42,7 +49,20 @@ public class FArcticHare extends ArcticHare implements Female
      */
     public Animal[] giveBirth()
     {
-        return null;
+        if(!isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
+            return null;
+
+        for(int i = 0; i < litter.length; i++)
+            if(Math.random() < 0.5)
+                litter[i] = new ArcticFox();
+            else
+                litter[i] = new FArcticFox();
+
+        totalBorn += litter.length;
+        pregnant = false;
+        interbirthCount = 0;
+
+        return litter;
     }
 
     /**

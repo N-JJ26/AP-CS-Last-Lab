@@ -23,6 +23,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
     private static final double MAX_LIFE_SPAN = 16.3;
 
     private static final double HUNTING_EFFICIENCY = 0.6;
+    private static final double HUNTING_EFFICIENCY_RANGE = 0.14;
 
     /**
      * Constructs an Arctic Fox object via Animal().
@@ -63,7 +64,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
      */
     public boolean wasHuntSuccessful()
     {
-        return Math.random() < HUNTING_EFFICIENCY + Math.random() * 0.14;
+        return Math.random() < HUNTING_EFFICIENCY + Math.random() * HUNTING_EFFICIENCY_RANGE;
     }
 
     /**
