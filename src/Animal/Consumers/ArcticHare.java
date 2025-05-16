@@ -36,7 +36,7 @@ public class ArcticHare extends Animal implements Herbivore
 
         hasEaten = true;
     }
-
+    
     /**
      * Returns whether the animal isHungry
      * 

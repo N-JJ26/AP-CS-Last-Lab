@@ -5,7 +5,7 @@ import src.Plants.Plant;
 /**
  * The Arctic Willow plant in the Tundra biome
  *
- * @author Nate Johnson
+ * @author Austin Benedicto
  * @version 5/14/2025
  */
 public class ArcticWillow extends Plant {
