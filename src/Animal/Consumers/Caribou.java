@@ -21,6 +21,9 @@ public class Caribou extends Animal implements Herbivore
 
     private boolean hasEaten;
 
+    /**
+     * Creates a new Caribou object via Animal().
+     */
     public Caribou()
     {
         super( BODY_MASS_NEW_BORN, BODY_MASS_ADULT, WEANING_AGE, ONSET_FERT_MALE, MAX_LIFE_SPAN );
@@ -28,20 +31,24 @@ public class Caribou extends Animal implements Herbivore
         hasEaten = false;
     }
 
+    /**
+     * Simulates a Caribou eating another plant.
+     */
     public void eat( Plant p )
     {
         p.consumed( GRAMS_PER_DAY );
 
         hasEaten = true;
     }
-
+    
+    /**
+     * Returns whether the animal isHungry
+     * 
+     * @return true if the animal is hungry, false otherwise.
+     */
     public boolean isHungry()
     {
         return hasEaten;
     }
 
-    public void resetDay()
-    {
-        hasEaten = false;
-    }
 }
