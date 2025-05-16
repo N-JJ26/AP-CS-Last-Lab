@@ -11,7 +11,7 @@ public class ArcticHare extends Animal implements Herbivore
     private static final int WEANING_AGE = 120;
     private static final int ONSET_FERT_MALE = 680;
     private static final double MAX_LIFE_SPAN = 14.0; // in years
-    privaet static final int GRAMS_PER_DAY = 0; //TODO: put in constants
+    private static final int GRAMS_PER_DAY = 0; //TODO: put in constants
 
     private boolean hasEaten;
 
