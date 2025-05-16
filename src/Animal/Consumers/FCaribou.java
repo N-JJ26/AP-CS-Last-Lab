@@ -5,11 +5,15 @@ import src.Animal.*;
 /**
  * Female Caribou
  *
- * @author Nate Johnson
+ * @author Nate Johnson, Austin Benedicto
  * @version 5/14/2025
  */
 public class FCaribou extends Caribou implements Female
 {
+    /**
+     * Default constructor for FCaribou
+     * Initializes the FCaribou object with default values.
+     */
     public FCaribou()
     {
         super();

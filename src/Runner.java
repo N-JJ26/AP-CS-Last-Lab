@@ -10,7 +10,7 @@ import src.Animal.Animal;
  */
 public class Runner
 {
-  Animal[][] animals = new Animal[100][100];
+  Animal[][] animals = new Animal[Integer.MAX_VALUE][Integer.MAX_VALUE];
   public static void main(String[] args) 
   {
     System.out.println("Hello World");
