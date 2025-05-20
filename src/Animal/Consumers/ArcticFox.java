@@ -9,7 +9,7 @@ import src.Plants.*;
  * The Arctic Fox in the Tundra biome
  *
  * @author Nate Johnson
- * @version 5/15/2025
+ * @version 5/20/2025
  */
 public class ArcticFox extends Animal implements Carnivore, Herbivore {
     /*TODO:
@@ -43,6 +43,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
     {
         return false;
     }
+
     /**
      * Simulates an ArcticFox eating another Animal.
      */
@@ -50,6 +51,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
     {
         return;
     }
+
     /**
      * Simulates an ArcticFox eating a plant.
      */
@@ -71,10 +73,10 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
      * Returns "Arctic Fox" + Animals toString() which gives the age and whether or not
      *  this ArcticFox is alive
      *
-     * @return "Arctic Fox" + Animal.toString()
+     * @return "Arctic Fox " + Animal.toString()
      */
     public String toString()
     {
-        return "Arctic Fox" + super.toString();
+        return "Arctic Fox " + super.toString();
     }
 }
