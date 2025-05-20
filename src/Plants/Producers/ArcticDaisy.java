@@ -11,7 +11,7 @@ public class ArcticDaisy extends Plant
 {
     private static final double INITIAL_MASS = 0.35;  //individual ArcticDaisy dry mass in grams
     private static final double GROWTH_RATE = 20.0;  //miligrams per gram per day
-    private static final double MAX_MASS = 1.5;  //maximum mass of this plant in grams TODO!!!!!!!!!!
+    private static final double MAX_MASS = 1.5;  
     
     /**
      * Constructs the ArcticDaisy with an initial mass of 0.35 grams

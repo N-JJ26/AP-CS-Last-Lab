@@ -1,14 +1,16 @@
 package src;
 
-import src.Animal.Consumers.ArcticFox;
+import src.Animal.Consumers.*;
 import src.Plants.Producers.*;
 
 public class Runner {
   public static void main( String[] args ) {
+    /* DECLARATIONS HERE */
     ArcticWillow plant1 = new ArcticWillow();
     CaribouMoss plant2 = new CaribouMoss();
     ArcticDaisy plant3 = new ArcticDaisy(); 
 
+    /* TEST CODE HERE */
     System.out.println( "Willow: \n" + plant1.getTotalMass() );
     for( int i = 0; i < 10; i++ )
       plant1.grow();
