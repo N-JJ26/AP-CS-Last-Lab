@@ -10,14 +10,11 @@ import src.Plants.Producers.ArcticWillow;
 /**
  * The Arctic Fox in the Tundra biome
  *
- * @author Nate Johnson
+ * @author Nate Johnson, Austin Benedicto
  * @version 5/20/2025
  */
-public class ArcticFox extends Animal implements Carnivore, Herbivore {
-    /*TODO:
-     * finish up code
-     */
-
+public class ArcticFox extends Animal implements Carnivore, Herbivore
+{
     private static final int BODY_MASS_NEWBORN = 50;
     private static final int BODY_MASS_ADULT = 5200;
     private static final int WEANING_AGE = 14;
@@ -65,7 +62,8 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
      */
     public void eat( Plant p )
     {
-        if(!isHungry() && (p instanceof ArcticDaisy || p instanceof ArcticWillow)) {
+        if(!isHungry() && (p instanceof ArcticDaisy || p instanceof ArcticWillow))
+        {
             p.consumed(GRAMS_PER_DAY);
             gramsEaten += GRAMS_PER_DAY;
         }
