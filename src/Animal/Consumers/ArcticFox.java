@@ -4,18 +4,17 @@ import src.Animal.Animal;
 import src.Animal.Carnivore;
 import src.Animal.Herbivore;
 import src.Plants.*;
+import src.Plants.Producers.ArcticDaisy;
+import src.Plants.Producers.ArcticWillow;
 
 /**
  * The Arctic Fox in the Tundra biome
  *
- * @author Nate Johnson
+ * @author Nate Johnson, Austin Benedicto
  * @version 5/20/2025
  */
-public class ArcticFox extends Animal implements Carnivore, Herbivore {
-    /*TODO:
-     * finish up code
-     */
-
+public class ArcticFox extends Animal implements Carnivore, Herbivore
+{
     private static final int BODY_MASS_NEWBORN = 50;
     private static final int BODY_MASS_ADULT = 5200;
     private static final int WEANING_AGE = 14;
@@ -24,6 +23,9 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
 
     private static final double HUNTING_EFFICIENCY = 0.6;
     private static final double HUNTING_EFFICIENCY_RANGE = 0.14;
+    private static final int GRAMS_PER_DAY = 750;
+
+    private int gramsEaten;
 
     /**
      * Constructs an Arctic Fox object via Animal().
@@ -32,6 +34,8 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
     {
         super( BODY_MASS_NEWBORN + ( int )( Math.random() * 7 ), BODY_MASS_ADULT,
                 WEANING_AGE + ( int )( Math.random() * 11 ), ONSET_FERTILITY_MALE, MAX_LIFE_SPAN );
+
+        gramsEaten = 0;
     }
 
     /**
@@ -41,7 +45,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
      */
     public boolean isHungry()
     {
-        return false;
+        return gramsEaten >= GRAMS_PER_DAY;
     }
 
     /**
@@ -49,7 +53,8 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
      */
     public void eat( Animal a )
     {
-        return;
+        if(!isHungry() && wasHuntSuccessful() && a instanceof ArcticHare)
+            gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass();
     }
 
     /**
@@ -57,20 +62,33 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore {
      */
     public void eat( Plant p )
     {
-        return;
+        if(!isHungry() && (p instanceof ArcticDaisy || p instanceof ArcticWillow))
+        {
+            p.consumed(GRAMS_PER_DAY);
+            gramsEaten += GRAMS_PER_DAY;
+        }
     }
 
     /**
      * Returns whether or not the hunt was successful,
      *  based of a chance between 60 and 73 percent
+     *
+     * @return whether or not the hunt was successful
      */
     public boolean wasHuntSuccessful()
     {
         return Math.random() < HUNTING_EFFICIENCY + Math.random() * HUNTING_EFFICIENCY_RANGE;
     }
 
+    public void aging()
+    {
+        super.aging();
+
+        gramsEaten = 0;
+    }
+
     /**
-     * Returns "Arctic Fox" + Animals toString() which gives the age and whether or not
+     * Returns "Arctic Fox " + Animals toString() which gives the age and whether or not
      *  this ArcticFox is alive
      *
      * @return "Arctic Fox " + Animal.toString()

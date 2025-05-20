@@ -3,6 +3,12 @@ package src.Animal.Consumers;
 import src.Animal.Animal;
 import src.Animal.Female;
 
+/**
+ * FPolarBear
+ * 
+ * @author Nate Johnson, Austin Benedicto
+ * @version 5/20/2025
+ */
 public class FPolarBear extends PolarBear implements Female
 {
     private static final int GESTATION_DURATION = 0;

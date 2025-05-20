@@ -66,4 +66,15 @@ public class Caribou extends Animal implements Herbivore
         if(daysWithoutEating > DAYS_WITHOUT_FOOD)
             super.died();
     }
+
+    //TODO: Implement the getCarcass method
+    public int getCarcass()
+    {
+        return 0;
+    }
+
+    public String toString()
+    {
+        return "Caribou " + super.toString();
+    }
 }

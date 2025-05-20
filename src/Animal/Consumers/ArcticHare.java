@@ -62,4 +62,9 @@ public class ArcticHare extends Animal implements Herbivore
 
         hasEaten = false;
     }
+
+    public String toString()
+    {
+        return "Arctic Hare " + super.toString();
+    }
 }

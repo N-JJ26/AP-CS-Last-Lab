@@ -3,6 +3,12 @@ package src.Animal.Consumers;
 import src.Animal.Animal;
 import src.Animal.Female;
 
+/**
+ * FTundraWolf TODO: Fix this java doc
+ * 
+ * @author Nate Johnson, Austin Benedicto
+ * @version 5/20/2025
+ */
 public class FTundraWolf extends TundraWolf implements Female
 {
 //TODO: ADD IN CONSTANT FOR MAX LITTER SIZE AND AVG LITTER SIZE
@@ -66,9 +72,9 @@ public class FTundraWolf extends TundraWolf implements Female
     }
 
     @Override
-    public boolean isPregnant() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isPregnant'");
+    public boolean isPregnant()
+    {
+        //TODO: is this correct?
+        return pregnant;
     }
-    
 }

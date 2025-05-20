@@ -101,7 +101,7 @@ public abstract class Animal
         if(isAdult())
             return bodyMassAdult / 2;
 
-        return (( bodyMassAdult - bodyMassNewBorn ) / age) / 2;
+        return ((((bodyMassAdult - bodyMassNewBorn) / onsetFertilityMale) * age) + bodyMassNewBorn) / 2;
     }
 
     /**

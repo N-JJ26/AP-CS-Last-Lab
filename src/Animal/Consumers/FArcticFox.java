@@ -7,7 +7,7 @@ import src.Animal.Female;
  * FArcticFox
  * 
  * @author Nate Johnson, Austin Benedicto
- * @version 5/14/2025
+ * @version 5/20/2025
  */
 public class FArcticFox extends ArcticFox implements Female
 {
