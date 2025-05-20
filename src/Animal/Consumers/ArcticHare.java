@@ -4,6 +4,12 @@ import src.Animal.Animal;
 import src.Animal.Herbivore;
 import src.Plants.Plant;
 
+/**
+ * The Arctic Hare in the tundra biome
+ *
+ * @author Nate Johnson
+ * @version 5/20/2025
+ */
 public class ArcticHare extends Animal implements Herbivore
 {
     private static final int DAYS_WITHOUT_FOOD = 1;
@@ -46,16 +52,14 @@ public class ArcticHare extends Animal implements Herbivore
         return hasEaten;
     }
 
+    /**
+     * Ages the ArcticHare by one day, and tells the ArcticHare
+     *  that it hasn't eaten in the day
+     */
     public void aging()
     {
         super.aging();
 
-        if(hasEaten)
-            hasEaten = false;
-        else
-            daysWithoutEating++;
-
-        if(daysWithoutEating > DAYS_WITHOUT_FOOD)
-            super.died();
+        hasEaten = false;
     }
 }
