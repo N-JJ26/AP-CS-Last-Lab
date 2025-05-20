@@ -45,7 +45,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
      */
     public boolean isHungry()
     {
-        return gramsEaten >= GRAMS_PER_DAY;
+        return gramsEaten == GRAMS_PER_DAY;
     }
 
     /**
@@ -64,7 +64,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     {
         if(!isHungry() && (p instanceof ArcticDaisy || p instanceof ArcticWillow))
         {
-            p.consumed(GRAMS_PER_DAY);
+            p.consumed(GRAMS_PER_DAY - gramsEaten);
             gramsEaten += GRAMS_PER_DAY;
         }
     }
