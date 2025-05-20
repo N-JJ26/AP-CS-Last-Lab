@@ -66,9 +66,9 @@ public class FTundraWolf extends TundraWolf implements Female
     }
 
     @Override
-    public boolean isPregnant() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isPregnant'");
+    public boolean isPregnant()
+    {
+        //TODO: is this correct?
+        return pregnant;
     }
-    
 }
