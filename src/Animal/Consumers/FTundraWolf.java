@@ -6,13 +6,15 @@ import src.Animal.Female;
 public class FTundraWolf extends TundraWolf implements Female
 {
 //TODO: ADD IN CONSTANT FOR MAX LITTER SIZE AND AVG LITTER SIZE
-    private boolean pregnant;
+    private static final int GESTATION_DURATION = 0;
+    private boolean pregnant = false;
     private int gestationCount;
     private int totalLitters;
     private static final int MAX_LITTER = 0;
     private static final int AVG_LITTER = 0;
     private int totalBorn;
     private Animal[] litter;
+    private int interbirthCount;
 
     public FTundraWolf()
     {

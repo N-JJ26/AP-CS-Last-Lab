@@ -5,6 +5,13 @@ import src.Animal.Female;
 
 public class FPolarBear extends PolarBear implements Female
 {
+    private static final int GESTATION_DURATION = 0;
+    private int gestationCount;
+    private Animal[] litter;
+    private int totalBorn;
+    private boolean pregnant = false;
+    private int interbirthCount;
+    
     /**
      * Default constructor for FPolarBear
      * Initializes the FPolarBear object with default values.

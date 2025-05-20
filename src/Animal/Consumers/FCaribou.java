@@ -10,6 +10,13 @@ import src.Animal.*;
  */
 public class FCaribou extends Caribou implements Female
 {
+   private static final int GESTATION_DURATION = 0;
+    private int gestationCount;
+    private Animal[] litter;
+    private int totalBorn;
+    private boolean pregnant = false;
+    private int interbirthCount;
+    
     /**
      * Default constructor for FCaribou
      * Initializes the FCaribou object with default values.
