@@ -72,4 +72,9 @@ public class Caribou extends Animal implements Herbivore
     {
         return 0;
     }
+
+    public String toString()
+    {
+        return "Caribou " + super.toString();
+    }
 }

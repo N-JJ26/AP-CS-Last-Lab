@@ -50,5 +50,8 @@ public class TundraWolf extends Animal implements Carnivore
         throw new UnsupportedOperationException("Unimplemented method 'isHungry'");
     }
 
-    
+    public String toString()
+    {
+        return "Tundra Wolf " + super.toString();
+    }
 }

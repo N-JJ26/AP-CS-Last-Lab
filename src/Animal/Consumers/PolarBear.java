@@ -61,4 +61,8 @@ public class PolarBear extends Animal implements Carnivore
         throw new UnsupportedOperationException("Unimplemented method 'isHungry'");
     }
     
+    public String toString()
+    {
+        return "Polar Bear " + super.toString();
+    }
 }
