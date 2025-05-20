@@ -21,6 +21,11 @@ public class FPolarBear extends PolarBear implements Female
         super();
     }
 
+    /**
+     * Returns whether reproduction was successful between two Polar Bears.
+     * 
+     * @return true if the animal successfully reproduces, false otherwise.
+     */
     public boolean reproduceWith( Animal male )
     {
         if(!this.isAlive() || !this.isAdult() || !this.isPregnant())
@@ -32,6 +37,11 @@ public class FPolarBear extends PolarBear implements Female
         return false;
     }
 
+     /**
+     * Returns the litter of animals from reproduction.
+     * 
+     * @return Animal[] the litter as an Animal[]
+     */
     public Animal[] giveBirth()
     {
         if(!isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
@@ -50,6 +60,11 @@ public class FPolarBear extends PolarBear implements Female
         return litter;
     }
 
+    /**
+     * Returns whether the PolarBear isPregnant.
+     * 
+     * @return true if the animal isPregnant, false otherwise.
+     */
     public boolean isPregnant()
     {
         // TODO Auto-generated method stub

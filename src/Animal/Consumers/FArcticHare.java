@@ -45,7 +45,7 @@ public class FArcticHare extends ArcticHare implements Female
     /**
      * Simulates an ArcticHare giving birth to an Animal[] litter.
      * 
-     * @return the litter of ArcticHares as an Animal[].
+     * @return Animal[] litter of ArcticHares as an Animal[].
      */
     public Animal[] giveBirth()
     {

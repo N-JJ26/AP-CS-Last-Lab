@@ -19,19 +19,31 @@ public class TundraWolf extends Animal implements Carnivore
         super(BODY_MASS_NEW_BORN, BODY_MASS_ADULT, (int)(Math.random()*69) + 40, ONSET_FERT_MALE, MAX_LIFE_SPAN);
     }
 
-    
+    /**
+     * Simulates a TundraWolf eating an Animal.
+     */
     public void eat(Animal a)
     {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'eat'");
     }
     
+    /**
+     * Returns whether the hunt was successful.
+     * 
+     * @return true if the hunt was successful, false otherwise.
+     */
     public boolean wasHuntSuccessful()
     {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'wasHuntSuccessful'");
     }
     
+    /**
+     * Returns whether the TundraWolf isHungry().
+     * 
+     * @return true if the animal isHungry, false otherwise.
+     */
     public boolean isHungry()
     {
         // TODO Auto-generated method stub

@@ -25,7 +25,11 @@ public class FCaribou extends Caribou implements Female
     {
         super();
     }
-
+    /**
+     * Returns whether reproduction was successful between two Caribous.
+     * 
+     * @return true if the animal successfully reproduces, false otherwise.
+     */
     public boolean reproduceWith( Animal male )
     {
         if(!this.isAlive() || !this.isAdult() || !this.isPregnant())
@@ -38,6 +42,11 @@ public class FCaribou extends Caribou implements Female
         return false;
     }
 
+    /**
+     * Returns the litter of animals from reproduction.
+     * 
+     * @return Animal[] the litter as an Animal[]
+     */
     public Animal[] giveBirth()
     {
         if(!isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
@@ -56,6 +65,11 @@ public class FCaribou extends Caribou implements Female
         return litter;
     }
 
+    /**
+     * Returns whether the Caribou isPregnant.
+     * 
+     * @return true if the animal isPregnant, false otherwise.
+     */
     public boolean isPregnant()
     {
         return false;
