@@ -11,6 +11,7 @@ import src.Plants.Plant;
 public class ArcticWillow extends Plant {
     private static final double GROWTH_RATE = 0.4;
     private static final int INITIAL_MASS = 160;
+    private static final double MAX_MASS = 480.0;  //maximum mass of this plant in grams TODO!!!!!!!!!!
 
     /**
      * Constructs the Arctic Willow with an initial mass of 160 grams
@@ -18,6 +19,6 @@ public class ArcticWillow extends Plant {
      */
     public ArcticWillow()
     {
-        super( INITIAL_MASS, GROWTH_RATE );
+        super( INITIAL_MASS, GROWTH_RATE, MAX_MASS );
     }
 }
