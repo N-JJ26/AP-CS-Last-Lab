@@ -41,8 +41,10 @@ public class FCaribou extends Caribou implements Female
      */
     public boolean reproduceWith( Animal male )
     {
-        if(!this.isAlive() || !this.isAdult() || !this.isPregnant())
+        if( !this.isAlive() || !this.isAdult() || this.isPregnant() )
             return false;
+            
+            
 
         if(male == null || !male.isAlive() || male instanceof Female || !(male instanceof Caribou))
             return false;
@@ -93,6 +95,6 @@ public class FCaribou extends Caribou implements Female
      */
     public boolean isPregnant()
     {
-        return false;
+        return pregnant;
     }
 }
