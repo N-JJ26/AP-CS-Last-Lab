@@ -9,15 +9,16 @@ import src.Plants.Plant;
  * @version 5/14/2025
  */
 public class CaribouMoss extends Plant {
-    private static final int INITIAL_MASS = 9;
-    private static final double GROWTH_RATE = 0.02;
+    private static final double INITIAL_MASS = 0.2;
+    private static final double GROWTH_RATE = 5.0;
+    private static final double MAX_MASS = 1.5;  
 
     /**
-     * Constructs the CaribouMoss with an initial mass of 9
-     *  and a growth rate of 0.02
+     * Constructs the CaribouMoss with an initial mass of 0.2g
+     *  and a growth rate of 1.0mg/g/day.
      */
     public CaribouMoss()
     {
-        super( INITIAL_MASS, GROWTH_RATE );
+        super( INITIAL_MASS, GROWTH_RATE, MAX_MASS );
     }
 }

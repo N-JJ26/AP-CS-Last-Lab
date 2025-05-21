@@ -3,7 +3,7 @@ package src.Plants;
 /**
  * abstract Plant
  *
- * @author Mr. DeGroat and Mr. Bouchard
+ * @author Mr. DeGroat, Mr. Bouchard, & DJ Avi D.
  * @version May 14, 2019
  */
 public abstract class Plant
@@ -15,17 +15,20 @@ public abstract class Plant
     private double maxMass;
     private double growthRate;  //in miligrams per gram per day
     private boolean alive;
-    
+
+    /* THIS IS A TOGGLE FOR ALL PRODUCER GROWTH_RATES */ 
+    private final double GROWTH_RATE = 1; 
+
     /**
      * Generates the initial plant mass of the system
      * 
      * @param initialTotalMass the maximum amount of initial dry plant material in grams
      * @param growthRate rate at which the Plant grows in miligrams per gram per day
      */
-    public Plant( int initialTotalMass, double growthRate )
+    public Plant( double initialTotalMass, double growthRate, double max )
     {
         totalMass = initialTotalMass;
-        maxMass = initialTotalMass;
+        maxMass = max;
         alive = totalMass > 0;
         
         this.growthRate = growthRate;
@@ -36,7 +39,7 @@ public abstract class Plant
      */
     public void grow()
     {
-        totalMass *= 1 + 0.001 * growthRate * ( 1 - totalMass / maxMass );
+        totalMass *= 1 + 0.001 * GROWTH_RATE *growthRate * ( 1 - totalMass / maxMass );
     }
     
     /**
