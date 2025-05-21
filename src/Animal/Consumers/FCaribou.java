@@ -10,7 +10,10 @@ import src.Animal.*;
  */
 public class FCaribou extends Caribou implements Female
 {
-   private static final int GESTATION_DURATION = 0;
+    private static int totalLitters = 0;
+    private static final int GESTATION_DURATION = 228;
+    private static final int MAX_LITTER = 1;
+    private static final double AVG_LITTER = 1.0;
     private int gestationCount;
     private Animal[] litter;
     private int totalBorn;
@@ -39,7 +42,20 @@ public class FCaribou extends Caribou implements Female
         if(male == null || !male.isAlive() || male.isAlive() || male instanceof Female || !(male instanceof Caribou))
             return false;
 
-        return false;
+            pregnant = true;
+            gestationCount = 0;
+    
+        int size = 0;
+        if(totalLitters == 0)
+            size = (int)((MAX_LITTER + 1) * Math.random());
+        else if(1.0 * totalBorn / totalLitters < AVG_LITTER)
+            size = (int)((MAX_LITTER - AVG_LITTER) * Math.random() + AVG_LITTER);
+        else
+            size = (int)(AVG_LITTER * Math.random());
+        
+        litter = new Animal[size];
+        totalLitters++;
+        return pregnant;
     }
 
     /**
