@@ -28,6 +28,12 @@ public class FCaribou extends Caribou implements Female
     {
         super();
     }
+
+    public FCaribou(int age)
+    {
+        super(age);
+    }
+
     /**
      * Returns whether reproduction was successful between two Caribous.
      * 
