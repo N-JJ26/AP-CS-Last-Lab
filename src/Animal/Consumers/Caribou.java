@@ -34,6 +34,14 @@ public class Caribou extends Animal implements Herbivore
         daysWithoutEating = 0;
     }
 
+    public Caribou(int age)
+    {
+        this();
+
+        for(int i = 0; i < age; i++)
+            super.aging();
+    }
+
     /**
      * Simulates a Caribou eating another plant.
      */
