@@ -44,8 +44,7 @@ public class FCaribou extends Caribou implements Female
         if(!this.isAlive() || !this.isAdult() || !this.isPregnant())
             return false;
 
-
-        if(male == null || !male.isAlive() || male.isAlive() || male instanceof Female || !(male instanceof Caribou))
+        if(male == null || !male.isAlive() || male instanceof Female || !(male instanceof Caribou))
             return false;
 
             pregnant = true;
