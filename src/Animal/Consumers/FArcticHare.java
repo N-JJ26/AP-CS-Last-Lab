@@ -5,18 +5,24 @@ import src.Animal.Female;
 /**
  * FArcticHare
  * 
- * @author Nate Johnson, Austin Benedicto
- * @version 5/20/2025
+ * @author Nate Johnson, Austin Benedicto, Avi D.
+ * @version 5/22/2025
  */
 public class FArcticHare extends ArcticHare implements Female
 {
+    private static int totalLitters = 0;
     private static final int GESTATION_DURATION = 26;
+    private static final int MAX_LITTER = 1; // TODO
+    private static final double AVG_LITTER = 1.0; // TODO
     private int gestationCount;
     private Animal[] litter;
     private int totalBorn;
     private boolean pregnant = false;
     private int interbirthCount;
 
+
+    
+    
     /**
      * Default constructor for FArcticHare
      * Initializes the FArcticHare object with default values.
@@ -26,6 +32,11 @@ public class FArcticHare extends ArcticHare implements Female
         super();
     }
 
+    public FArcticHare(int age)
+    {
+        super(age);
+    }
+
     /**
      * Returns whether reproduction was successful between two ArcticHares.
      * 
@@ -33,13 +44,27 @@ public class FArcticHare extends ArcticHare implements Female
      */
     public boolean reproduceWith( Animal male )
     {
-        if(!this.isAlive() || !this.isAdult() || !this.isPregnant())
+        if(!this.isAlive() || !this.isAdult() || this.isPregnant())
+            return false;
+        
+
+        if( male == null || !male.isAlive() || !male.isAdult() || male instanceof Female || !(male instanceof ArcticHare))
             return false;
 
-        if(male == null || !male.isAlive() || male.isAlive() || male instanceof Female || !(male instanceof ArcticHare))
-            return false;
-
-        return false;
+        pregnant = true;
+        gestationCount = 0;
+    
+        int size = 0;
+        if(totalLitters == 0)
+            size = (int)((MAX_LITTER + 1) * Math.random());
+        else if(1.0 * totalBorn / totalLitters < AVG_LITTER)
+            size = (int)((MAX_LITTER - AVG_LITTER) * Math.random() + AVG_LITTER);
+        else
+            size = (int)(AVG_LITTER * Math.random());
+        
+        litter = new Animal[size];
+        totalLitters++;
+        return pregnant;
     }
 
     /**
@@ -49,14 +74,15 @@ public class FArcticHare extends ArcticHare implements Female
      */
     public Animal[] giveBirth()
     {
-        if(!isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
+        if(!isAlive() || !pregnant || gestationCount <= GESTATION_DURATION){
+            System.out.println( "worked!" );
             return null;
-
+        }
         for(int i = 0; i < litter.length; i++)
             if(Math.random() < 0.5)
-                litter[i] = new ArcticFox();
+                litter[i] = new ArcticHare();
             else
-                litter[i] = new FArcticFox();
+                litter[i] = new FArcticHare();
 
         totalBorn += litter.length;
         pregnant = false;
@@ -72,26 +98,8 @@ public class FArcticHare extends ArcticHare implements Female
      */
     public boolean isPregnant()
     {
-        return false;
+        return pregnant;
     }
 
-    /**
-     * Simulates the ArcticHare aging one (1) day.
-     */
-    public void aging()
-    {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'aging'");
-    }
-
-    /**
-     * Returns whether the animal is an adult.
-     * 
-     * @return true if the animal is an adult, false otherewise.
-     */
-    public boolean isAdult()
-    {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isAdult'");
-    }
 }
+
