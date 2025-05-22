@@ -6,18 +6,18 @@ import src.Animal.Female;
 /**
  * FTundraWolf TODO: Fix this java doc
  * 
- * @author Nate Johnson, Austin Benedicto
- * @version 5/20/2025
+ * @author Nate Johnson, Austin Benedicto, Avi D.
+ * @version 5/22/2025
  */
 public class FTundraWolf extends TundraWolf implements Female
 {
 //TODO: ADD IN CONSTANT FOR MAX LITTER SIZE AND AVG LITTER SIZE
     private static final int GESTATION_DURATION = 0;
-    private boolean pregnant = false;
+    private boolean pregnant;
     private int gestationCount;
-    private int totalLitters;
-    private static final int MAX_LITTER = 0;
-    private static final int AVG_LITTER = 0;
+    private int totalLitters = 0;
+    private static final int MAX_LITTER = 99; //TODO
+    private static final int AVG_LITTER = 99; //TODO
     private int totalBorn;
     private Animal[] litter;
     private int interbirthCount;
@@ -27,13 +27,21 @@ public class FTundraWolf extends TundraWolf implements Female
         super();
     }
 
+    /**
+     * Initializes a FCaribou with an age input
+     */
+    public FTundraWolf(int age)
+    {
+        super(age);
+    }
+
    public boolean reproduceWith( Animal male )
     {
-        if(!this.isAlive() || !this.isAdult() || !this.isPregnant())
+        if(!this.isAlive() || !this.isAdult() || this.isPregnant() )
             return false;
 
 
-        if(male == null || !male.isAlive() || male.isAlive() || male instanceof Female || !(male instanceof Caribou))
+        if(male == null || !male.isAlive() || !male.isAdult() || male instanceof Female || !(male instanceof TundraWolf ))
             return false;
 
         pregnant = true;
@@ -55,14 +63,14 @@ public class FTundraWolf extends TundraWolf implements Female
 
     public Animal[] giveBirth()
     {
-        if(!isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
+        if( !isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
             return null;
 
         for(int i = 0; i < litter.length; i++)
             if(Math.random() < 0.5)
-                litter[i] = new ArcticFox();
+                litter[i] = new TundraWolf();
             else
-                litter[i] = new FArcticFox();
+                litter[i] = new FTundraWolf();
 
         totalBorn += litter.length;
         pregnant = false;
@@ -71,16 +79,9 @@ public class FTundraWolf extends TundraWolf implements Female
         return litter;
     }
 
-    @Override
     public boolean isPregnant()
     {
-        //TODO: is this correct?
         return pregnant;
     }
 
-    /* HELPER METHOD */
-    public void gestationHelper()
-    {
-        gestationCount = GESTATION_DURATION + 1;
-    }
 }

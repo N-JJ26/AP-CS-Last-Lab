@@ -65,6 +65,9 @@ public class Caribou extends Animal implements Herbivore
         return !hasEaten;
     }
 
+    /**
+     * Simulates aging one day
+     */
     public void aging()
     {
         super.aging();
