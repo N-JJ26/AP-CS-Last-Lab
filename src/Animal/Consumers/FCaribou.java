@@ -5,8 +5,8 @@ import src.Animal.*;
 /**
  * Female Caribou
  *
- * @author Nate Johnson, Austin Benedicto
- * @version 5/20/2025
+ * @author Nate Johnson, Austin Benedicto, Avi D.
+ * @version 5/22/2025
  */
 public class FCaribou extends Caribou implements Female
 {
@@ -97,4 +97,9 @@ public class FCaribou extends Caribou implements Female
         return pregnant;
     }
 
+    public void gestationSkip()
+    {
+        gestationCount = GESTATION_DURATION + 1;
+    }
 }
+

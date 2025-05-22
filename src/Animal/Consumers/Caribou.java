@@ -7,8 +7,8 @@ import src.Plants.Plant;
  * Caribou class represents a herbivorous animal that can be found in the Arctic region.
  * It extends the Animal class and implements the Herbivore interface.
  * 
- * @author Austin Benedicto, Nate Johnson
- * @version 5/14/2025
+ * @author Austin Benedicto, Nate Johnson, Avi D.
+ * @version 5/22/2025
  */
 public class Caribou extends Animal implements Herbivore
 {

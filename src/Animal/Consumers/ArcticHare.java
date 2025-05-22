@@ -7,8 +7,8 @@ import src.Plants.Plant;
 /**
  * The Arctic Hare in the tundra biome
  *
- * @author Nate Johnson
- * @version 5/20/2025
+ * @author Nate Johnson, Avi D.
+ * @version 5/22/2025
  */
 public class ArcticHare extends Animal implements Herbivore
 {
@@ -34,13 +34,22 @@ public class ArcticHare extends Animal implements Herbivore
         daysWithoutEating = 0;
     }
 
+    
+    public ArcticHare(int age)
+    {
+        this();
+
+        for(int i = 0; i < age; i++)
+            super.aging();
+    }
+
     /**
      * Simulates an ArcticHare eating another plant.
      */
-    public void eat(Plant p) {
-        p.consumed(GRAMS_PER_DAY);
-
-        hasEaten = true;
+    public void eat(Plant p) 
+    {
+        if( p.consumed( GRAMS_PER_DAY ) )
+            hasEaten = true;
     }
     
     /**
@@ -48,8 +57,9 @@ public class ArcticHare extends Animal implements Herbivore
      * 
      * @return true if the animal is hungry, false otherwise.
      */
-    public boolean isHungry() {
-        return hasEaten;
+    public boolean isHungry() 
+    {
+        return !hasEaten;
     }
 
     /**
@@ -60,7 +70,13 @@ public class ArcticHare extends Animal implements Herbivore
     {
         super.aging();
 
-        hasEaten = false;
+        if(hasEaten)
+            hasEaten = false;
+        else
+            daysWithoutEating++;
+        
+        if(daysWithoutEating > DAYS_WITHOUT_FOOD)
+            super.died();
     }
 
     public String toString()
