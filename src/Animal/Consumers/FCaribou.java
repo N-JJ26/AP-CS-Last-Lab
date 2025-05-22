@@ -96,10 +96,5 @@ public class FCaribou extends Caribou implements Female
     {
         return pregnant;
     }
-
-    public void gestationSkip()
-    {
-        gestationCount = GESTATION_DURATION + 1;
-    }
 }
 
