@@ -70,15 +70,16 @@ public class FCaribou extends Caribou implements Female
      */
     public Animal[] giveBirth()
     {
-        if(!isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
+        if( !isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
             return null;
 
         for(int i = 0; i < litter.length; i++)
             if(Math.random() < 0.5)
-                litter[i] = new ArcticFox();
-            else
-                litter[i] = new FArcticFox();
+                litter[i] = new Caribou();
 
+            else
+                litter[i] = new FCaribou();
+            
         totalBorn += litter.length;
         pregnant = false;
         interbirthCount = 0;
@@ -95,4 +96,5 @@ public class FCaribou extends Caribou implements Female
     {
         return pregnant;
     }
+
 }
