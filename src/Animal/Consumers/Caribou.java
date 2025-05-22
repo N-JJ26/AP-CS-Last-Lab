@@ -2,6 +2,7 @@ package src.Animal.Consumers;
 import src.Animal.Animal;
 import src.Animal.Herbivore;
 import src.Plants.Plant;
+import src.Plants.Producers.CaribouMoss;
 
 /**
  * Caribou class represents a herbivorous animal that can be found in the Arctic region.
@@ -18,7 +19,6 @@ public class Caribou extends Animal implements Herbivore
     private static final int WEANING_AGE = 120;
     private static final int ONSET_FERT_MALE = 680;
     private static final double MAX_LIFE_SPAN = 14.0;
-    private static final int GRAMS_PER_DAY = 5000;
 
     private boolean hasEaten;
     private int daysWithoutEating;
@@ -50,7 +50,7 @@ public class Caribou extends Animal implements Herbivore
         if( p.consumed( GRAMS_PER_DAY ) )
             hasEaten = true;
     }
-    
+
     /**
      * Returns whether the animal isHungry
      *
@@ -65,8 +65,10 @@ public class Caribou extends Animal implements Herbivore
     {
         super.aging();
 
-        if(hasEaten)
+        if(hasEaten) {
             hasEaten = false;
+            daysWithoutEating = 0;
+        }
         else
             daysWithoutEating++;
         
