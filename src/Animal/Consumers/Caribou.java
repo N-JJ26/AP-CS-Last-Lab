@@ -9,7 +9,7 @@ import src.Plants.Producers.CaribouMoss;
  * It extends the Animal class and implements the Herbivore interface.
  * 
  * @author Austin Benedicto, Nate Johnson
- * @version 5/14/2025
+ * @version 5/22/2025
  */
 public class Caribou extends Animal implements Herbivore
 {
@@ -62,7 +62,7 @@ public class Caribou extends Animal implements Herbivore
      */
     public boolean isHungry()
     {
-        return hasEaten;
+        return !hasEaten;
     }
 
     public void aging()
