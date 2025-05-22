@@ -7,19 +7,23 @@ import src.Animal.Carnivore;
  * PolarBear class represents a carnivorous animal that can be found in the Arctic region.
  * It extends the Animal class and implements the Carnivore interface.
  * 
- * @author Austin Benedicto
- * @version 5/14/2025
+ * @author Austin Benedicto, Avi Dasgupta
+ * @version 5/22/2025
  */
 
  //TODO: ADD IN SOME OTHER STUFF
 public class PolarBear extends Animal implements Carnivore
 {
+    private static final int DAYS_WITHOUT_FOOD = 9999; //TODO
     private static final int BODY_MASS_NEW_BORN = 600;
     private static final int BODY_MASS_ADULT = 500000;
     private static final int WEANING_AGE = 900;
     private static final int ONSET_FERT_MALE = 2190;
-    private static final double MAX_LIFE_SPAN = 30; // in years
+    private static final double MAX_LIFE_SPAN = 30 * (365); // in years
     private static final double HUNTING_EFFICIENCY = 0.92;
+
+    private boolean hasEaten;
+    private int daysWithoutEating = 0;
 
     /**
      * Constructs a PolarBear object via Animal().
@@ -27,6 +31,17 @@ public class PolarBear extends Animal implements Carnivore
     public PolarBear()
     {
         super(BODY_MASS_NEW_BORN, BODY_MASS_ADULT, WEANING_AGE, ONSET_FERT_MALE, MAX_LIFE_SPAN);
+    }
+
+    /**
+     * Initializes a PolarBear with an age input
+     */
+    public PolarBear(int age)
+    {
+        this();
+
+        for(int i = 0; i < age; i++)
+            super.aging();
     }
 
     /**
@@ -57,8 +72,22 @@ public class PolarBear extends Animal implements Carnivore
      */
     public boolean isHungry()
     {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isHungry'");
+        return( !hasEaten );
+    }
+
+    public void aging()
+    {
+        super.aging();
+
+        if(hasEaten) {
+            hasEaten = false;
+            daysWithoutEating = 0;
+        }
+        else
+            daysWithoutEating++;
+        
+        if(daysWithoutEating > DAYS_WITHOUT_FOOD)
+            super.died();
     }
     
     public String toString()

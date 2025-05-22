@@ -6,12 +6,16 @@ import src.Animal.Female;
 /**
  * FPolarBear
  * 
- * @author Nate Johnson, Austin Benedicto
- * @version 5/20/2025
+ * @author Nate Johnson, Austin Benedicto, Avi D.
+ * @version 5/22/2025
  */
 public class FPolarBear extends PolarBear implements Female
 {
-    private static final int GESTATION_DURATION = 0;
+
+    private static int totalLitters = 0;
+    private static final int GESTATION_DURATION = 9999; //TODO
+    private static final int MAX_LITTER = 1; //TODO
+    private static final double AVG_LITTER = 1.0; //TODO
     private int gestationCount;
     private Animal[] litter;
     private int totalBorn;
@@ -27,6 +31,14 @@ public class FPolarBear extends PolarBear implements Female
         super();
     }
 
+   /**
+     * Initializes a FPolarBear with an age input
+     */
+    public FPolarBear(int age)
+    {
+        super(age);
+    }
+
     /**
      * Returns whether reproduction was successful between two Polar Bears.
      * 
@@ -34,13 +46,26 @@ public class FPolarBear extends PolarBear implements Female
      */
     public boolean reproduceWith( Animal male )
     {
-        if(!this.isAlive() || !this.isAdult() || !this.isPregnant())
+        if( !this.isAlive() || !this.isAdult() || this.isPregnant()  )
+            return false;
+            
+        if( male == null || !male.isAlive() || !male.isAdult() || male instanceof Female || !(male instanceof PolarBear) )
             return false;
 
-        if(male == null || !male.isAlive() || male.isAlive() || male instanceof Female || !(male instanceof PolarBear))
-            return false;
-
-        return false;
+            pregnant = true;
+            gestationCount = 0;
+    
+        int size = 0;
+        if(totalLitters == 0)
+            size = (int)((MAX_LITTER + 1) * Math.random());
+        else if(1.0 * totalBorn / totalLitters < AVG_LITTER)
+            size = (int)((MAX_LITTER - AVG_LITTER) * Math.random() + AVG_LITTER);
+        else
+            size = (int)(AVG_LITTER * Math.random());
+        
+        litter = new Animal[size];
+        totalLitters++;
+        return pregnant;
     }
 
      /**
@@ -50,14 +75,14 @@ public class FPolarBear extends PolarBear implements Female
      */
     public Animal[] giveBirth()
     {
-        if(!isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
+        if( !isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
             return null;
 
         for(int i = 0; i < litter.length; i++)
             if(Math.random() < 0.5)
-                litter[i] = new ArcticFox();
+                litter[i] = new PolarBear();
             else
-                litter[i] = new FArcticFox();
+                litter[i] = new FPolarBear();
 
         totalBorn += litter.length;
         pregnant = false;
@@ -73,7 +98,7 @@ public class FPolarBear extends PolarBear implements Female
      */
     public boolean isPregnant()
     {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isPregnant'");
+        return( pregnant );
     }
+
 }
