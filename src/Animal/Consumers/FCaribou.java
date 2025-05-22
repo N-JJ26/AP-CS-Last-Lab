@@ -29,6 +29,9 @@ public class FCaribou extends Caribou implements Female
         super();
     }
 
+    /**
+     * Initializes a FCaribou with an age input
+     */
     public FCaribou(int age)
     {
         super(age);
@@ -97,4 +100,3 @@ public class FCaribou extends Caribou implements Female
         return pregnant;
     }
 }
-

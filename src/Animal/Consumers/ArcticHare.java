@@ -34,7 +34,9 @@ public class ArcticHare extends Animal implements Herbivore
         daysWithoutEating = 0;
     }
 
-    
+    /**
+     * Initializes an ArcticHare with an age input
+     */
     public ArcticHare(int age)
     {
         this();

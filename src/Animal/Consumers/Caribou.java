@@ -8,11 +8,7 @@ import src.Plants.Producers.CaribouMoss;
  * Caribou class represents a herbivorous animal that can be found in the Arctic region.
  * It extends the Animal class and implements the Herbivore interface.
  * 
-<<<<<<< HEAD
- * @author Austin Benedicto, Nate Johnson
-=======
  * @author Austin Benedicto, Nate Johnson, Avi D.
->>>>>>> c2f11b6d29ba5b806e22f6dabda60df21a33bac9
  * @version 5/22/2025
  */
 public class Caribou extends Animal implements Herbivore
@@ -23,6 +19,7 @@ public class Caribou extends Animal implements Herbivore
     private static final int WEANING_AGE = 120;
     private static final int ONSET_FERT_MALE = 680;
     private static final double MAX_LIFE_SPAN = 14.0;
+    private static final int GRAMS_PER_DAY = 750; //TODO
 
     private boolean hasEaten;
     private int daysWithoutEating;
@@ -38,6 +35,9 @@ public class Caribou extends Animal implements Herbivore
         daysWithoutEating = 0;
     }
 
+    /**
+     * Initializes a Caribou with an age input
+     */
     public Caribou(int age)
     {
         this();

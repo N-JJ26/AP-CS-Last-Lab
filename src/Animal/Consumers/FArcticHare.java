@@ -32,6 +32,9 @@ public class FArcticHare extends ArcticHare implements Female
         super();
     }
 
+    /**
+     * Initializes a FArcticHare with an age input
+     */
     public FArcticHare(int age)
     {
         super(age);

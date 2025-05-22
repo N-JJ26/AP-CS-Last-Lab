@@ -10,8 +10,8 @@ import src.Plants.Producers.ArcticWillow;
 /**
  * The Arctic Fox in the Tundra biome
  *
- * @author Nate Johnson, Austin Benedicto
- * @version 5/20/2025
+ * @author Nate Johnson, Austin Benedicto, Avi D.
+ * @version 5/22/2025
  */
 public class ArcticFox extends Animal implements Carnivore, Herbivore
 {
@@ -19,7 +19,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     private static final int BODY_MASS_ADULT = 5200;
     private static final int WEANING_AGE = 14;
     private static final int ONSET_FERTILITY_MALE = 304;
-    private static final double MAX_LIFE_SPAN = 16.3;
+    private static final double MAX_LIFE_SPAN = 9999.9; //TODO
 
     private static final double HUNTING_EFFICIENCY = 0.6;
     private static final double HUNTING_EFFICIENCY_RANGE = 0.14;
@@ -36,6 +36,17 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
                 WEANING_AGE + ( int )( Math.random() * 11 ), ONSET_FERTILITY_MALE, MAX_LIFE_SPAN );
 
         gramsEaten = 0;
+    }
+
+    /**
+     * Initializes an ArcticFox with an age input
+     */
+    public ArcticFox(int age)
+    {
+        this();
+
+        for(int i = 0; i < age; i++)
+            super.aging();
     }
 
     /**

@@ -6,8 +6,8 @@ import src.Animal.Female;
 /**
  * FArcticFox
  * 
- * @author Nate Johnson, Austin Benedicto
- * @version 5/20/2025
+ * @author Nate Johnson, Austin Benedicto, Avi D.
+ * @version 5/22/2025
  */
 public class FArcticFox extends ArcticFox implements Female
 {
@@ -36,13 +36,20 @@ public class FArcticFox extends ArcticFox implements Female
         interbirthCount = 0;
     }
 
+    /**
+     * Initializes a FArcticFox with an age input
+     */
+    public FArcticFox(int age)
+    {
+        super(age);
+    }
+
     public boolean reproduceWith( Animal male )
     {
-        if(!this.isAlive() || !this.isAdult() || !this.isPregnant())
+        if( !this.isAlive() || !this.isAdult() || this.isPregnant())
             return false;
 
-        if(male == null || !male.isAlive() || male.isAlive() ||
-            male instanceof Female || !(male instanceof ArcticFox))
+        if(male == null || !male.isAlive()  || !male.isAdult() || male instanceof Female || !(male instanceof ArcticFox))
             return false;
 
         pregnant = true;
@@ -63,14 +70,16 @@ public class FArcticFox extends ArcticFox implements Female
 
     public Animal[] giveBirth()
     {
-        if(!isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
+        if( !isAlive() || !pregnant || gestationCount <= GESTATION_DURATION )
             return null;
 
         for(int i = 0; i < litter.length; i++)
+        {
             if(Math.random() < 0.5)
                 litter[i] = new ArcticFox();
             else
                 litter[i] = new FArcticFox();
+        }
 
         totalBorn += litter.length;
         pregnant = false;
@@ -82,5 +91,10 @@ public class FArcticFox extends ArcticFox implements Female
     public boolean isPregnant()
     {
         return pregnant;
+    }
+    /* HELPER METHOD */
+    public void gestationHelper()
+    {
+        gestationCount = GESTATION_DURATION + 1;
     }
 }
