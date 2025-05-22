@@ -1,8 +1,8 @@
 package src.Animal.Consumers;
+
 import src.Animal.Animal;
 import src.Animal.Herbivore;
 import src.Plants.Plant;
-import src.Plants.Producers.CaribouMoss;
 
 /**
  * Caribou class represents a herbivorous animal that can be found in the Arctic region.

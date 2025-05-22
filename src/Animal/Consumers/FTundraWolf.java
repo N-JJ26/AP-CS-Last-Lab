@@ -77,4 +77,10 @@ public class FTundraWolf extends TundraWolf implements Female
         //TODO: is this correct?
         return pregnant;
     }
+
+    /* HELPER METHOD */
+    public void gestationHelper()
+    {
+        gestationCount = GESTATION_DURATION + 1;
+    }
 }

@@ -4,8 +4,7 @@ import src.Animal.Animal;
 import src.Animal.Carnivore;
 import src.Animal.Herbivore;
 import src.Plants.*;
-import src.Plants.Producers.ArcticDaisy;
-import src.Plants.Producers.ArcticWillow;
+
 
 /**
  * The Arctic Fox in the Tundra biome

@@ -92,9 +92,4 @@ public class FArcticFox extends ArcticFox implements Female
     {
         return pregnant;
     }
-    /* HELPER METHOD */
-    public void gestationHelper()
-    {
-        gestationCount = GESTATION_DURATION + 1;
-    }
 }
