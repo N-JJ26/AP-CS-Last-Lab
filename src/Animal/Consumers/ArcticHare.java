@@ -65,15 +65,16 @@ public class ArcticHare extends Animal implements Herbivore
     }
 
     /**
-     * Ages the ArcticHare by one day, and tells the ArcticHare
-     *  that it hasn't eaten in the day
+     * Simulates aging one day
      */
     public void aging()
     {
         super.aging();
 
-        if(hasEaten)
+        if(hasEaten) {
             hasEaten = false;
+            daysWithoutEating = 0;
+        }
         else
             daysWithoutEating++;
         
@@ -81,6 +82,17 @@ public class ArcticHare extends Animal implements Herbivore
             super.died();
     }
 
+    //TODO: Implement the getCarcass method
+    public int getCarcass()
+    {
+        return 0;
+    }
+    
+    /**
+     * The String "Arctic Hare is x days old, and is alive: true/false."
+     *
+     * @return the age and isAlive of the Animal
+     */
     public String toString()
     {
         return "Arctic Hare " + super.toString();

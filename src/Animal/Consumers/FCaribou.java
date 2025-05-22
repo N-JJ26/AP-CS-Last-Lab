@@ -38,7 +38,7 @@ public class FCaribou extends Caribou implements Female
     }
 
     /**
-     * Returns whether reproduction was successful between two Caribous.
+     * Returns whether reproduction was successful between two Caribou.
      * 
      * @return true if the animal successfully reproduces, false otherwise.
      */

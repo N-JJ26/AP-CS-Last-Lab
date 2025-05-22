@@ -33,7 +33,7 @@ public class FArcticHare extends ArcticHare implements Female
     }
 
     /**
-     * Initializes a FArcticHare with an age input
+     * Initializes an FArcticHare with an age input
      */
     public FArcticHare(int age)
     {

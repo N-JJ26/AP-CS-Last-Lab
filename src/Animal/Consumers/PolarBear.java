@@ -75,6 +75,9 @@ public class PolarBear extends Animal implements Carnivore
         return( !hasEaten );
     }
 
+    /**
+     * Simulates aging one day
+     */
     public void aging()
     {
         super.aging();
@@ -90,8 +93,19 @@ public class PolarBear extends Animal implements Carnivore
             super.died();
     }
     
+    //TODO: Implement the getCarcass method
+    public int getCarcass()
+    {
+        return 0;
+    }
+
+    /**
+     * The String "Polar Bear is x days old, and is alive: true/false."
+     *
+     * @return the age and isAlive of the Animal
+     */
     public String toString()
     {
-        return "Polar Bear " + super.toString();
+        return "Arctic Fox " + super.toString();
     }
 }

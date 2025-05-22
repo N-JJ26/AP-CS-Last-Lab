@@ -22,20 +22,29 @@ public class FTundraWolf extends TundraWolf implements Female
     private Animal[] litter;
     private int interbirthCount;
 
+    /**
+     * Default constructor for FTundraWolf
+     * Initializes the FTundraWolf object with default values.
+     */
     public FTundraWolf()
     {
         super();
     }
 
     /**
-     * Initializes a FCaribou with an age input
+     * Initializes an FTundraWolf with an age input
      */
     public FTundraWolf(int age)
     {
         super(age);
     }
 
-   public boolean reproduceWith( Animal male )
+    /**
+     * Returns whether reproduction was successful between two Tundra Wolves.
+     * 
+     * @return true if the animal successfully reproduces, false otherwise.
+     */   
+    public boolean reproduceWith( Animal male )
     {
         if(!this.isAlive() || !this.isAdult() || this.isPregnant() )
             return false;
@@ -61,6 +70,11 @@ public class FTundraWolf extends TundraWolf implements Female
         return pregnant;
     }
 
+    /**
+     * Returns the litter of animals from reproduction.
+     * 
+     * @return Animal[] the litter as an Animal[]
+     */
     public Animal[] giveBirth()
     {
         if( !isAlive() || !pregnant || gestationCount <= GESTATION_DURATION)
@@ -79,6 +93,11 @@ public class FTundraWolf extends TundraWolf implements Female
         return litter;
     }
 
+    /**
+     * Returns whether the TundraWolf isPregnant.
+     * 
+     * @return true if the animal isPregnant, false otherwise.
+     */
     public boolean isPregnant()
     {
         return pregnant;

@@ -32,7 +32,7 @@ public class FPolarBear extends PolarBear implements Female
     }
 
    /**
-     * Initializes a FPolarBear with an age input
+     * Initializes an FPolarBear with an age input
      */
     public FPolarBear(int age)
     {
@@ -40,7 +40,7 @@ public class FPolarBear extends PolarBear implements Female
     }
 
     /**
-     * Returns whether reproduction was successful between two Polar Bears.
+     * Returns whether reproduction was successful between two PolarBears.
      * 
      * @return true if the animal successfully reproduces, false otherwise.
      */

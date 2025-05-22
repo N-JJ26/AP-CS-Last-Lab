@@ -4,6 +4,8 @@ import src.Animal.Animal;
 import src.Animal.Carnivore;
 import src.Animal.Herbivore;
 import src.Plants.*;
+import src.Plants.Producers.ArcticDaisy;
+import src.Plants.Producers.ArcticWillow;
 
 
 /**
@@ -19,10 +21,14 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     private static final int WEANING_AGE = 14;
     private static final int ONSET_FERTILITY_MALE = 304;
     private static final double MAX_LIFE_SPAN = 9999.9; //TODO
+    private static final int DAYS_WITHOUT_FOOD = 99; //TODO
 
     private static final double HUNTING_EFFICIENCY = 0.6;
     private static final double HUNTING_EFFICIENCY_RANGE = 0.14;
     private static final int GRAMS_PER_DAY = 750;
+
+    private boolean hasEaten;
+    private int daysWithoutEating = 0;
 
     private int gramsEaten;
 
@@ -55,7 +61,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
      */
     public boolean isHungry()
     {
-        return gramsEaten == GRAMS_PER_DAY;
+        return( !hasEaten );
     }
 
     /**
@@ -90,18 +96,34 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
         return Math.random() < HUNTING_EFFICIENCY + Math.random() * HUNTING_EFFICIENCY_RANGE;
     }
 
+    /**
+     * Simulates aging one day
+     */
     public void aging()
     {
         super.aging();
 
-        gramsEaten = 0;
+        if(hasEaten) {
+            hasEaten = false;
+            daysWithoutEating = 0;
+        }
+        else
+            daysWithoutEating++;
+        
+        if(daysWithoutEating > DAYS_WITHOUT_FOOD)
+            super.died();
     }
 
+    //TODO: Implement the getCarcass method
+    public int getCarcass()
+    {
+        return 0;
+    }
+    
     /**
-     * Returns "Arctic Fox " + Animals toString() which gives the age and whether or not
-     *  this ArcticFox is alive
+     * The String "Arctic Fox is x days old, and is alive: true/false."
      *
-     * @return "Arctic Fox " + Animal.toString()
+     * @return the age and isAlive of the Animal
      */
     public String toString()
     {

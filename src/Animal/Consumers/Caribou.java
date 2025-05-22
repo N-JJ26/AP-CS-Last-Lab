@@ -89,6 +89,11 @@ public class Caribou extends Animal implements Herbivore
         return 0;
     }
 
+    /**
+     * The String "Caribou is x days old, and is alive: true/false."
+     *
+     * @return the age and isAlive of the Animal
+     */
     public String toString()
     {
         return "Caribou " + super.toString();

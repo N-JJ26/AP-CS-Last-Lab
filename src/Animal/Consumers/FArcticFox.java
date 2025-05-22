@@ -37,13 +37,18 @@ public class FArcticFox extends ArcticFox implements Female
     }
 
     /**
-     * Initializes a FArcticFox with an age input
+     * Initializes an FArcticFox with an age input
      */
     public FArcticFox(int age)
     {
         super(age);
     }
 
+    /**
+     * Returns whether reproduction was successful between two ArcticFoxes.
+     * 
+     * @return true if the animal successfully reproduces, false otherwise.
+     */
     public boolean reproduceWith( Animal male )
     {
         if( !this.isAlive() || !this.isAdult() || this.isPregnant())
@@ -68,6 +73,11 @@ public class FArcticFox extends ArcticFox implements Female
         return pregnant;
     }
 
+    /**
+     * Returns the litter of animals from reproduction.
+     * 
+     * @return Animal[] the litter as an Animal[]
+     */
     public Animal[] giveBirth()
     {
         if( !isAlive() || !pregnant || gestationCount <= GESTATION_DURATION )
@@ -88,6 +98,11 @@ public class FArcticFox extends ArcticFox implements Female
         return litter;
     }
 
+    /**
+     * Returns whether the ArcticFox isPregnant.
+     * 
+     * @return true if the animal isPregnant, false otherwise.
+     */
     public boolean isPregnant()
     {
         return pregnant;

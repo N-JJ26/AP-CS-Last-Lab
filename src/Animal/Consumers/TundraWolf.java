@@ -84,8 +84,19 @@ public class TundraWolf extends Animal implements Carnivore
             super.died();
     }
 
+    //TODO: Implement the getCarcass method
+    public int getCarcass()
+    {
+        return 0;
+    }
+
+    /**
+     * The String "Tundra Wolf is x days old, and is alive: true/false."
+     *
+     * @return the age and isAlive of the Animal
+     */
     public String toString()
     {
-        return "Tundra Wolf " + super.toString();
+        return "Arctic Fox " + super.toString();
     }
 }
