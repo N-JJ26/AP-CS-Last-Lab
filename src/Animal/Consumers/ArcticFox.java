@@ -27,6 +27,9 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     private static final double HUNTING_EFFICIENCY_RANGE = 0.14;
     private static final int GRAMS_PER_DAY = 750;
 
+    // 90% chance Arctic Fox will choose an animal over a plant (TODO)
+    private static final double PROBABILITY_HUNT_ANIMAL = 0.9;
+
     private boolean hasEaten;
     private int daysWithoutEating = 0;
 
@@ -61,9 +64,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
      */
     public boolean isHungry()
     {
-        if( gramsEaten > GRAMS_PER_DAY )
-            hasEaten = true;
-        return( !hasEaten );
+        return( gramsEaten > GRAMS_PER_DAY );
     }
 
     /**
@@ -80,7 +81,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
      */
     public void eat( Plant p )
     {
-        if(!isHungry() && (p instanceof ArcticDaisy || p instanceof ArcticWillow))
+        if( isHungry() && (p instanceof ArcticDaisy || p instanceof ArcticWillow))
         {
             p.consumed(GRAMS_PER_DAY - gramsEaten);
             gramsEaten += GRAMS_PER_DAY;
@@ -96,6 +97,20 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     public boolean wasHuntSuccessful()
     {
         return Math.random() < HUNTING_EFFICIENCY + Math.random() * HUNTING_EFFICIENCY_RANGE;
+    }
+
+    /**
+     * Decides whether an ArcticFox hunts for plants or animals. TODO (as of now 1:9)
+     * 
+     * @return '0' if going after an animal or '1' if after a plant
+     */
+    public int choose()
+    {
+        if( (Math.random() ) > PROBABILITY_HUNT_ANIMAL )
+            return( 1 );
+        else
+            return( 0 );
+        
     }
 
     /**
@@ -130,11 +145,5 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     public String toString()
     {
         return "Arctic Fox " + super.toString();
-    }
-
-
-    public int getConsumed()
-    {
-        return gramsEaten;
     }
 }
