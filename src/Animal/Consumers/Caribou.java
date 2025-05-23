@@ -43,7 +43,8 @@ public class Caribou extends Animal implements Herbivore
         this();
 
         for(int i = 0; i < age; i++)
-            super.aging();
+            super.agingWithoutConsequence();
+        
     }
 
     /**
@@ -83,10 +84,18 @@ public class Caribou extends Animal implements Herbivore
             super.died();
     }
 
-    //TODO: Implement the getCarcass method
+    /**
+     * Simulates a Caribou being eaten and turned into a carcass.
+     *
+     * @return the mass of the Caribou carcass
+     */
     public int getCarcass()
     {
-        return 0;
+        if( !isAlive() )
+            return 0; // If there's a dead Caribou, we're NOT going to have it be scavenged. May be redundant depending on Runner
+        
+        super.died(); // For future reference, make sure Runner doesnt delete the Animal before getCarcass() is called
+        return( super.getCarcass() );
     }
 
     /**

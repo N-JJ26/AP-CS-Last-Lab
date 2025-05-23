@@ -33,7 +33,7 @@ public class TundraWolf extends Animal implements Carnivore
         this();
 
         for(int i = 0; i < age; i++)
-            super.aging();
+            super.agingWithoutConsequence();
     }
 
     /**

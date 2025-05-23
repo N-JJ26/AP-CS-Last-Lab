@@ -51,7 +51,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
         this();
 
         for(int i = 0; i < age; i++)
-            super.aging();
+            super.agingWithoutConsequence();
     }
 
     /**
@@ -61,20 +61,22 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
      */
     public boolean isHungry()
     {
+        if( gramsEaten > GRAMS_PER_DAY )
+            hasEaten = true;
         return( !hasEaten );
     }
 
     /**
-     * Simulates an ArcticFox eating another Animal.
+     * Simulates an ArcticFox eating another Animal. TODO
      */
     public void eat( Animal a )
     {
-        if(!isHungry() && wasHuntSuccessful() && a instanceof ArcticHare)
+        if( isHungry() && wasHuntSuccessful() && a instanceof ArcticHare)
             gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass();
     }
 
     /**
-     * Simulates an ArcticFox eating a plant.
+     * Simulates an ArcticFox eating a plant. TODO
      */
     public void eat( Plant p )
     {
@@ -128,5 +130,11 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     public String toString()
     {
         return "Arctic Fox " + super.toString();
+    }
+
+
+    public int getConsumed()
+    {
+        return gramsEaten;
     }
 }

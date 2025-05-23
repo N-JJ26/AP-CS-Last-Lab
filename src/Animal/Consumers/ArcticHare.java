@@ -42,7 +42,7 @@ public class ArcticHare extends Animal implements Herbivore
         this();
 
         for(int i = 0; i < age; i++)
-            super.aging();
+            super.agingWithoutConsequence();
     }
 
     /**

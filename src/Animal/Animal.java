@@ -63,6 +63,14 @@ public abstract class Animal
             this.died();
     }
 
+/**
+     * Ages the Animal by one day WITHOUT killing the animal
+     */
+    public void agingWithoutConsequence()
+    {
+        age++;
+    }
+
     /**
      * Sets alive to false and decrements the total number of alive Animals
      */
