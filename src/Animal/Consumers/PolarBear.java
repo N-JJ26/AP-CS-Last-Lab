@@ -41,7 +41,7 @@ public class PolarBear extends Animal implements Carnivore
         this();
 
         for(int i = 0; i < age; i++)
-            super.agingWithoutConsequence()
+            super.agingWithoutConsequence();
     }
 
     /**
