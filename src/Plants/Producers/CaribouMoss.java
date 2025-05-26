@@ -11,7 +11,7 @@ import src.Plants.Plant;
 public class CaribouMoss extends Plant {
     private static final double INITIAL_MASS = 0.2;
     private static final double GROWTH_RATE = 5.0;
-    private static final double MAX_MASS = 1.5;
+    private static final int POPULATION_DENSITY = 120000;
 
     /**
      * Constructs the CaribouMoss with an initial mass of 0.2g
@@ -19,6 +19,6 @@ public class CaribouMoss extends Plant {
      */
     public CaribouMoss()
     {
-        super( INITIAL_MASS, GROWTH_RATE, MAX_MASS );
+        super( INITIAL_MASS * POPULATION_DENSITY, GROWTH_RATE );
     }
 }
