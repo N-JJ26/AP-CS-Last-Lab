@@ -103,4 +103,14 @@ public class FTundraWolf extends TundraWolf implements Female
         return pregnant;
     }
 
+    public void aging()
+    {
+        super.aging();
+
+        if(pregnant)
+        {
+            gestationCount++;
+            interbirthCount++;
+        }
+    }
 }

@@ -99,4 +99,15 @@ public class FCaribou extends Caribou implements Female
     {
         return pregnant;
     }
+
+    public void aging()
+    {
+        super.aging();
+
+        if(pregnant)
+        {
+            gestationCount++;
+            interbirthCount++;
+        }
+    }
 }

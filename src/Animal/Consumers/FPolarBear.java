@@ -31,7 +31,7 @@ public class FPolarBear extends PolarBear implements Female
         super();
     }
 
-   /**
+    /**
      * Initializes an FPolarBear with an age input
      */
     public FPolarBear(int age)
@@ -68,7 +68,7 @@ public class FPolarBear extends PolarBear implements Female
         return pregnant;
     }
 
-     /**
+    /**
      * Returns the litter of animals from reproduction.
      * 
      * @return Animal[] the litter as an Animal[]
@@ -101,4 +101,14 @@ public class FPolarBear extends PolarBear implements Female
         return( pregnant );
     }
 
+    public void aging()
+    {
+        super.aging();
+
+        if(pregnant)
+        {
+            gestationCount++;
+            interbirthCount++;
+        }
+    }
 }
