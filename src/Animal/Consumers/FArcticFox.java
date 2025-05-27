@@ -33,7 +33,7 @@ public class FArcticFox extends ArcticFox implements Female
 
         pregnant = false;
         gestationCount = 0;
-        interbirthCount = 0;
+        interbirthCount = 27;
     }
 
     /**

@@ -29,6 +29,7 @@ public class FPolarBear extends PolarBear implements Female
     public FPolarBear()
     {
         super();
+        interbirthCount = 365;
     }
 
     /**

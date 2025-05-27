@@ -29,6 +29,7 @@ public class FTundraWolf extends TundraWolf implements Female
     public FTundraWolf()
     {
         super();
+        interbirthCount = 365; //TODO: Change this to a more realistic value
     }
 
     /**
