@@ -20,10 +20,11 @@ public class PolarBear extends Animal implements Carnivore
     private static final int WEANING_AGE = 900;
     private static final int ONSET_FERT_MALE = 2190;
     private static final double MAX_LIFE_SPAN = 30 * (365); // in years
-    private static final double HUNTING_EFFICIENCY = 0.92;
+    private static final double HUNTING_EFFICIENCY = 0.02;
 
-    private boolean hasEaten;
-    private int daysWithoutEating = 0;
+    private int daysWithoutEating;
+    private double gramsEaten;
+    private final double GRAMS_PER_DAY;
 
     /**
      * Constructs a PolarBear object via Animal().
@@ -31,6 +32,8 @@ public class PolarBear extends Animal implements Carnivore
     public PolarBear()
     {
         super(BODY_MASS_NEW_BORN, BODY_MASS_ADULT, WEANING_AGE, ONSET_FERT_MALE, MAX_LIFE_SPAN);
+
+        GRAMS_PER_DAY = this.massPerDay();
     }
 
     /**
@@ -50,8 +53,12 @@ public class PolarBear extends Animal implements Carnivore
      */
     public void eat(Animal a)
     {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eat'");
+        if(wasHuntSuccessful() && isHungry() && (a instanceof TundraWolf || a instanceof ArcticFox ||
+                        a instanceof ArcticHare || a instanceof Caribou))
+        {
+            gramsEaten = TROPHIC_EFFICIENCY_RULE * a.getCarcass();
+            a.died();
+        }
     }
 
     /**
@@ -61,8 +68,7 @@ public class PolarBear extends Animal implements Carnivore
      */
     public boolean wasHuntSuccessful()
     {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'wasHuntSuccessful'");
+        return Math.random() < HUNTING_EFFICIENCY;
     }
 
     /**
@@ -72,7 +78,7 @@ public class PolarBear extends Animal implements Carnivore
      */
     public boolean isHungry()
     {
-        return( !hasEaten );
+        return( gramsEaten < GRAMS_PER_DAY );
     }
 
     /**
@@ -82,11 +88,8 @@ public class PolarBear extends Animal implements Carnivore
     {
         super.aging();
 
-        if(hasEaten)
-        {
-            hasEaten = false;
+        if(isHungry())
             daysWithoutEating = 0;
-        }
         else
             daysWithoutEating++;
         

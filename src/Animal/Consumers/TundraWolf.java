@@ -24,7 +24,7 @@ public class TundraWolf extends Animal implements Carnivore
     private static final double HUNTING_EFFICIENCY = 0.2;
     
     private int daysWithoutEating;
-    private int gramsEaten;
+    private double gramsEaten;
     private final double GRAMS_PER_DAY;
 
     /**
@@ -57,7 +57,8 @@ public class TundraWolf extends Animal implements Carnivore
      */
     public void eat(Animal a)
     {
-        if(a instanceof Caribou || a instanceof ArcticHare || a instanceof ArcticFox)
+        if(wasHuntSuccessful() && isHungry() &&
+            (a instanceof Caribou || a instanceof ArcticHare || a instanceof ArcticFox))
         {
             gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass() / PACK_SIZE;
             a.died();
