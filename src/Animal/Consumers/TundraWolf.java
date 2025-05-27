@@ -11,10 +11,10 @@ public class TundraWolf extends Animal implements Carnivore
     private static final int ONSET_FERT_MALE = 669;
     private static final double MAX_LIFE_SPAN = 7 * (365); // in years
     private static final int WEANING_AGE = 120; //TODO
-    private static final int GRAMS_PER_DAY = 999; //TODO
-
-    private boolean hasEaten;
-    private int daysWithoutEating = 0;
+    
+    private int daysWithoutEating;
+    private int gramsEaten;
+    private final double GRAMS_PER_DAY;
 
     /**
      * Constructs a TundraWolf object, incrementing the total number of Animals and total live Animals;
@@ -23,6 +23,11 @@ public class TundraWolf extends Animal implements Carnivore
     public TundraWolf()
     {
         super(BODY_MASS_NEW_BORN, BODY_MASS_ADULT, (int)(Math.random()*69) + 40, ONSET_FERT_MALE, MAX_LIFE_SPAN);
+
+        GRAMS_PER_DAY = this.massPerDay();
+
+        gramsEaten = 0;
+        daysWithoutEating = 0;
     }
 
     /**
@@ -63,7 +68,7 @@ public class TundraWolf extends Animal implements Carnivore
      */
     public boolean isHungry()
     {
-        return( !hasEaten );
+        return( gramsEaten < GRAMS_PER_DAY );
     }
 
     /**
@@ -73,8 +78,7 @@ public class TundraWolf extends Animal implements Carnivore
     {
         super.aging();
 
-        if(hasEaten) {
-            hasEaten = false;
+        if(isHungry()) {
             daysWithoutEating = 0;
         }
         else
@@ -97,6 +101,6 @@ public class TundraWolf extends Animal implements Carnivore
      */
     public String toString()
     {
-        return "Arctic Fox " + super.toString();
+        return "Tundra Wolf " + super.toString();
     }
 }
