@@ -6,7 +6,7 @@ import src.Animal.*;
  * Female Caribou
  *
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/22/2025
+ * @version 5/27/2025
  */
 public class FCaribou extends Caribou implements Female
 {

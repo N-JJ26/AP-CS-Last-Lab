@@ -7,7 +7,7 @@ import src.Animal.Female;
  * FPolarBear
  * 
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/22/2025
+ * @version 5/27/2025
  */
 public class FPolarBear extends PolarBear implements Female
 {

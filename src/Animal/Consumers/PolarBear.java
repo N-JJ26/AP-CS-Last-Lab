@@ -8,7 +8,7 @@ import src.Animal.Carnivore;
  * It extends the Animal class and implements the Carnivore interface.
  * 
  * @author Austin Benedicto, Avi Dasgupta
- * @version 5/22/2025
+ * @version 5/27/2025
  */
 
  //TODO: ADD IN SOME OTHER STUFF

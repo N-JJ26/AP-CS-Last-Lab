@@ -7,7 +7,7 @@ import src.Animal.Female;
  * FTundraWolf TODO: Fix this java doc
  * 
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/22/2025
+ * @version 5/27/2025
  */
 public class FTundraWolf extends TundraWolf implements Female
 {
