@@ -35,6 +35,7 @@ public class FTundraWolf extends TundraWolf implements Female
 
     /**
      * Initializes an FTundraWolf with an age input
+     * TODO: get rid of
      */
     public FTundraWolf(int age)
     {

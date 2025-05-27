@@ -30,10 +30,12 @@ public class FPolarBear extends PolarBear implements Female
     public FPolarBear()
     {
         super();
+        interbirthCount = 365; //TODO: Change this to a more realistic value
     }
 
     /**
      * Initializes an FPolarBear with an age input
+     * TODO: get rid of
      */
     public FPolarBear(int age)
     {

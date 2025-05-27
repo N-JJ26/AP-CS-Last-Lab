@@ -31,10 +31,12 @@ public class FArcticHare extends ArcticHare implements Female
     public FArcticHare()
     {
         super();
+        interbirthCount = 365;
     }
 
     /**
      * Initializes an FArcticHare with an age input
+     * TODO: get rid of
      */
     public FArcticHare(int age)
     {
