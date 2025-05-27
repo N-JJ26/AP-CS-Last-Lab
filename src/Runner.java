@@ -11,7 +11,7 @@ public class Runner
     /* DECLARATIONS HERE */
     Caribou car  = new Caribou( 1000 );
     CaribouMoss moss = new CaribouMoss();
-    ArrayList<TundraWolf[]> pack = new ArrayList<TundraWolf[]>(TundraWolf.PACK_SIZE); // TODO: Check this later bc it is confusing me.
+    ArrayList<TundraWolf[]> pack = new ArrayList<TundraWolf[]>(); // TODO: Check this later bc it is confusing me.
 
 
     System.out.println(car.isHungry());
