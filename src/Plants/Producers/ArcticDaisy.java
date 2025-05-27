@@ -10,8 +10,7 @@ import src.Plants.Plant;
 public class ArcticDaisy extends Plant
 {
     private static final double INITIAL_MASS = 0.35;  //individual ArcticDaisy dry mass in grams
-    private static final double GROWTH_RATE = 20.0;  //miligrams per gram per day
-    private static final double MAX_MASS = 1.5;  
+    private static final double GROWTH_RATE = 20.0;
     
     /**
      * Constructs the ArcticDaisy with an initial mass of 0.35 grams
@@ -20,6 +19,6 @@ public class ArcticDaisy extends Plant
     public ArcticDaisy( )
     {
         // acres * individual/acre * grams/individual = grams
-        super( INITIAL_MASS, GROWTH_RATE, MAX_MASS );
+        super( INITIAL_MASS, GROWTH_RATE );
     }
 }

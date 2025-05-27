@@ -25,10 +25,10 @@ public abstract class Plant
      * @param initialTotalMass the maximum amount of initial dry plant material in grams
      * @param growthRate rate at which the Plant grows in miligrams per gram per day
      */
-    public Plant( double initialTotalMass, double growthRate, double max )
+    public Plant( double initialTotalMass, double growthRate )
     {
         totalMass = initialTotalMass;
-        maxMass = max;
+        maxMass = initialTotalMass;
         alive = totalMass > 0;
         
         this.growthRate = growthRate;

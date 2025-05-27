@@ -11,7 +11,7 @@ import src.Plants.Plant;
 public class ArcticWillow extends Plant {
     private static final double INITIAL_MASS = 1.5;
     private static final double GROWTH_RATE = 25.0;
-    private static final double MAX_MASS = 10.0;  
+    private static final int POPULATION_DENSITY = 100000;
 
     /**
      * Constructs the ArcticWillow with an initial mass of 1.5 grams
@@ -19,6 +19,6 @@ public class ArcticWillow extends Plant {
      */
     public ArcticWillow()
     {
-        super( INITIAL_MASS, GROWTH_RATE, MAX_MASS );
+        super( INITIAL_MASS * POPULATION_DENSITY, GROWTH_RATE );
     }
 }
