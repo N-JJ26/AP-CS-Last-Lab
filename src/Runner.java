@@ -1,28 +1,13 @@
 package src;
-import java.util.ArrayList;
 
-import src.Animal.Consumers.*;
-import src.Plants.Producers.*;
+import src.Animal.Consumers.FTundraWolf;
+import src.Animal.Consumers.TundraWolf;
 
-public class Runner
-{
-  public static void main( String[] args )
-  {
-    /* DECLARATIONS HERE */
-    Caribou car  = new Caribou( 1000 );
-    CaribouMoss moss = new CaribouMoss();
-    ArrayList<TundraWolf[]> pack = new ArrayList<TundraWolf[]>(TundraWolf.PACK_SIZE); // TODO: Check this later bc it is confusing me.
+public class Runner {
+    public static void main(String[] args) {
+        TundraWolf wolf = new TundraWolf();
+        FTundraWolf folf = new FTundraWolf();
 
-
-    System.out.println(car.isHungry());
-    for(int i = 0; i < 15; i++)
-    {
-      car.aging();
-      System.out.println(moss.getTotalMass());
-      car.eat(moss);
-    }
-
-    System.out.println(car.isAlive());
-
+        System.out.println(wolf + "\n" + folf);
     }
 }
