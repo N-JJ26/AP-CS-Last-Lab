@@ -12,7 +12,7 @@ import src.Plants.Producers.ArcticWillow;
  * The Arctic Fox in the Tundra biome
  *
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/22/2025
+ * @version 5/27/2025
  */
 public class ArcticFox extends Animal implements Carnivore, Herbivore
 {
