@@ -114,4 +114,9 @@ public class FPolarBear extends PolarBear implements Female
             interbirthCount++;
         }
     }
+
+    public String toString()
+    {
+        return "Pregnant " + pregnant + " female " + super.toString();
+    }
 }

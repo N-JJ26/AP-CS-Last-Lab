@@ -116,4 +116,9 @@ public class FTundraWolf extends TundraWolf implements Female
             interbirthCount++;
         }
     }
+
+    public String toString()
+    {
+        return "Pregnant " + pregnant + " female " + super.toString();
+    }
 }

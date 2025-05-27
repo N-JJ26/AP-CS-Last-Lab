@@ -120,4 +120,9 @@ public class FArcticFox extends ArcticFox implements Female
             interbirthCount++;
         }
     }
+
+    public String toString()
+    {
+        return "Pregnant " + pregnant + " female " + super.toString();
+    }
 }

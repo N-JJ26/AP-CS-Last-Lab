@@ -117,5 +117,10 @@ public class FArcticHare extends ArcticHare implements Female
             interbirthCount++;
         }
     }
+
+    public String toString()
+    {
+        return "Pregnant " + pregnant + " female " + super.toString();
+    }
 }
 

@@ -113,4 +113,9 @@ public class FCaribou extends Caribou implements Female
             interbirthCount++;
         }
     }
+
+    public String toString()
+    {
+        return "Pregnant " + pregnant + " female " + super.toString();
+    }
 }
