@@ -47,7 +47,7 @@ public class FPolarBear extends PolarBear implements Female
      */
     public boolean reproduceWith( Animal male )
     {
-        if( !this.isAlive() || !this.isAdult() || this.isPregnant()  )
+        if( !this.isAlive() || !this.isAdult() || this.isPregnant() || interbirthCount < INTERBIRTH_DURATION )
             return false;
             
         if( male == null || !male.isAlive() || !male.isAdult() || male instanceof Female || !(male instanceof PolarBear) )

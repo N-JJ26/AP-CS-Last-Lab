@@ -48,7 +48,7 @@ public class FTundraWolf extends TundraWolf implements Female
      */   
     public boolean reproduceWith( Animal male )
     {
-        if(!this.isAlive() || !this.isAdult() || this.isPregnant() )
+        if(!this.isAlive() || !this.isAdult() || this.isPregnant() || interbirthCount < INTERBIRTH_DURATION)
             return false;
 
 
