@@ -6,7 +6,7 @@ import src.Animal.Female;
  * FArcticHare
  * 
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/22/2025
+ * @version 5/27/2025
  */
 public class FArcticHare extends ArcticHare implements Female
 {

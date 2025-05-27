@@ -3,6 +3,13 @@ package src.Animal.Consumers;
 import src.Animal.Animal;
 import src.Animal.Carnivore;
 
+/**
+ * TundraWolf class represents a carnivorous animal that can be found in the Arctic region.
+ * It extends the Animal class and implements the Carnivore interface.
+ * 
+ * @author Austin Benedicto, Avi Dasgupta, Nathaniel Johnspon
+ * @version 5/27/2025
+ */
 public class TundraWolf extends Animal implements Carnivore
 {
     private static final int DAYS_WITHOUT_FOOD = 999; //TODO
