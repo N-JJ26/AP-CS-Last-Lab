@@ -12,12 +12,16 @@ import src.Animal.Carnivore;
  */
 public class TundraWolf extends Animal implements Carnivore
 {
+    /** how many TundraWolfs are in a pack */
+    public static final int PACK_SIZE = 6;
+
     private static final int DAYS_WITHOUT_FOOD = 999; //TODO
     private static final int BODY_MASS_NEW_BORN = 450;
     private static final int BODY_MASS_ADULT = 26625;
     private static final int ONSET_FERT_MALE = 669;
     private static final double MAX_LIFE_SPAN = 7 * (365); // in years
     private static final int WEANING_AGE = 120; //TODO
+    private static final double HUNTING_EFFICIENCY = 0.2;
     
     private int daysWithoutEating;
     private int gramsEaten;
@@ -53,10 +57,15 @@ public class TundraWolf extends Animal implements Carnivore
      */
     public void eat(Animal a)
     {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eat'");
+        if(a instanceof Caribou || a instanceof ArcticHare || a instanceof ArcticFox)
+        {
+            gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass() / PACK_SIZE;
+            a.died();
+        }
+        else
+            System.out.println("Hunt Failed");
     }
-    
+
     /**
      * Returns whether the hunt was successful.
      * 
@@ -64,8 +73,7 @@ public class TundraWolf extends Animal implements Carnivore
      */
     public boolean wasHuntSuccessful()
     {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'wasHuntSuccessful'");
+        return Math.random() < HUNTING_EFFICIENCY;
     }
     
     /**
@@ -90,15 +98,11 @@ public class TundraWolf extends Animal implements Carnivore
         }
         else
             daysWithoutEating++;
+
+        gramsEaten = 0;
         
         if(daysWithoutEating > DAYS_WITHOUT_FOOD)
             super.died();
-    }
-
-    //TODO: Implement the getCarcass method
-    public int getCarcass()
-    {
-        return 0;
     }
 
     /**
