@@ -110,6 +110,6 @@ public class PolarBear extends Animal implements Carnivore
      */
     public String toString()
     {
-        return "Arctic Fox " + super.toString();
+        return "Polar Bear " + super.toString();
     }
 }

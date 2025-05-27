@@ -20,7 +20,7 @@ public class TundraWolf extends Animal implements Carnivore
     private static final int BODY_MASS_ADULT = 26625;
     private static final int ONSET_FERT_MALE = 669;
     private static final double MAX_LIFE_SPAN = 7 * (365); // in years
-    private static final int WEANING_AGE = 120; //TODO
+    //private static final int WEANING_AGE = 120; //TODO
     private static final double HUNTING_EFFICIENCY = 0.2;
     
     private int daysWithoutEating;
