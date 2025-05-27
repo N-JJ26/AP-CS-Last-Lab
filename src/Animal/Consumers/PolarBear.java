@@ -92,6 +92,8 @@ public class PolarBear extends Animal implements Carnivore
             daysWithoutEating = 0;
         else
             daysWithoutEating++;
+
+        gramsEaten = 0;
         
         if(daysWithoutEating > DAYS_WITHOUT_FOOD)
             super.died();
