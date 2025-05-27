@@ -98,12 +98,6 @@ public class PolarBear extends Animal implements Carnivore
         if(daysWithoutEating > DAYS_WITHOUT_FOOD)
             super.died();
     }
-    
-    //TODO: Implement the getCarcass method
-    public int getCarcass()
-    {
-        return 0;
-    }
 
     /**
      * The String "Polar Bear is x days old, and is alive: true/false."
