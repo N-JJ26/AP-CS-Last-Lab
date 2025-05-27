@@ -28,10 +28,12 @@ public class FCaribou extends Caribou implements Female
     public FCaribou()
     {
         super();
+        interbirthCount = 365; //TODO: Change this to a more realistic value
     }
 
     /**
      * Initializes a FCaribou with an age input
+     * TODO: get rid of
      */
     public FCaribou(int age)
     {

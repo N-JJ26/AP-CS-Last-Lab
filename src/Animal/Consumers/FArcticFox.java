@@ -34,10 +34,12 @@ public class FArcticFox extends ArcticFox implements Female
 
         pregnant = false;
         gestationCount = 0;
+        interbirthCount = 27; // Start with a full interbirth period
     }
 
     /**
      * Initializes an FArcticFox with an age input
+     * TODO: get rid of
      */
     public FArcticFox(int age)
     {
