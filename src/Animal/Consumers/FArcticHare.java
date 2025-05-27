@@ -14,6 +14,7 @@ public class FArcticHare extends ArcticHare implements Female
     private static final int GESTATION_DURATION = 26;
     private static final int MAX_LITTER = 1; // TODO
     private static final double AVG_LITTER = 1.0; // TODO
+    private static final int INTERBIRTH_DURATION = 365;
     private int gestationCount;
     private Animal[] litter;
     private int totalBorn;
@@ -30,8 +31,6 @@ public class FArcticHare extends ArcticHare implements Female
     public FArcticHare()
     {
         super();
-
-        interbirthCount = 365;
     }
 
     /**

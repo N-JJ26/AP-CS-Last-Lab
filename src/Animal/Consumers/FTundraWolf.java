@@ -18,6 +18,7 @@ public class FTundraWolf extends TundraWolf implements Female
     private int totalLitters = 0;
     private static final int MAX_LITTER = 99; //TODO
     private static final int AVG_LITTER = 99; //TODO
+    private static final int INTERBIRTH_DURATION = 365;
     private int totalBorn;
     private Animal[] litter;
     private int interbirthCount;
