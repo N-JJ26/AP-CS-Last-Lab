@@ -16,6 +16,7 @@ public class FPolarBear extends PolarBear implements Female
     private static final int GESTATION_DURATION = 9999; //TODO
     private static final int MAX_LITTER = 1; //TODO
     private static final double AVG_LITTER = 1.0; //TODO
+    private static final int INTERBIRTH_DURATION = 365;
     private int gestationCount;
     private Animal[] litter;
     private int totalBorn;
@@ -29,7 +30,6 @@ public class FPolarBear extends PolarBear implements Female
     public FPolarBear()
     {
         super();
-        interbirthCount = 365;
     }
 
     /**

@@ -14,6 +14,7 @@ public class FCaribou extends Caribou implements Female
     private static final int GESTATION_DURATION = 228;
     private static final int MAX_LITTER = 1;
     private static final double AVG_LITTER = 1.0;
+    private static final int INTERBIRTH_DURATION = 365;
     private int gestationCount;
     private Animal[] litter;
     private int totalBorn;
@@ -27,7 +28,6 @@ public class FCaribou extends Caribou implements Female
     public FCaribou()
     {
         super();
-        interbirthCount = 365; //TODO: Change this to a more realistic value
     }
 
     /**
