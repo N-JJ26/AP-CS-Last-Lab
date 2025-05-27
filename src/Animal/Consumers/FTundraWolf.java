@@ -18,6 +18,7 @@ public class FTundraWolf extends TundraWolf implements Female
     private int totalLitters = 0;
     private static final int MAX_LITTER = 99; //TODO
     private static final int AVG_LITTER = 99; //TODO
+    private static final int INTERBIRTH_DURATION = 365;
     private int totalBorn;
     private Animal[] litter;
     private int interbirthCount;
@@ -29,6 +30,7 @@ public class FTundraWolf extends TundraWolf implements Female
     public FTundraWolf()
     {
         super();
+        interbirthCount = 365; //TODO: Change this to a more realistic value
     }
 
     /**
@@ -46,7 +48,7 @@ public class FTundraWolf extends TundraWolf implements Female
      */   
     public boolean reproduceWith( Animal male )
     {
-        if(!this.isAlive() || !this.isAdult() || this.isPregnant() )
+        if(!this.isAlive() || !this.isAdult() || this.isPregnant() || interbirthCount < INTERBIRTH_DURATION)
             return false;
 
 

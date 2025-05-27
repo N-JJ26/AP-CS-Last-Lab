@@ -14,6 +14,7 @@ public class FArcticFox extends ArcticFox implements Female
     private static final int GESTATION_DURATION = 57;
     private static final int MAX_LITTER = 25;
     private static final double AVG_LITTER = 2.8;
+    private static final int INTERBIRTH_DURATION = 27;
 
     private static int totalBorn = 0;
     private static int totalLitters = 0;
@@ -33,7 +34,6 @@ public class FArcticFox extends ArcticFox implements Female
 
         pregnant = false;
         gestationCount = 0;
-        interbirthCount = 0;
     }
 
     /**
@@ -51,7 +51,7 @@ public class FArcticFox extends ArcticFox implements Female
      */
     public boolean reproduceWith( Animal male )
     {
-        if( !this.isAlive() || !this.isAdult() || this.isPregnant())
+        if( !this.isAlive() || !this.isAdult() || this.isPregnant() || interbirthCount < INTERBIRTH_DURATION )
             return false;
 
         if(male == null || !male.isAlive()  || !male.isAdult() || male instanceof Female || !(male instanceof ArcticFox))

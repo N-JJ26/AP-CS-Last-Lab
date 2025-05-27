@@ -82,7 +82,8 @@ public class PolarBear extends Animal implements Carnivore
     {
         super.aging();
 
-        if(hasEaten) {
+        if(hasEaten)
+        {
             hasEaten = false;
             daysWithoutEating = 0;
         }
