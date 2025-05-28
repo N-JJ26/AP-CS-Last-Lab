@@ -130,12 +130,6 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
         if(daysWithoutEating > DAYS_WITHOUT_FOOD)
             super.died();
     }
-
-    //TODO: Implement the getCarcass method
-    public int getCarcass()
-    {
-        return 0;
-    }
     
     /**
      * The String "Arctic Fox is x days old, and is alive: true/false."
