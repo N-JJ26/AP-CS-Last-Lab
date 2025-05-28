@@ -20,12 +20,29 @@ public class Runner {
     private static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
+        beginningSequence();
+    }
+
+    private static void beginningSequence()
+    {
         plants[0] = new ArcticDaisy();
         plants[1] = new ArcticWillow();
         plants[2] = new CaribouMoss();
 
-        System.out.println("Animals (number of adults):\nArctic Fox = ");
-        animals[0] = Math.random() < 0.5 ? new ArcticFox[5] : new FArcticFox[5];
+        System.out.print("Animals (number of adults):\nArctic Foxes = ");
+        animals[0] = new ArcticFox[in.nextInt()];
+
+        System.out.print("Arctic Hares = ");
+        animals[1] = new ArcticHare[in.nextInt()];
+
+        System.out.print("Caribous = ");
+        animals[2] = new Caribou[in.nextInt()];
+
+        System.out.print("Polar Bears = ");
+        animals[3] = new PolarBear[in.nextInt()];
+
+        System.out.print("Tundra Wolves = ");
+        animals[4] = new TundraWolf[in.nextInt()];
     }
 
     private static Animal[] shuffle(Animal[] animals)
@@ -37,6 +54,20 @@ public class Runner {
             animals[i] = animals[index];
             animals[index] = temp;
         }
+
+        return animals;
+    }
+
+    private static Animal[] removeDead(Animal[] animals)
+    {
+        ArrayList<Animal> a = new ArrayList<>();
+
+        for(Animal animal : animals)
+            a.add(animal);
+
+        for(int i = 0; i < animals.length; i++)
+            if(!a.get(i).isAlive())
+                a.remove(i);
 
         return animals;
     }
