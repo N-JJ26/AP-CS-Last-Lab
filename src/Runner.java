@@ -1,15 +1,24 @@
 package src;
 
-import src.Animal.Consumers.FTundraWolf;
-import src.Animal.Consumers.TundraWolf;
+import java.util.ArrayList;
 
-public class Runner
-{
-    public static void main(String[] args)
-    {
-        TundraWolf wolf = new TundraWolf();
-        FTundraWolf folf = new FTundraWolf();
+import src.Animal.Animal;
+import src.Animal.Consumers.*;
+import src.Plants.Plant;
+import src.Plants.Producers.ArcticDaisy;
+import src.Plants.Producers.ArcticWillow;
+import src.Plants.Producers.CaribouMoss;
 
-        System.out.println(wolf + "\n" + folf);
+public class Runner {
+    private static final int NUM_PLANTS = 3;
+    private static final int NUM_ANIMALS = 10;
+
+    private static Plant[] plants = new Plant[NUM_PLANTS];
+    private static ArrayList<Animal>[] animals = new ArrayList[NUM_ANIMALS];
+
+    public static void main(String[] args) {
+        plants[0] = new ArcticDaisy();
+        plants[1] = new ArcticWillow();
+        plants[2] = new CaribouMoss();
     }
 }
