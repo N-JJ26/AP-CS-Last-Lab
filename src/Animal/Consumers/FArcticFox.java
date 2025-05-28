@@ -115,10 +115,9 @@ public class FArcticFox extends ArcticFox implements Female
         super.aging();
 
         if(pregnant)
-        {
             gestationCount++;
+        else
             interbirthCount++;
-        }
     }
 
     public String toString()

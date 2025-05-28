@@ -112,10 +112,9 @@ public class FArcticHare extends ArcticHare implements Female
         super.aging();
 
         if(pregnant)
-        {
             gestationCount++;
+        else
             interbirthCount++;
-        }
     }
 
     public String toString()
