@@ -11,6 +11,7 @@ public class ArcticDaisy extends Plant
 {
     private static final double INITIAL_MASS = 0.35;  //individual ArcticDaisy dry mass in grams
     private static final double GROWTH_RATE = 20.0;
+    private static final int POPULATION_DENSITY = 100000;
     
     /**
      * Constructs the ArcticDaisy with an initial mass of 0.35 grams
@@ -19,6 +20,6 @@ public class ArcticDaisy extends Plant
     public ArcticDaisy( )
     {
         // acres * individual/acre * grams/individual = grams
-        super( INITIAL_MASS, GROWTH_RATE );
+        super( INITIAL_MASS * POPULATION_DENSITY, GROWTH_RATE );
     }
 }
