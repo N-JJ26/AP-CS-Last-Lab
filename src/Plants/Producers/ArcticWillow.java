@@ -17,8 +17,8 @@ public class ArcticWillow extends Plant {
      * Constructs the ArcticWillow with an initial mass of 1.5 grams
      *  and a growth rate of 25mg/g/day.
      */
-    public ArcticWillow()
+    public ArcticWillow(int acres)
     {
-        super( INITIAL_MASS * POPULATION_DENSITY, GROWTH_RATE );
+        super( (acres * INITIAL_MASS * POPULATION_DENSITY), GROWTH_RATE );
     }
 }

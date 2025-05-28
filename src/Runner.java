@@ -3,12 +3,10 @@ package src;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import src.Animal.Animal;
+import src.Animal.*;
 import src.Animal.Consumers.*;
 import src.Plants.Plant;
-import src.Plants.Producers.ArcticDaisy;
-import src.Plants.Producers.ArcticWillow;
-import src.Plants.Producers.CaribouMoss;
+import src.Plants.Producers.*;
 
 public class Runner {
     private static final int NUM_PLANTS = 3;
@@ -20,35 +18,42 @@ public class Runner {
     private static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        ArcticFox fox = new ArcticFox();
-        PolarBear bear = new PolarBear();
-
-        System.out.println(fox.getCarcass() + "\n" + fox.isAlive());
-        while(!bear.wasHuntSuccessful())
-            bear.eat(fox);
-        System.out.println(fox.isAlive());
+        beginningSequence();
     }
 
     private static void beginningSequence()
     {
-        plants[0] = new ArcticDaisy();
-        plants[1] = new ArcticWillow();
-        plants[2] = new CaribouMoss();
+        System.out.print("Enter the acres of each plant:\nArctic Daisies = ");
+        plants[0] = new ArcticDaisy(in.nextInt());
+        in.next();
 
-        System.out.print("Animals (number of adults):\nArctic Foxes = ");
+        System.out.print("Arctic Willow = ");
+        plants[1] = new ArcticWillow(in.nextInt());
+        in.next();
+
+        System.out.print("Caribou Moss = ");
+        plants[2] = new CaribouMoss(in.nextInt());
+        in.next();
+
+        System.out.print("Animals (initial number of adults):\nArctic Foxes = ");
         animals[0] = new ArcticFox[in.nextInt()];
+        in.next();
 
         System.out.print("Arctic Hares = ");
         animals[1] = new ArcticHare[in.nextInt()];
+        in.next();
 
         System.out.print("Caribous = ");
         animals[2] = new Caribou[in.nextInt()];
+        in.next();
 
         System.out.print("Polar Bears = ");
         animals[3] = new PolarBear[in.nextInt()];
+        in.next();
 
         System.out.print("Tundra Wolves = ");
         animals[4] = new TundraWolf[in.nextInt()];
+        in.next();
     }
 
     private static Animal[] shuffle(Animal[] animals)

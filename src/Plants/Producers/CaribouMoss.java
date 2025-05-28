@@ -17,8 +17,8 @@ public class CaribouMoss extends Plant {
      * Constructs the CaribouMoss with an initial mass of 0.2g
      *  and a growth rate of 1.0mg/g/day.
      */
-    public CaribouMoss()
+    public CaribouMoss(int acres)
     {
-        super( INITIAL_MASS * POPULATION_DENSITY, GROWTH_RATE );
+        super( (acres * INITIAL_MASS * POPULATION_DENSITY), GROWTH_RATE );
     }
 }

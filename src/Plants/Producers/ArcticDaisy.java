@@ -17,9 +17,9 @@ public class ArcticDaisy extends Plant
      * Constructs the ArcticDaisy with an initial mass of 0.35 grams
      *  and a growth rate of 20mg/g/day.
      */
-    public ArcticDaisy( )
+    public ArcticDaisy( int acres )
     {
         // acres * individual/acre * grams/individual = grams
-        super( INITIAL_MASS * POPULATION_DENSITY, GROWTH_RATE );
+        super( (acres * INITIAL_MASS * POPULATION_DENSITY), GROWTH_RATE );
     }
 }
