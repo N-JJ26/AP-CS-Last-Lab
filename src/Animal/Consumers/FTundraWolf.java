@@ -111,10 +111,9 @@ public class FTundraWolf extends TundraWolf implements Female
         super.aging();
 
         if(pregnant)
-        {
             gestationCount++;
+        else
             interbirthCount++;
-        }
     }
 
     public String toString()

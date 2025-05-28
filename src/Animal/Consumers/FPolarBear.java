@@ -108,11 +108,10 @@ public class FPolarBear extends PolarBear implements Female
     {
         super.aging();
 
-        if(pregnant)
-        {
+       if(pregnant)
             gestationCount++;
+        else
             interbirthCount++;
-        }
     }
 
     public String toString()

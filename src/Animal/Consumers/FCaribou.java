@@ -107,11 +107,10 @@ public class FCaribou extends Caribou implements Female
     {
         super.aging();
 
-        if(pregnant)
-        {
+       if(pregnant)
             gestationCount++;
+        else
             interbirthCount++;
-        }
     }
 
     public String toString()
