@@ -20,7 +20,13 @@ public class Runner {
     private static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        beginningSequence();
+        ArcticFox fox = new ArcticFox();
+        PolarBear bear = new PolarBear();
+
+        System.out.println(fox.getCarcass() + "\n" + fox.isAlive());
+        while(!bear.wasHuntSuccessful())
+            bear.eat(fox);
+        System.out.println(fox.isAlive());
     }
 
     private static void beginningSequence()
