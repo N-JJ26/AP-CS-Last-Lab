@@ -102,7 +102,7 @@ public class Runner
 
     private static Animal[] removeDead(Animal[] animals)
     {
-        ArrayList<Animal> a = new ArrayList<>();
+        ArrayList<Animal> a = new ArrayList<Animal>();
 
         for(Animal animal : animals)
             a.add(animal);
