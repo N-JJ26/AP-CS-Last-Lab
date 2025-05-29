@@ -12,15 +12,15 @@ public class Runner {
     private static final int NUM_PLANTS = 3;
     private static final int NUM_ANIMALS = 5;
 
-    private static final int DAISY = 0;
-    private static final int WILLOW = 1;
-    private static final int MOSS = 2;
+    private static final int DAISY_INDEX = 0;
+    private static final int WILLOW_INDEX = 1;
+    private static final int MOSS_INDEX = 2;
 
-    private static final int FOX = 0;
-    private static final int HARE = 1;
-    private static final int CARIBOU = 2;
-    private static final int POLAR_BEAR = 3;
-    private static final int WOLF = 4;
+    private static final int FOX_INDEX = 0;
+    private static final int HARE_INDEX = 1;
+    private static final int CARIBOU_INDEX = 2;
+    private static final int POLAR_BEAR_INDEX = 3;
+    private static final int WOLF_INDEX = 4;
 
     private static Plant[] plants = new Plant[NUM_PLANTS];
     private static Animal[][] animals = new Animal[NUM_ANIMALS][];
@@ -37,28 +37,28 @@ public class Runner {
                             "Please enter the amount of each population:\n");
 
         System.out.print("Plants (acres):\nArctic Daisies = ");
-        plants[DAISY] = new ArcticDaisy(in.nextInt());
+        plants[DAISY_INDEX] = new ArcticDaisy(in.nextInt());
 
         System.out.print("Arctic Willow = ");
-        plants[WILLOW] = new ArcticWillow(in.nextInt());
+        plants[WILLOW_INDEX] = new ArcticWillow(in.nextInt());
 
         System.out.print("Caribou Moss = ");
-        plants[MOSS] = new CaribouMoss(in.nextInt());
+        plants[MOSS_INDEX] = new CaribouMoss(in.nextInt());
 
         System.out.print("\nAnimals (initial number of adults):\nArctic Foxes = ");
-        animals[FOX] = new ArcticFox[in.nextInt()];
+        animals[FOX_INDEX] = new ArcticFox[in.nextInt()];
 
         System.out.print("Arctic Hares = ");
-        animals[HARE] = new ArcticHare[in.nextInt()];
+        animals[HARE_INDEX] = new ArcticHare[in.nextInt()];
 
         System.out.print("Caribous = ");
-        animals[CARIBOU] = new Caribou[in.nextInt()];
+        animals[CARIBOU_INDEX] = new Caribou[in.nextInt()];
 
         System.out.print("Polar Bears = ");
-        animals[POLAR_BEAR] = new PolarBear[in.nextInt()];
+        animals[POLAR_BEAR_INDEX] = new PolarBear[in.nextInt()];
 
         System.out.print("Tundra Wolves = ");
-        animals[WOLF] = new TundraWolf[in.nextInt()];
+        animals[WOLF_INDEX] = new TundraWolf[in.nextInt()];
     }
 
     private static Animal[] shuffle(Animal[] animals)
