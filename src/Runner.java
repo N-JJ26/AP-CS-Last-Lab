@@ -74,6 +74,19 @@ public class Runner {
         return animals;
     }
 
+    private static Animal[] shufflePack(Animal[] animals, int packSize)
+    {
+        for(int i = 0; i < Runner.animals.length; i++) {
+            int index = (int)(Math.random() * animals.length / packSize);
+            
+            Animal temp = animals[i];
+            animals[i] = animals[index];
+            animals[index] = temp;
+        }
+
+        return animals;
+    }
+
     private static Animal[] removeDead(Animal[] animals)
     {
         ArrayList<Animal> a = new ArrayList<>();
