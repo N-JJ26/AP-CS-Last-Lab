@@ -7,21 +7,22 @@ import src.Animal.Female;
  * FTundraWolf TODO: Fix this java doc
  * 
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/27/2025
+ * @version 5/29/2025
  */
 public class FTundraWolf extends TundraWolf implements Female
 {
-//TODO: ADD IN CONSTANT FOR MAX LITTER SIZE AND AVG LITTER SIZE
-    private static final int GESTATION_DURATION = 0;
+    private static final int GESTATION_DURATION = 62;
+    private static final int MAX_LITTER = 6;
+    private static final double AVG_LITTER = 6.0;
+    private static final int INTERBIRTH_DURATION = 365;
+
+    private static int totalLitters = 0;
+    private static int totalBorn = 0;
+
     private boolean pregnant;
     private int gestationCount;
-    private int totalLitters = 0;
-    private static final int MAX_LITTER = 99; //TODO
-    private static final int AVG_LITTER = 99; //TODO
-    private static final int INTERBIRTH_DURATION = 365;
-    private int totalBorn;
+    private int interBirthCount;
     private Animal[] litter;
-    private int interbirthCount;
 
     /**
      * Default constructor for FTundraWolf
@@ -30,7 +31,7 @@ public class FTundraWolf extends TundraWolf implements Female
     public FTundraWolf()
     {
         super();
-        interbirthCount = 365; //TODO: Change this to a more realistic value
+        interBirthCount = 0;
     }
 
     /**
@@ -49,7 +50,7 @@ public class FTundraWolf extends TundraWolf implements Female
      */   
     public boolean reproduceWith( Animal male )
     {
-        if(!this.isAlive() || !this.isAdult() || this.isPregnant() || interbirthCount < INTERBIRTH_DURATION)
+        if(!this.isAlive() || !this.isAdult() || this.isPregnant() || interBirthCount < INTERBIRTH_DURATION)
             return false;
 
 
@@ -91,7 +92,7 @@ public class FTundraWolf extends TundraWolf implements Female
 
         totalBorn += litter.length;
         pregnant = false;
-        interbirthCount = 0;
+        interBirthCount = 0;
 
         return litter;
     }
@@ -113,7 +114,7 @@ public class FTundraWolf extends TundraWolf implements Female
         if(pregnant)
             gestationCount++;
         else
-            interbirthCount++;
+            interBirthCount++;
     }
 
     public String toString()

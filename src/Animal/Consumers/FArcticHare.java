@@ -6,24 +6,25 @@ import src.Animal.Female;
  * FArcticHare
  * 
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/27/2025
+ * @version 5/29/2025
  */
 public class FArcticHare extends ArcticHare implements Female
 {
-    private static int totalLitters = 0;
-    private static final int GESTATION_DURATION = 26;
-    private static final int MAX_LITTER = 1; // TODO
-    private static final double AVG_LITTER = 1.0; // TODO
+    private static final int GESTATION_DURATION = 50;
+    private static final int MAX_LITTER = 9;
+    private static final double AVG_LITTER = 5.0;
     private static final int INTERBIRTH_DURATION = 365;
-    private int gestationCount;
+
+    private static int totalLitters = 0;
+    private static int totalBorn = 0;
+
     private Animal[] litter;
-    private int totalBorn;
-    private boolean pregnant = false;
+
+    private int gestationCount;
     private int interbirthCount;
 
+    private boolean pregnant = false;
 
-    
-    
     /**
      * Default constructor for FArcticHare
      * Initializes the FArcticHare object with default values.

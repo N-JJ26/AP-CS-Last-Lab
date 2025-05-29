@@ -7,21 +7,22 @@ import src.Animal.Female;
  * FPolarBear
  * 
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/27/2025
+ * @version 5/29/2025
  */
 public class FPolarBear extends PolarBear implements Female
 {
+    private static final int GESTATION_DURATION = 365;
+    private static final int MAX_LITTER = 4;
+    private static final double AVG_LITTER = 2.0;
+    private static final int INTERBIRTH_DURATION = 365;
 
     private static int totalLitters = 0;
-    private static final int GESTATION_DURATION = 9999; //TODO
-    private static final int MAX_LITTER = 1; //TODO
-    private static final double AVG_LITTER = 1.0; //TODO
-    private static final int INTERBIRTH_DURATION = 365;
+    private static int totalBorn = 0;
+
     private int gestationCount;
-    private Animal[] litter;
-    private int totalBorn;
-    private boolean pregnant = false;
     private int interbirthCount;
+    private Animal[] litter;
+    private boolean pregnant = false;
     
     /**
      * Default constructor for FPolarBear
@@ -30,7 +31,7 @@ public class FPolarBear extends PolarBear implements Female
     public FPolarBear()
     {
         super();
-        interbirthCount = 365; //TODO: Change this to a more realistic value
+        interbirthCount = 0;
     }
 
     /**

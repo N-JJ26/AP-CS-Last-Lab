@@ -6,20 +6,22 @@ import src.Animal.*;
  * Female Caribou
  *
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/27/2025
+ * @version 5/29/2025
  */
 public class FCaribou extends Caribou implements Female
 {
-    private static int totalLitters = 0;
     private static final int GESTATION_DURATION = 228;
     private static final int MAX_LITTER = 1;
     private static final double AVG_LITTER = 1.0;
     private static final int INTERBIRTH_DURATION = 365;
-    private int gestationCount;
+
+    private static int totalLitters = 0;
+    private static int totalBorn = 0;
+    
     private Animal[] litter;
-    private int totalBorn;
-    private boolean pregnant = false;
+    private int gestationCount;
     private int interbirthCount;
+    private boolean pregnant = false;
     
     /**
      * Default constructor for FCaribou
@@ -107,7 +109,7 @@ public class FCaribou extends Caribou implements Female
     {
         super.aging();
 
-       if(pregnant)
+        if(pregnant)
             gestationCount++;
         else
             interbirthCount++;
