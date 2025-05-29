@@ -74,7 +74,8 @@ public class Runner
 
     private static Animal[] shuffle(Animal[] animals)
     {
-        for(int i = 0; i < Runner.animals.length; i++) {
+        for(int i = 0; i < Runner.animals.length; i++)
+        {
             int index = (int)(Math.random() * animals.length);
             
             Animal temp = animals[i];
@@ -87,7 +88,8 @@ public class Runner
 
     private static Animal[] shufflePack(Animal[] animals, int packSize)
     {
-        for(int i = 0; i < Runner.animals.length; i++) {
+        for(int i = 0; i < Runner.animals.length; i++)
+        {
             int index = (int)(Math.random() * animals.length / packSize);
             
             Animal temp = animals[i];
