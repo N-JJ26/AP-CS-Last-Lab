@@ -7,8 +7,14 @@ import src.Animal.*;
 import src.Animal.Consumers.*;
 import src.Plants.Plant;
 import src.Plants.Producers.*;
-
-public class Runner {
+/**
+ * Runner
+ * 
+ * @author Nate Johnson, Austin Benedicto, Avi D.
+ * @version 5/27/2025
+ */
+public class Runner
+{
     private static final int NUM_PLANTS = 3;
     private static final int NUM_ANIMALS = 5;
 
@@ -27,7 +33,12 @@ public class Runner {
 
     private static Scanner in = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    /**
+     * Main method to start the simulation.
+     * It initializes the populations of plants and animals, and begins the simulation sequence.
+     */
+    public static void main(String[] args)
+    {
         beginningSequence();
     }
 
