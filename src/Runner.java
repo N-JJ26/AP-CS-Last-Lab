@@ -105,10 +105,13 @@ public class Runner
         for(Animal animal : animals)
             a.add(animal);
 
-        for(int i = 0; i < animals.length; i++)
+        for(int i = 0; i < animals.length; i++){
             if(!a.get(i).isAlive())
                 a.remove(i);
+        }
 
+        animals = (Animal[])a.toArray();
+        
         return animals;
     }
 }
