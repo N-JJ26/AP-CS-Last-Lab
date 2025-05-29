@@ -33,37 +33,32 @@ public class Runner {
 
     private static void beginningSequence()
     {
+        System.out.println("Welcome to Caribou Run Ranch\n" +
+                            "Please enter the amount of each population:\n");
+
         System.out.print("Plants (acres):\nArctic Daisies = ");
         plants[DAISY] = new ArcticDaisy(in.nextInt());
-        in.next();
 
         System.out.print("Arctic Willow = ");
         plants[WILLOW] = new ArcticWillow(in.nextInt());
-        in.next();
 
         System.out.print("Caribou Moss = ");
         plants[MOSS] = new CaribouMoss(in.nextInt());
-        in.next();
 
-        System.out.print("Animals (initial number of adults):\nArctic Foxes = ");
+        System.out.print("\nAnimals (initial number of adults):\nArctic Foxes = ");
         animals[FOX] = new ArcticFox[in.nextInt()];
-        in.next();
 
         System.out.print("Arctic Hares = ");
         animals[HARE] = new ArcticHare[in.nextInt()];
-        in.next();
 
         System.out.print("Caribous = ");
         animals[CARIBOU] = new Caribou[in.nextInt()];
-        in.next();
 
         System.out.print("Polar Bears = ");
         animals[POLAR_BEAR] = new PolarBear[in.nextInt()];
-        in.next();
 
         System.out.print("Tundra Wolves = ");
         animals[WOLF] = new TundraWolf[in.nextInt()];
-        in.next();
     }
 
     private static Animal[] shuffle(Animal[] animals)
