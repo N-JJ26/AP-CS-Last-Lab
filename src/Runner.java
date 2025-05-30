@@ -170,7 +170,7 @@ public class Runner
 
     
         for (int i = 0; i < females.size(); i++) {
-            Female f = (Female) females.get(i);
+            Female f = (Female)females.get(i);
             Animal[] babies = f.giveBirth();
             if (babies != null) {
                 for( int j = 0; j < babies.length; j++)
@@ -209,5 +209,12 @@ public class Runner
             }
         }
     }
+
+    private static void allEat(Animal[] animals)
+    {
+
+    }
+
+    /* WE MAY NEED SEPERATES FOR WOLF PACKS, AS THEY'RE DIFFERENT */
 }
 
