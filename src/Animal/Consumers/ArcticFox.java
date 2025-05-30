@@ -25,10 +25,11 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
 
     private static final double HUNTING_EFFICIENCY = 0.6;
     private static final double HUNTING_EFFICIENCY_RANGE = 0.14;
-    private static final int GRAMS_PER_DAY = 750;
 
     // 90% chance Arctic Fox will choose an animal over a plant (TODO)
     private static final double PROBABILITY_HUNT_ANIMAL = 0.9;
+
+    private final double GRAMS_PER_DAY;
 
     private boolean hasEaten;
     private int daysWithoutEating = 0;
@@ -44,6 +45,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
                 WEANING_AGE + ( int )( Math.random() * 11 ), ONSET_FERTILITY_MALE, MAX_LIFE_SPAN );
 
         gramsEaten = 0;
+        GRAMS_PER_DAY = this.massPerDay();
     }
 
     /**

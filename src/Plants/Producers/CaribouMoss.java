@@ -19,6 +19,6 @@ public class CaribouMoss extends Plant {
      */
     public CaribouMoss(int acres)
     {
-        super( (acres * INITIAL_MASS * POPULATION_DENSITY), GROWTH_RATE );
+        super( (int)(acres * INITIAL_MASS * POPULATION_DENSITY), GROWTH_RATE );
     }
 }

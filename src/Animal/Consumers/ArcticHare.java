@@ -18,7 +18,8 @@ public class ArcticHare extends Animal implements Herbivore
     private static final int WEANING_AGE = 120;
     private static final int ONSET_FERT_MALE = 680;
     private static final double MAX_LIFE_SPAN = 14.0;
-    private static final int GRAMS_PER_DAY = 350;
+
+    private final double GRAMS_PER_DAY;
 
     private boolean hasEaten;
     private int daysWithoutEating;
@@ -32,6 +33,7 @@ public class ArcticHare extends Animal implements Herbivore
 
         hasEaten = false;
         daysWithoutEating = 0;
+        GRAMS_PER_DAY = this.massPerDay();
     }
 
     /**

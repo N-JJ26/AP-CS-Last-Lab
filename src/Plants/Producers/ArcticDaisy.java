@@ -20,6 +20,6 @@ public class ArcticDaisy extends Plant
     public ArcticDaisy( int acres )
     {
         // acres * individual/acre * grams/individual = grams
-        super( (acres * INITIAL_MASS * POPULATION_DENSITY), GROWTH_RATE );
+        super( (int)(acres * INITIAL_MASS * POPULATION_DENSITY), GROWTH_RATE );
     }
 }

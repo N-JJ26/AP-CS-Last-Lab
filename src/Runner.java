@@ -1,5 +1,6 @@
 package src;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -40,6 +41,38 @@ public class Runner
     public static void main(String[] args)
     {
         beginningSequence();
+
+        for(int timesRan = 0; timesRan < 730; timesRan++)
+        {
+            for(int i = 0; i < plants.length; i++)
+            {
+                if(plants[i] != null)
+                    plants[i].grow();
+            }
+
+            for(int i = 0; i < animals.length; i++)
+            {
+                if(animals[i] != null)
+                {
+                    for(int j = 0; j < animals[i].length; j++)
+                    {
+                        if(animals[i][j] != null)
+                        {
+                            animals[i][j].aging();
+                        }
+                    }
+                }
+            }
+
+            for(int i = 0; i < animals.length; i++)
+            animals[i] = shuffle(animals[i]);
+
+            animals[WOLF_INDEX] = shufflePack(animals[WOLF_INDEX], TundraWolf.PACK_SIZE);
+
+            for(int i = 0; i < animals.length; i++)
+                animals[i] = removeDead(animals[i]);
+
+        }
     }
 
     private static void beginningSequence()
@@ -70,6 +103,8 @@ public class Runner
 
         System.out.print("Tundra Wolves = ");
         animals[WOLF_INDEX] = new TundraWolf[in.nextInt()];
+
+        
     }
 
     private static Animal[] shuffle(Animal[] animals)
@@ -88,13 +123,15 @@ public class Runner
 
     private static Animal[] shufflePack(Animal[] animals, int packSize)
     {
-        for(int i = 0; i < Runner.animals.length; i++)
+        for(int i = 0; i < animals.length; i += packSize)
         {
-            int index = (int)(Math.random() * animals.length / packSize);
+            for (int j = i; j < packSize; j++) {
+                int index = (int)(Math.random() * animals.length / packSize);
             
-            Animal temp = animals[i];
-            animals[i] = animals[index];
-            animals[index] = temp;
+                Animal temp = animals[i];
+                animals[i] = animals[index];
+                animals[index] = temp;
+            }
         }
 
         return animals;
@@ -113,7 +150,64 @@ public class Runner
         }
 
         animals = (Animal[])a.toArray();
-        
+
         return animals;
     }
+
+    private static Animal[] allBirths( Animal[] animals )
+    {
+        ArrayList<Animal> females = new ArrayList<Animal>();
+        ArrayList<Animal> allAnimals = new ArrayList<Animal>();
+
+    
+        for (int i = 0; i < animals.length; i++) {
+            Animal animal = animals[i];
+            allAnimals.add(animal);
+            if (animal instanceof Female) {
+                females.add(animal);
+            }
+        }
+
+    
+        for (int i = 0; i < females.size(); i++) {
+            Female f = (Female) females.get(i);
+            Animal[] babies = f.giveBirth();
+            if (babies != null) {
+                for( int j = 0; j < babies.length; j++)
+                    allAnimals.add(babies[i]);
+            }
+        }
+
+    
+        animals = (Animal[])allAnimals.toArray();
+
+        return animals;
+    }
+
+    private static void allReproduce(Animal[] animals)
+    {
+        boolean[] maleUsed = new boolean[animals.length];
+
+        for (int i = 0; i < animals.length; i++)
+        {
+            if (animals[i] instanceof Female)
+            {
+                Female female = (Female) animals[i];
+                for (int j = 0; j < animals.length; j++)
+                {
+                    if (!maleUsed[j]
+                        && animals[j] != null
+                        && !(animals[j] instanceof Female)
+    )
+                    {
+                        // Found an unused male of the same species
+                        female.reproduceWith(animals[j]);
+                        maleUsed[j] = true;
+                        break; // Move to next female
+                    }
+                }
+            }
+        }
+    }
 }
+
