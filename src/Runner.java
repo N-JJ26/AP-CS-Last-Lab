@@ -70,6 +70,18 @@ public class Runner
             animals[WOLF_INDEX] = shufflePack(animals[WOLF_INDEX], TundraWolf.PACK_SIZE);
 
             for(int i = 0; i < animals.length; i++)
+                herbivoresEat(animals[i]);
+
+            for(int i = 0; i < animals.length; i++)
+                carnivoresEat(animals[i]);
+
+            for(int i = 0; i < animals.length; i++)
+                allReproduce(animals[i]);
+
+            for(int i = 0; i < animals.length; i++)
+                allBirths(animals[i]);
+
+            for(int i = 0; i < animals.length; i++)
                 animals[i] = removeDead(animals[i]);
 
         }
