@@ -42,7 +42,11 @@ public class Runner
     {
         beginningSequence();
 
-        for(int timesRan = 0; timesRan < 730; timesRan++)
+        System.out.println("how many days do you want your simulation to run?");
+        int simulationDays = in.nextInt();
+        System.out.println("\nSimulation starting...");
+
+        for(int timesRan = 0; timesRan < simulationDays; timesRan++)
         {
             for(int i = 0; i < plants.length; i++)
             {
