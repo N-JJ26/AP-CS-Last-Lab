@@ -66,6 +66,11 @@ public class TundraWolf extends Animal implements Carnivore
         else
             System.out.println("Hunt Failed");
     }
+    //TODO: java doc
+    public boolean canEat(Animal a)
+    {
+        return (a instanceof Caribou || a instanceof ArcticHare || a instanceof ArcticFox);
+    }
 
     /**
      * Returns whether the hunt was successful.

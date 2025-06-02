@@ -58,6 +58,12 @@ public class Caribou extends Animal implements Herbivore
             hasEaten = true;
     }
 
+    //TODO: javadoc
+    public boolean canEat( Plant p )
+    {
+        return true;
+    }
+
     /**
      * Returns whether the animal isHungry
      *

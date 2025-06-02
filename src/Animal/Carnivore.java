@@ -3,8 +3,8 @@ package src.Animal;
 /**
  * Eats animals
  *
- * @author Mr. DeGroat and Mr. Bouchard
- * @version May 1, 2019
+ * @author Mr. DeGroat, Mr. Bouchard, Austin Benedicto
+ * @version 6/2/2025
  */
 public interface Carnivore
 {
@@ -27,4 +27,11 @@ public interface Carnivore
     public boolean wasHuntSuccessful();
     
     public boolean isHungry();
+
+    /**
+     * Determines if the carnivore can eat a specific animal.
+     * @param a is an Animal that is being checked
+     * @return true if the carnivore can eat the animal, false otherwise
+     */
+    public boolean canEat(Animal a);
 }

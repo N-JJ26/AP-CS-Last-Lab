@@ -60,6 +60,11 @@ public class PolarBear extends Animal implements Carnivore
             a.died();
         }
     }
+    //TODO: java doc
+    public boolean canEat(Animal a)
+    {
+        return (a instanceof TundraWolf || a instanceof ArcticFox || a instanceof ArcticHare || a instanceof Caribou);
+    }
 
     /**
      * Returns whether or not the hunt was successful as a boolean

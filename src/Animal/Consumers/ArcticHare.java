@@ -55,7 +55,13 @@ public class ArcticHare extends Animal implements Herbivore
         if( p.consumed( GRAMS_PER_DAY ) )
             hasEaten = true;
     }
-    
+
+    public boolean canEat(Plant p) 
+    {
+        // ArcticHares do not eat other animals
+        return true;
+    }
+
     /**
      * Returns whether the animal isHungry
      * 

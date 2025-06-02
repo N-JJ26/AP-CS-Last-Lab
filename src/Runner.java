@@ -107,61 +107,61 @@ public class Runner
         
     }
 
-    private static Animal[] shuffle(Animal[] animals)
+    private static Animal[] shuffle(Animal[] animalsToShuffle)
     {
-        for(int i = 0; i < Runner.animals.length; i++)
+        for(int i = 0; i < animalsToShuffle.length; i++)
         {
-            int index = (int)(Math.random() * animals.length);
-            
-            Animal temp = animals[i];
-            animals[i] = animals[index];
-            animals[index] = temp;
+            int index = (int)(Math.random() * animalsToShuffle.length);
+
+            Animal temp = animalsToShuffle[i];
+            animalsToShuffle[i] = animalsToShuffle[index];
+            animalsToShuffle[index] = temp;
         }
 
-        return animals;
+        return animalsToShuffle;
     }
 
-    private static Animal[] shufflePack(Animal[] animals, int packSize)
+    private static Animal[] shufflePack(Animal[] wolfShuffle, int packSize)
     {
-        for(int i = 0; i < animals.length; i += packSize)
+        for(int i = 0; i < wolfShuffle.length; i += packSize)
         {
             for (int j = i; j < packSize; j++) {
-                int index = (int)(Math.random() * animals.length / packSize);
-            
-                Animal temp = animals[i];
-                animals[i] = animals[index];
-                animals[index] = temp;
+                int index = (int)(Math.random() * wolfShuffle.length / packSize);
+
+                Animal temp = wolfShuffle[i];
+                wolfShuffle[i] = wolfShuffle[index];
+                wolfShuffle[index] = temp;
             }
         }
 
-        return animals;
+        return wolfShuffle;
     }
 
-    private static Animal[] removeDead(Animal[] animals)
+    private static Animal[] removeDead(Animal[] deadAnimals)
     {
         ArrayList<Animal> a = new ArrayList<Animal>();
 
-        for(Animal animal : animals)
+        for(Animal animal : deadAnimals)
             a.add(animal);
 
-        for(int i = 0; i < animals.length; i++){
+        for(int i = 0; i < deadAnimals.length; i++){
             if(!a.get(i).isAlive())
                 a.remove(i);
         }
 
-        animals = (Animal[])a.toArray();
+        deadAnimals = (Animal[])a.toArray();
 
-        return animals;
+        return deadAnimals;
     }
 
-    private static Animal[] allBirths( Animal[] animals )
+    private static Animal[] allBirths( Animal[] birthingAnimals )
     {
         ArrayList<Animal> females = new ArrayList<Animal>();
         ArrayList<Animal> allAnimals = new ArrayList<Animal>();
 
-    
-        for (int i = 0; i < animals.length; i++) {
-            Animal animal = animals[i];
+
+        for (int i = 0; i < birthingAnimals.length; i++) {
+            Animal animal = birthingAnimals[i];
             allAnimals.add(animal);
             if (animal instanceof Female) {
                 females.add(animal);
@@ -179,29 +179,29 @@ public class Runner
         }
 
     
-        animals = (Animal[])allAnimals.toArray();
+        birthingAnimals = (Animal[])allAnimals.toArray();
 
-        return animals;
+        return birthingAnimals;
     }
 
-    private static void allReproduce(Animal[] animals)
+    private static void allReproduce(Animal[] femaleAnimals)
     {
         boolean[] maleUsed = new boolean[animals.length];
 
-        for (int i = 0; i < animals.length; i++)
+        for (int i = 0; i < femaleAnimals.length; i++)
         {
-            if (animals[i] instanceof Female)
+            if (femaleAnimals[i] instanceof Female)
             {
-                Female female = (Female) animals[i];
+                Female female = (Female) femaleAnimals[i];
                 for (int j = 0; j < animals.length; j++)
                 {
                     if (!maleUsed[j]
-                        && animals[j] != null
-                        && !(animals[j] instanceof Female)
+                        && femaleAnimals[j] != null
+                        && !(femaleAnimals[j] instanceof Female)
     )
                     {
                         // Found an unused male of the same species
-                        female.reproduceWith(animals[j]);
+                        female.reproduceWith(femaleAnimals[j]);
                         maleUsed[j] = true;
                         break; // Move to next female
                     }
@@ -210,10 +210,53 @@ public class Runner
         }
     }
 
-    private static void allEat(Animal[] animals)
+    private static void herbivoresEat(Animal[] herbsEat)
     {
-
+        for (int i = 0; i < herbsEat.length; i++)
+        {
+            if (herbsEat[i] instanceof Herbivore)
+            {
+                Herbivore herbivore = (Herbivore) herbsEat[i];
+                // Collect edible plants for this herbivore
+                ArrayList<Plant> edible = new ArrayList<>();
+                for (Plant plant : plants) {
+                    if (herbivore.canEat(plant)) {
+                        edible.add(plant);
+                    }
+                }
+                if (!edible.isEmpty()) {
+                    Plant chosen = edible.get((int)(Math.random() * edible.size()));
+                    herbivore.eat(chosen);
+                }
+            }
+        }
     }
+
+    private static void carnivoresEat(Animal[] carnEat)
+    {
+        for (int i = 0; i < carnEat.length; i++)
+        {
+            if (carnEat[i] instanceof Carnivore)
+            {
+                Carnivore carnivore = (Carnivore) carnEat[i];
+                ArrayList<Animal> ediblePrey = new ArrayList<>();
+                // Loop through all animal arrays (species)
+               for (Animal[] species : animals) {
+                    if (species != null) {
+                        for (Animal prey : species) {
+                            if (prey != null && carnivore.canEat(prey) && prey.isAlive() && prey != carnivore) {
+                                ediblePrey.add(prey);
+                           }
+                      }
+                   }
+               }
+               if (!ediblePrey.isEmpty()) {
+                   Animal chosen = ediblePrey.get((int)(Math.random() * ediblePrey.size()));
+                   carnivore.eat(chosen);
+               }
+           }
+       }
+   }
 
     /* WE MAY NEED SEPERATES FOR WOLF PACKS, AS THEY'RE DIFFERENT */
 }

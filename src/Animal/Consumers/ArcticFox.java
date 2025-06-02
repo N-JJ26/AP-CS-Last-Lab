@@ -78,6 +78,11 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
             gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass();
     }
 
+    public boolean canEat( Animal a )
+    {
+        return a instanceof ArcticHare;
+    }
+
     /**
      * Simulates an ArcticFox eating a plant. TODO
      */
@@ -88,6 +93,16 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
             p.consumed(GRAMS_PER_DAY - gramsEaten);
             gramsEaten += GRAMS_PER_DAY;
         }
+    }
+    /**
+     * TODO: DO JAVA DOCS
+     * 
+     * @param p
+     * @return
+     */
+    public boolean canEat(Plant p)
+    {
+        return (p instanceof ArcticDaisy || p instanceof ArcticWillow);
     }
 
     /**
