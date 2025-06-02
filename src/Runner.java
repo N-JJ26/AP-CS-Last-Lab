@@ -144,7 +144,7 @@ public class Runner
         for(Animal animal : deadAnimals)
             a.add(animal);
 
-        for(int i = 0; i < deadAnimals.length; i++){
+        for(int i = deadAnimals.length - 1; i >= 0; i--){
             if(!a.get(i).isAlive())
                 a.remove(i);
         }
