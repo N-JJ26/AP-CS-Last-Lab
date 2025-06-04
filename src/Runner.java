@@ -32,6 +32,9 @@ public class Runner
     private static Plant[] plants = new Plant[NUM_PLANTS];
     private static Animal[][] animals = new Animal[NUM_ANIMALS][];
 
+    private static int months = 1;
+    private static int years = 1;
+
     private static Scanner in = new Scanner(System.in);
 
     /**
@@ -41,50 +44,8 @@ public class Runner
     public static void main(String[] args)
     {
         beginningSequence();
-
-        System.out.println("how many days do you want your simulation to run?");
-        int simulationDays = in.nextInt();
-        System.out.println("\nSimulation starting...");
-
-        for(int timesRan = 0; timesRan < simulationDays; timesRan++)
-        {
-            for(int i = 0; i < plants.length; i++)
-            {
-                if(plants[i] != null)
-                    plants[i].grow();
-            }
-
-            for(int i = 0; i < animals.length; i++)
-            {
-                if(animals[i] != null)
-                {
-                    for(int j = 0; j < animals[i].length; j++)
-                    {
-                        if(animals[i][j] != null)
-                        {
-                            animals[i][j].aging();
-                        }
-                    }
-                }
-            }
-
-            for(int i = 0; i < animals.length; i++)
-            animals[i] = shuffle(animals[i]);
-
-            animals[WOLF_INDEX] = shufflePack(animals[WOLF_INDEX], TundraWolf.PACK_SIZE);
-
-            
-
-            for(int i = 0; i < animals.length; i++)
-                allReproduce(animals[i]);
-
-            for(int i = 0; i < animals.length; i++)
-                allBirths(animals[i]);
-
-            for(int i = 0; i < animals.length; i++)
-                animals[i] = removeDead(animals[i]);
-
-        }
+        shuffleAll();
+        runSimulation();
     }
 
     private static void beginningSequence()
@@ -113,40 +74,66 @@ public class Runner
         System.out.print("Polar Bears = ");
         animals[POLAR_BEAR_INDEX] = new PolarBear[in.nextInt()];
 
-        System.out.print("Tundra Wolves = ");
+        System.out.print("Tundra Wolves (multiple of 6) = ");
         animals[WOLF_INDEX] = new TundraWolf[in.nextInt()];
 
-        
+        System.out.println();
+
+        information();
     }
 
-    private static Animal[] shuffle(Animal[] animalsToShuffle)
-    {
-        for(int i = 0; i < animalsToShuffle.length; i++)
-        {
-            int index = (int)(Math.random() * animalsToShuffle.length);
+    private static void runSimulation() {
 
-            Animal temp = animalsToShuffle[i];
-            animalsToShuffle[i] = animalsToShuffle[index];
-            animalsToShuffle[index] = temp;
+    }
+
+    private static void information() {
+        System.out.printf("Daisies: %d percent; Willows: %d percent; Moss %d percent\n",
+                        plants[DAISY_INDEX].getPercentRemaining(),
+                        plants[WILLOW_INDEX].getPercentRemaining(),
+                        plants[MOSS_INDEX].getPercentRemaining());
+        System.out.printf("Foxes %d; Hares %d; Caribous %d; Polar Bears %d; Wolves %d\n",
+                        animals[FOX_INDEX].length,
+                        animals[HARE_INDEX].length,
+                        animals[CARIBOU_INDEX].length,
+                        animals[POLAR_BEAR_INDEX].length,
+                        animals[WOLF_INDEX].length);
+    }
+
+    private static Animal[] shuffle(Animal[] animals)
+    {
+        for(int i = 0; i < animals.length; i++)
+        {
+            int index = (int)(Math.random() * animals.length);
+
+            Animal temp = animals[i];
+            animals[i] = animals[index];
+            animals[index] = temp;
         }
 
-        return animalsToShuffle;
+        return animals;
     }
 
-    private static Animal[] shufflePack(Animal[] wolfShuffle, int packSize)
+    private static Animal[] shufflePack(Animal[] animals, int packSize)
     {
-        for(int i = 0; i < wolfShuffle.length; i += packSize)
+        for(int i = 0; i < animals.length; i += packSize)
         {
             for (int j = i; j < packSize; j++) {
-                int index = (int)(Math.random() * wolfShuffle.length / packSize);
+                int index = (int)(Math.random() * animals.length / packSize);
 
-                Animal temp = wolfShuffle[i];
-                wolfShuffle[i] = wolfShuffle[index];
-                wolfShuffle[index] = temp;
+                Animal temp = animals[i];
+                animals[i] = animals[index];
+                animals[index] = temp;
             }
         }
 
-        return wolfShuffle;
+        return animals;
+    }
+
+    private static void shuffleAll() {
+        for(int i = 0; i < animals.length - 1; i++) {
+            shuffle(animals[i]);
+        }
+        shufflePack(animals[WOLF_INDEX], TundraWolf.PACK_SIZE);
     }
 
     private static Animal[] removeDead(Animal[] deadAnimals)
