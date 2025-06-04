@@ -72,15 +72,14 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     /**
      * Simulates an ArcticFox eating another Animal. TODO
      */
-    public void eat( Animal a )
+    public boolean eat( Animal a )
     {
-        if( isHungry() && wasHuntSuccessful() && a instanceof ArcticHare)
+        if( isHungry() && wasHuntSuccessful() && a instanceof ArcticHare) {
             gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass();
-    }
-
-    public boolean canEat( Animal a )
-    {
-        return a instanceof ArcticHare;
+            a.died();
+            return true;
+        }
+        return false;
     }
 
     /**

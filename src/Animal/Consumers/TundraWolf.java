@@ -55,21 +55,16 @@ public class TundraWolf extends Animal implements Carnivore
     /**
      * Simulates a TundraWolf eating an Animal.
      */
-    public void eat(Animal a)
+    public boolean eat(Animal a)
     {
         if(wasHuntSuccessful() && isHungry() &&
             (a instanceof Caribou || a instanceof ArcticHare || a instanceof ArcticFox))
         {
             gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass() / PACK_SIZE;
             a.died();
+            return true;
         }
-        else
-            System.out.println("Hunt Failed");
-    }
-    //TODO: java doc
-    public boolean canEat(Animal a)
-    {
-        return (a instanceof Caribou || a instanceof ArcticHare || a instanceof ArcticFox);
+        return false;
     }
 
     /**

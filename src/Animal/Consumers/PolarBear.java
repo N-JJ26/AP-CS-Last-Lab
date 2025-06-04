@@ -10,17 +10,15 @@ import src.Animal.Carnivore;
  * @author Austin Benedicto, Avi Dasgupta
  * @version 5/27/2025
  */
-
- //TODO: ADD IN SOME OTHER STUFF
 public class PolarBear extends Animal implements Carnivore
 {
-    private static final int DAYS_WITHOUT_FOOD = 9999; //TODO
+    private static final int DAYS_WITHOUT_FOOD = 183;
     private static final int BODY_MASS_NEW_BORN = 600;
     private static final int BODY_MASS_ADULT = 500000;
     private static final int WEANING_AGE = 900;
     private static final int ONSET_FERT_MALE = 2190;
     private static final double MAX_LIFE_SPAN = 30 * (365); // in years
-    private static final double HUNTING_EFFICIENCY = 0.02;
+    private static final double HUNTING_EFFICIENCY = 0.2;
 
     private int daysWithoutEating;
     private double gramsEaten;
@@ -51,19 +49,16 @@ public class PolarBear extends Animal implements Carnivore
      * Determines whether or not the hunt was successful,
      *  based of a chance between 60 and 73 percent
      */
-    public void eat(Animal a)
+    public boolean eat(Animal a)
     {
         if(wasHuntSuccessful() && isHungry() && (a instanceof TundraWolf || a instanceof ArcticFox ||
                         a instanceof ArcticHare || a instanceof Caribou))
         {
             gramsEaten = TROPHIC_EFFICIENCY_RULE * a.getCarcass();
             a.died();
+            return true;
         }
-    }
-    //TODO: java doc
-    public boolean canEat(Animal a)
-    {
-        return (a instanceof TundraWolf || a instanceof ArcticFox || a instanceof ArcticHare || a instanceof Caribou);
+        return false;
     }
 
     /**

@@ -12,8 +12,9 @@ public interface Carnivore
      * Eats only animals
      *
      * @param a is an Animal that is eaten
+     * @return whether this Animal ate the other
      */
-    public void eat( Animal a );
+    public boolean eat( Animal a );
     
     /**
      * Sets the hunting ability of a Carnivore for an accuracy based on the Animal
@@ -27,11 +28,4 @@ public interface Carnivore
     public boolean wasHuntSuccessful();
     
     public boolean isHungry();
-
-    /**
-     * Determines if the carnivore can eat a specific animal.
-     * @param a is an Animal that is being checked
-     * @return true if the carnivore can eat the animal, false otherwise
-     */
-    public boolean canEat(Animal a);
 }
