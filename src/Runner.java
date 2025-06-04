@@ -29,6 +29,8 @@ public class Runner
     private static final int POLAR_BEAR_INDEX = 3;
     private static final int WOLF_INDEX = 4;
 
+    private static final int HUNTS_PER_DAY = 3;
+
     private static Plant[] plants = new Plant[NUM_PLANTS];
     private static Animal[][] animals = new Animal[NUM_ANIMALS][];
 
@@ -83,7 +85,7 @@ public class Runner
     }
 
     private static void runSimulation() {
-
+        
     }
 
     private static void information() {
@@ -177,7 +179,6 @@ public class Runner
             }
         }
 
-    
         birthingAnimals = (Animal[])allAnimals.toArray();
 
         return birthingAnimals;
@@ -197,7 +198,7 @@ public class Runner
                     if (!maleUsed[j]
                         && femaleAnimals[j] != null
                         && !(femaleAnimals[j] instanceof Female)
-    )
+                        )
                     {
                         // Found an unused male of the same species
                         female.reproduceWith(femaleAnimals[j]);
@@ -209,8 +210,29 @@ public class Runner
         }
     }
 
-    private static void eat() {
-
+    private static void eatHerbivore( Animal[] animals )
+    {
+        for( int i = 0; i < animals.length; i++ ) {
+            int index = 0;
+            while(index < plants.length);
+                if(animals instanceof ArcticFox[]) {
+                    ArcticFox f = (ArcticFox)(animals[i]);
+                    if(!f.eat(plants[index])) {
+                        index++;
+                        continue;
+                    }
+                    f.eat(plants[i]);
+                    break;
+                }
+                else {
+                    Herbivore h = (Herbivore)(animals[i]);
+                    if(!h.eat(plants[index])) {
+                        index++;
+                        continue;
+                    }
+                    h.eat(plants[i]);
+                    break;
+                }
+        }
     }
 }
-

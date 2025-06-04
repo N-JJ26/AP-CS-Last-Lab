@@ -3,8 +3,8 @@ package src.Animal;
 /**
  * Eats animals
  *
- * @author Mr. DeGroat, Mr. Bouchard, Austin Benedicto
- * @version 6/2/2025
+ * @author Mr. DeGroat, Mr. Bouchard, Austin Benedicto, Nate Johnson
+ * @version 6/4/2025
  */
 public interface Carnivore
 {

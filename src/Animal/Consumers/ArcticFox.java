@@ -26,8 +26,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     private static final double HUNTING_EFFICIENCY = 0.6;
     private static final double HUNTING_EFFICIENCY_RANGE = 0.14;
 
-    // 90% chance Arctic Fox will choose an animal over a plant (TODO)
-    private static final double PROBABILITY_HUNT_ANIMAL = 0.9;
+    private static final double PROBABILITY_HUNT_ANIMAL = 0.5;
 
     private final double GRAMS_PER_DAY;
 
@@ -35,6 +34,12 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     private int daysWithoutEating = 0;
 
     private int gramsEaten;
+
+    /** The two choices for an arctic fox in th eating phase of the simulation */
+    public enum Choice {
+        HERBIVORE,
+        CARNIVORE
+    }
 
     /**
      * Constructs an Arctic Fox object via Animal().
@@ -108,17 +113,16 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     }
 
     /**
-     * Decides whether an ArcticFox hunts for plants or animals. TODO (as of now 1:9)
+     * Decides whether an ArcticFox hunts for plants or animals.
      * 
      * @return '0' if going after an animal or '1' if after a plant
      */
-    public int choose()
+    public Choice choose(Animal a, Plant p)
     {
         if( (Math.random() ) > PROBABILITY_HUNT_ANIMAL )
-            return( 1 );
+            return Choice.HERBIVORE;
         else
-            return( 0 );
-        
+            return Choice.CARNIVORE;
     }
 
     /**
