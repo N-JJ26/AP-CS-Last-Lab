@@ -52,16 +52,13 @@ public class Caribou extends Animal implements Herbivore
     /**
      * Simulates a Caribou eating another plant.
      */
-    public void eat( Plant p )
+    public boolean eat( Plant p )
     {
-        if( p.consumed( GRAMS_PER_DAY ) )
+        if( p.consumed( GRAMS_PER_DAY ) ) {
             hasEaten = true;
-    }
-
-    //TODO: javadoc
-    public boolean canEat( Plant p )
-    {
-        return true;
+            return true;
+        }
+        return false;
     }
 
     /**

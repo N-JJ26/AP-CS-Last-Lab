@@ -15,14 +15,6 @@ public interface Herbivore
      * 
      * @param p is a Plant that is eaten
      */
-    public void eat( Plant p );
-
-    /**
-     * Determines if the herbivore can eat a specific plant.
-     *
-     * @param p is a Plant that is being checked
-     * @return true if the herbivore can eat the plant, false otherwise
-     */
-    public boolean canEat(Plant p);
+    public boolean eat( Plant p );
 }
 

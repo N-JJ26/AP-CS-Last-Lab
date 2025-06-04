@@ -73,11 +73,7 @@ public class Runner
 
             animals[WOLF_INDEX] = shufflePack(animals[WOLF_INDEX], TundraWolf.PACK_SIZE);
 
-            for(int i = 0; i < animals.length; i++)
-                herbivoresEat(animals[i]);
-
-            for(int i = 0; i < animals.length; i++)
-                carnivoresEat(animals[i]);
+            
 
             for(int i = 0; i < animals.length; i++)
                 allReproduce(animals[i]);
@@ -226,54 +222,8 @@ public class Runner
         }
     }
 
-    private static void herbivoresEat(Animal[] herbsEat)
-    {
-        for (int i = 0; i < herbsEat.length; i++)
-        {
-            if (herbsEat[i] instanceof Herbivore)
-            {
-                Herbivore herbivore = (Herbivore) herbsEat[i];
-                // Collect edible plants for this herbivore
-                ArrayList<Plant> edible = new ArrayList<>();
-                for (Plant plant : plants) {
-                    if (herbivore.canEat(plant)) {
-                        edible.add(plant);
-                    }
-                }
-                if (!edible.isEmpty()) {
-                    Plant chosen = edible.get((int)(Math.random() * edible.size()));
-                    herbivore.eat(chosen);
-                }
-            }
-        }
+    private static void eat() {
+
     }
-
-    private static void carnivoresEat(Animal[] carnEat)
-    {
-        for (int i = 0; i < carnEat.length; i++)
-        {
-            if (carnEat[i] instanceof Carnivore)
-            {
-                Carnivore carnivore = (Carnivore) carnEat[i];
-                ArrayList<Animal> ediblePrey = new ArrayList<>();
-                // Loop through all animal arrays (species)
-               for (Animal[] species : animals) {
-                    if (species != null) {
-                        for (Animal prey : species) {
-                            if (prey != null && carnivore.canEat(prey) && prey.isAlive() && prey != carnivore) {
-                                ediblePrey.add(prey);
-                           }
-                      }
-                   }
-               }
-               if (!ediblePrey.isEmpty()) {
-                   Animal chosen = ediblePrey.get((int)(Math.random() * ediblePrey.size()));
-                   carnivore.eat(chosen);
-               }
-           }
-       }
-   }
-
-    /* WE MAY NEED SEPERATES FOR WOLF PACKS, AS THEY'RE DIFFERENT */
 }
 

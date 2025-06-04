@@ -50,16 +50,13 @@ public class ArcticHare extends Animal implements Herbivore
     /**
      * Simulates an ArcticHare eating another plant.
      */
-    public void eat(Plant p) 
+    public boolean eat(Plant p) 
     {
-        if( p.consumed( GRAMS_PER_DAY ) )
+        if( p.consumed( GRAMS_PER_DAY ) ) {
             hasEaten = true;
-    }
-
-    public boolean canEat(Plant p) 
-    {
-        // ArcticHares do not eat other animals
-        return true;
+            return true;
+        }
+        return false;
     }
 
     /**

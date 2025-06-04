@@ -85,23 +85,15 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     /**
      * Simulates an ArcticFox eating a plant. TODO
      */
-    public void eat( Plant p )
+    public boolean eat( Plant p )
     {
         if( isHungry() && (p instanceof ArcticDaisy || p instanceof ArcticWillow))
         {
             p.consumed(GRAMS_PER_DAY - gramsEaten);
             gramsEaten += GRAMS_PER_DAY;
+            return true;
         }
-    }
-    /**
-     * TODO: DO JAVA DOCS
-     * 
-     * @param p
-     * @return
-     */
-    public boolean canEat(Plant p)
-    {
-        return (p instanceof ArcticDaisy || p instanceof ArcticWillow);
+        return false;
     }
 
     /**
