@@ -80,8 +80,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
      */
     public boolean eat( Animal a )
     {
-        if( isHungry() && wasHuntSuccessful() && a instanceof ArcticHare)
-        {
+        if( a.isAlive() && isHungry() && wasHuntSuccessful() && a instanceof ArcticHare) {
             gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass();
             a.died();
             return true;
