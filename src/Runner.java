@@ -143,6 +143,41 @@ public class Runner
         }
     }
 
+    private static void reassignIndex()
+    {
+        int index = 0;
+        while( animals[index][0] instanceof ArcticFox && index < animals.length )
+        {
+            foxIndex++;
+            index++;
+        }
+        index = 0;
+        while( animals[index][0] instanceof ArcticHare && index < animals.length )
+        {
+            hareIndex++;
+            index++;
+        }
+        index = 0;
+        while( animals[index][0] instanceof Caribou && index < animals.length )
+        {
+            caribouIndex++;
+            index++;
+        }
+        index = 0;
+        while( animals[index][0] instanceof PolarBear && index < animals.length )
+        {
+            polarBearIndex++;
+            index++;
+        }
+        index = 0;
+        while( animals[index][0] instanceof TundraWolf && index < animals.length )
+        {
+            wolfIndex++;
+            index++;
+        }
+        index = 0;
+    }
+
     private static void shuffleAll() {
         for(int i = 0; i < animals.length - 1; i++) {
             shuffle(animals[i]);
