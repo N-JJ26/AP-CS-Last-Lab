@@ -113,16 +113,16 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     }
 
     /**
-     * Decides whether an ArcticFox hunts for plants or animals.
+     * Decides whether an ArcticFox hunts for plants or animals, and calls the respective method.
      * 
-     * @return '0' if going after an animal or '1' if after a plant
+     * @return true if hunt was successfull, false otherwise
      */
-    public Choice choose(Animal a, Plant p)
+    public boolean choose(Animal a, Plant p)
     {
         if( (Math.random() ) > PROBABILITY_HUNT_ANIMAL )
-            return Choice.HERBIVORE;
+            return eat( p );
         else
-            return Choice.CARNIVORE;
+            return eat( a );
     }
 
     /**

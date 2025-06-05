@@ -209,30 +209,41 @@ public class Runner
             }
         }
     }
-
-    private static void eatHerbivore( Animal[] animals )
+    /**
+     * Note that this is untested as hell (but so is half of runner lmao)
+     * 
+     * @param animals animals or smn idk
+     */
+    private static void eat( Animal[] animals )
     {
-        for( int i = 0; i < animals.length; i++ ) {
-            int index = 0;
-            while(index < plants.length);
-                if(animals instanceof ArcticFox[]) {
+        for( int i = 0; i < animals.length; i++ ) 
+        {
+            if(animals instanceof ArcticFox[]) 
+            {
+                int index = 0;
+                while(index < plants.length)
+                {
                     ArcticFox f = (ArcticFox)(animals[i]);
-                    if(!f.eat(plants[index])) {
+                    if(!f.choose(animals[index], plants[index]))
+                    {
                         index++;
                         continue;
                     }
-                    f.eat(plants[i]);
-                    break;
+                break;
                 }
-                else {
-                    Herbivore h = (Herbivore)(animals[i]);
-                    if(!h.eat(plants[index])) {
-                        index++;
-                        continue;
-                    }
-                    h.eat(plants[i]);
-                    break;
-                }
+            }
+            else if( animals[i] instanceof Carnivore )
+            {
+                Carnivore c = (Carnivore)(animals[i]);
+                c.eat(animals[i]);
+                break;
+            }
+            else 
+            {
+                Herbivore h = (Herbivore)(animals[i]);
+                h.eat(plants[i]);
+                break;
+            }
         }
     }
 }
