@@ -19,20 +19,20 @@ public class Runner
     private static final int NUM_PLANTS = 3;
     private static final int NUM_ANIMALS = 5;
 
-    private static final int DAISY_INDEX = 0;
-    private static final int WILLOW_INDEX = 1;
-    private static final int MOSS_INDEX = 2;
-
-    private static final int FOX_INDEX = 0;
-    private static final int HARE_INDEX = 1;
-    private static final int CARIBOU_INDEX = 2;
-    private static final int POLAR_BEAR_INDEX = 3;
-    private static final int WOLF_INDEX = 4;
-
     private static final int HUNTS_PER_DAY = 3;
 
     private static Plant[] plants = new Plant[NUM_PLANTS];
     private static Animal[][] animals = new Animal[NUM_ANIMALS][];
+
+    private static int daisyIndex = 0;
+    private static int willowIndex = 1;
+    private static int mossIndex = 2;
+
+    private static int foxIndex = 0;
+    private static int hareIndex = 1;
+    private static int caribouIndex = 2;
+    private static int polarBearIndex = 3;
+    private static int wolfIndex = 4;
 
     private static int months = 1;
     private static int years = 1;
@@ -56,28 +56,28 @@ public class Runner
                             "Please enter the amount of each population:\n");
 
         System.out.print("Plants (acres):\nArctic Daisies = ");
-        plants[DAISY_INDEX] = new ArcticDaisy(in.nextInt());
+        plants[daisyIndex] = new ArcticDaisy(in.nextInt());
 
         System.out.print("Arctic Willow = ");
-        plants[WILLOW_INDEX] = new ArcticWillow(in.nextInt());
+        plants[willowIndex] = new ArcticWillow(in.nextInt());
 
         System.out.print("Caribou Moss = ");
-        plants[MOSS_INDEX] = new CaribouMoss(in.nextInt());
+        plants[mossIndex] = new CaribouMoss(in.nextInt());
 
         System.out.print("\nAnimals (initial number of adults):\nArctic Foxes = ");
-        animals[FOX_INDEX] = new ArcticFox[in.nextInt()];
+        animals[foxIndex] = new ArcticFox[in.nextInt()];
 
         System.out.print("Arctic Hares = ");
-        animals[HARE_INDEX] = new ArcticHare[in.nextInt()];
+        animals[hareIndex] = new ArcticHare[in.nextInt()];
 
         System.out.print("Caribous = ");
-        animals[CARIBOU_INDEX] = new Caribou[in.nextInt()];
+        animals[caribouIndex] = new Caribou[in.nextInt()];
 
         System.out.print("Polar Bears = ");
-        animals[POLAR_BEAR_INDEX] = new PolarBear[in.nextInt()];
+        animals[polarBearIndex] = new PolarBear[in.nextInt()];
 
         System.out.print("Tundra Wolves (multiple of 6) = ");
-        animals[WOLF_INDEX] = new TundraWolf[in.nextInt()];
+        animals[wolfIndex] = new TundraWolf[in.nextInt()];
 
         System.out.println();
 
@@ -90,15 +90,15 @@ public class Runner
 
     private static void information() {
         System.out.printf("Daisies: %d percent; Willows: %d percent; Moss %d percent\n",
-                        plants[DAISY_INDEX].getPercentRemaining(),
-                        plants[WILLOW_INDEX].getPercentRemaining(),
-                        plants[MOSS_INDEX].getPercentRemaining());
+                        plants[daisyIndex].getPercentRemaining(),
+                        plants[willowIndex].getPercentRemaining(),
+                        plants[mossIndex].getPercentRemaining());
         System.out.printf("Foxes %d; Hares %d; Caribous %d; Polar Bears %d; Wolves %d\n",
-                        animals[FOX_INDEX].length,
-                        animals[HARE_INDEX].length,
-                        animals[CARIBOU_INDEX].length,
-                        animals[POLAR_BEAR_INDEX].length,
-                        animals[WOLF_INDEX].length);
+                        animals[foxIndex].length,
+                        animals[hareIndex].length,
+                        animals[caribouIndex].length,
+                        animals[polarBearIndex].length,
+                        animals[wolfIndex].length);
     }
 
     private static Animal[] shuffle(Animal[] animals)
@@ -131,11 +131,24 @@ public class Runner
         return animals;
     }
 
+    private static void shuffleAnimals()
+    {
+        for( int i = 0; i < animals.length; i++ )
+        {
+            int index = ( int )( Math.random() * NUM_ANIMALS);
+
+            Animal[] temp = animals[i];
+            animals[i] = animals[index];
+            animals[index] = temp;
+        }
+    }
+
     private static void shuffleAll() {
         for(int i = 0; i < animals.length - 1; i++) {
             shuffle(animals[i]);
         }
-        shufflePack(animals[WOLF_INDEX], TundraWolf.PACK_SIZE);
+        shufflePack(animals[wolfIndex], TundraWolf.PACK_SIZE);
+        shuffleAnimals();
     }
 
     private static Animal[] removeDead(Animal[] deadAnimals)
@@ -244,6 +257,25 @@ public class Runner
                 h.eat(plants[i]);
                 break;
             }
+        }
+    }
+
+    private static void runCarnivore( Carnivore carn, Animal a )
+    {
+        if( carn instanceof ArcticFox )
+        {
+            ArcticFox fox = ( ArcticFox )( carn );
+            fox.eat( a );
+        }
+        else if( carn instanceof PolarBear )
+        {
+            PolarBear bear = ( PolarBear )( carn );
+            bear.eat( a );
+        }
+        else if( carn instanceof TundraWolf )
+        {
+            TundraWolf wolf = ( TundraWolf )( carn );
+            wolf.eat( a );
         }
     }
 }
