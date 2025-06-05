@@ -7,7 +7,7 @@ import src.Animal.Carnivore;
  * PolarBear class represents a carnivorous animal that can be found in the Arctic region.
  * It extends the Animal class and implements the Carnivore interface.
  * 
- * @author Austin Benedicto, Avi Dasgupta
+ * @author Austin Benedicto, Avi Dasgupta, Nate Johnson
  * @version 6/5/2025
  */
 public class PolarBear extends Animal implements Carnivore
@@ -25,7 +25,8 @@ public class PolarBear extends Animal implements Carnivore
     private final double GRAMS_PER_DAY;
 
     /**
-     * Constructs a PolarBear object via Animal().
+     * Constructs a PolarBear object with default newborn values.
+     * Initializes the polar bear's mass, age, and other biological parameters.
      */
     public PolarBear()
     {
@@ -35,7 +36,10 @@ public class PolarBear extends Animal implements Carnivore
     }
 
     /**
-     * Initializes a PolarBear with an age input
+     * Initializes a PolarBear with a specified initial age.
+     * Ages the polar bear by the given number of days without consequences.
+     *
+     * @param age the initial age (in days) of the Polar Bear
      */
     public PolarBear(int age)
     {
