@@ -5,22 +5,21 @@ import src.Animal.Carnivore;
 
 /**
  * TundraWolf class represents a carnivorous animal that can be found in the Arctic region.
- * It extends the Animal class and implements the Carnivore interface.
+ * This class models the biological and behavioral characteristics of the Tundra Wolf,
+ * including its pack hunting, hunger, and survival logic.
  * 
  * @author Austin Benedicto, Avi Dasgupta, Nathaniel Johnson
  * @version 6/5/2025
  */
 public class TundraWolf extends Animal implements Carnivore
 {
-    /** how many TundraWolfs are in a pack */
     public static final int PACK_SIZE = 6;
 
-    private static final int DAYS_WITHOUT_FOOD = 999; //TODO
+    private static final int DAYS_WITHOUT_FOOD = 28;
     private static final int BODY_MASS_NEW_BORN = 450;
     private static final int BODY_MASS_ADULT = 26625;
     private static final int ONSET_FERT_MALE = 669;
-    private static final double MAX_LIFE_SPAN = 7 * (365); // in years
-    //private static final int WEANING_AGE = 120; //TODO
+    private static final double MAX_LIFE_SPAN = 7 * (365);
     private static final double HUNTING_EFFICIENCY = 0.2;
     
     private int daysWithoutEating;
@@ -28,8 +27,9 @@ public class TundraWolf extends Animal implements Carnivore
     private final double GRAMS_PER_DAY;
 
     /**
-     * Constructs a TundraWolf object, incrementing the total number of Animals and total live Animals;
-     *  sets the maximum life span of an Animal as well as body masses
+     * Constructs a TundraWolf object with randomized weaning age,
+     * initializing its biological parameters and daily food requirements.
+     * Increments the total number of Animals and total live Animals.
      */
     public TundraWolf()
     {
@@ -42,7 +42,10 @@ public class TundraWolf extends Animal implements Carnivore
     }
 
     /**
-     * Initializes a TundraWolf with an age input
+     * Initializes a TundraWolf with a specified initial age.
+     * Ages the wolf by the given number of days without consequences.
+     *
+     * @param age the initial age (in days) of the Tundra Wolf
      */
     public TundraWolf(int age)
     {
