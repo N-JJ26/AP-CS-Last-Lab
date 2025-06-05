@@ -12,7 +12,7 @@ import src.Plants.Producers.ArcticWillow;
  * The Arctic Fox in the Tundra biome
  *
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/27/2025
+ * @version 6/5/2025
  */
 public class ArcticFox extends Animal implements Carnivore, Herbivore
 {
@@ -36,7 +36,8 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     private int gramsEaten;
 
     /** The two choices for an arctic fox in th eating phase of the simulation */
-    public enum Choice {
+    public enum Choice
+    {
         HERBIVORE,
         CARNIVORE
     }
@@ -75,7 +76,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     }
 
     /**
-     * Simulates an ArcticFox eating another Animal. TODO
+     * Simulates an ArcticFox eating another Animal.
      */
     public boolean eat( Animal a )
     {
@@ -88,7 +89,7 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     }
 
     /**
-     * Simulates an ArcticFox eating a plant. TODO
+     * Simulates an ArcticFox eating a plant.
      */
     public boolean eat( Plant p )
     {
@@ -132,7 +133,8 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     {
         super.aging();
 
-        if(hasEaten) {
+        if(hasEaten)
+        {
             hasEaten = false;
             daysWithoutEating = 0;
         }

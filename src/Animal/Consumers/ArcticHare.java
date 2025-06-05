@@ -7,8 +7,8 @@ import src.Plants.Plant;
 /**
  * The Arctic Hare in the tundra biome
  *
- * @author Nate Johnson, Avi D.
- * @version 5/27/2025
+ * @author Nate Johnson, Avi D., Austin Benedicto
+ * @version 6/5/2025
  */
 public class ArcticHare extends Animal implements Herbivore
 {
@@ -52,7 +52,8 @@ public class ArcticHare extends Animal implements Herbivore
      */
     public boolean eat(Plant p) 
     {
-        if( p.consumed( GRAMS_PER_DAY ) ) {
+        if( p.consumed( GRAMS_PER_DAY ) )
+        {
             hasEaten = true;
             return true;
         }
@@ -76,7 +77,8 @@ public class ArcticHare extends Animal implements Herbivore
     {
         super.aging();
 
-        if(hasEaten) {
+        if(hasEaten)
+        {
             hasEaten = false;
             daysWithoutEating = 0;
         }
