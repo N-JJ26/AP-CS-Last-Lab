@@ -3,8 +3,8 @@ package src.Animal;
 /**
  * abstract Animal keeps track of all Animal objects and aging
  *
- * @author Nate Johnson, Austin Benedicto
- * @version 5/22/2025
+ * @author Nate Johnson, Austin Benedicto, Avi Dasgupta
+ * @version 6/5/2025
  */
 public abstract class Animal
 {
@@ -63,12 +63,14 @@ public abstract class Animal
             this.died();
     }
 
-/**
+    /**
      * Ages the Animal by one day WITHOUT killing the animal
      */
     public void agingWithoutConsequence()
     {
         age++;
+        if(age > maxLifeSpan)
+            this.died();
     }
 
     /**
