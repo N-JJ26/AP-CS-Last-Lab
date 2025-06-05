@@ -36,7 +36,8 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     private int gramsEaten;
 
     /** The two choices for an arctic fox in th eating phase of the simulation */
-    public enum Choice {
+    public enum Choice
+    {
         HERBIVORE,
         CARNIVORE
     }
@@ -79,7 +80,8 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
      */
     public boolean eat( Animal a )
     {
-        if( isHungry() && wasHuntSuccessful() && a instanceof ArcticHare) {
+        if( isHungry() && wasHuntSuccessful() && a instanceof ArcticHare)
+        {
             gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass();
             a.died();
             return true;
@@ -132,7 +134,8 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     {
         super.aging();
 
-        if(hasEaten) {
+        if(hasEaten)
+        {
             hasEaten = false;
             daysWithoutEating = 0;
         }

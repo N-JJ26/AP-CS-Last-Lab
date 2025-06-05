@@ -54,7 +54,8 @@ public class Caribou extends Animal implements Herbivore
      */
     public boolean eat( Plant p )
     {
-        if( p.consumed( GRAMS_PER_DAY ) ) {
+        if( p.consumed( GRAMS_PER_DAY ) )
+        {
             hasEaten = true;
             return true;
         }

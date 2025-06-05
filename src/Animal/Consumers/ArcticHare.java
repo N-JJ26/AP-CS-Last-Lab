@@ -52,7 +52,8 @@ public class ArcticHare extends Animal implements Herbivore
      */
     public boolean eat(Plant p) 
     {
-        if( p.consumed( GRAMS_PER_DAY ) ) {
+        if( p.consumed( GRAMS_PER_DAY ) )
+        {
             hasEaten = true;
             return true;
         }
@@ -76,7 +77,8 @@ public class ArcticHare extends Animal implements Herbivore
     {
         super.aging();
 
-        if(hasEaten) {
+        if(hasEaten)
+        {
             hasEaten = false;
             daysWithoutEating = 0;
         }

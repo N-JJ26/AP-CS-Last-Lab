@@ -94,7 +94,8 @@ public class TundraWolf extends Animal implements Carnivore
     {
         super.aging();
 
-        if(isHungry()) {
+        if(isHungry())
+        {
             daysWithoutEating = 0;
         }
         else
