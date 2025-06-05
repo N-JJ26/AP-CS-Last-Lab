@@ -13,8 +13,6 @@ import src.Animal.Carnivore;
  */
 public class TundraWolf extends Animal implements Carnivore
 {
-    public static final int PACK_SIZE = 6;
-
     private static final int DAYS_WITHOUT_FOOD = 28;
     private static final int BODY_MASS_NEW_BORN = 450;
     private static final int BODY_MASS_ADULT = 26625;
@@ -63,7 +61,7 @@ public class TundraWolf extends Animal implements Carnivore
         if(isAlive() && wasHuntSuccessful() && isHungry() &&
             (a instanceof Caribou || a instanceof ArcticHare || a instanceof ArcticFox))
         {
-            gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass() / PACK_SIZE;
+            gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass();
             a.died();
             return true;
         }

@@ -1,6 +1,5 @@
 package src;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -115,22 +114,6 @@ public class Runner
         return animals;
     }
 
-    private static Animal[] shufflePack(Animal[] animals, int packSize)
-    {
-        for(int i = 0; i < animals.length; i += packSize)
-        {
-            for (int j = i; j < packSize; j++) {
-                int index = (int)(Math.random() * animals.length / packSize);
-
-                Animal temp = animals[i];
-                animals[i] = animals[index];
-                animals[index] = temp;
-            }
-        }
-
-        return animals;
-    }
-
     private static void shuffleAnimals()
     {
         for( int i = 0; i < animals.length; i++ )
@@ -140,6 +123,18 @@ public class Runner
             Animal[] temp = animals[i];
             animals[i] = animals[index];
             animals[index] = temp;
+        }
+    }
+
+    private static void shufflePlants()
+    {
+        for(int i = 0; i < plants.length; i++)
+        {
+            int index = ( int )( Math.random() * NUM_PLANTS);
+
+            Plant temp = plants[i];
+            plants[i] = plants[index];
+            plants[index] = temp;
         }
     }
 
@@ -176,14 +171,31 @@ public class Runner
             index++;
         }
         index = 0;
+        while( plants[index] instanceof ArcticDaisy && index < animals.length )
+        {
+            daisyIndex++;
+            index++;
+        }
+        index = 0;
+        while( plants[index] instanceof ArcticWillow && index < animals.length )
+        {
+            willowIndex++;
+            index++;
+        }
+        index = 0;
+        while( plants[index] instanceof CaribouMoss && index < animals.length )
+        {
+            mossIndex++;
+            index++;
+        }
     }
 
     private static void shuffleAll() {
-        for(int i = 0; i < animals.length - 1; i++) {
+        for(int i = 0; i < animals.length; i++)
             shuffle(animals[i]);
-        }
-        shufflePack(animals[wolfIndex], TundraWolf.PACK_SIZE);
         shuffleAnimals();
+        shufflePlants();
+        reassignIndex();
     }
 
     private static Animal[] removeDead(Animal[] deadAnimals)
@@ -209,16 +221,16 @@ public class Runner
         ArrayList<Animal> allAnimals = new ArrayList<Animal>();
 
 
-        for (int i = 0; i < birthingAnimals.length; i++) {
+        for (int i = 0; i < birthingAnimals.length; i++)
+        {
             Animal animal = birthingAnimals[i];
             allAnimals.add(animal);
-            if (animal instanceof Female) {
+            if (animal instanceof Female)
                 females.add(animal);
-            }
         }
 
-    
-        for (int i = 0; i < females.size(); i++) {
+        for (int i = 0; i < females.size(); i++)
+        {
             Female f = (Female)females.get(i);
             Animal[] babies = f.giveBirth();
             if (babies != null) {
@@ -283,8 +295,7 @@ public class Runner
             else if( animals[i] instanceof Carnivore )
             {
                 Carnivore c = (Carnivore)(animals[i]);
-                c.eat(animals[i]);
-                break;
+                runCarnivore(c);
             }
             else 
             {
@@ -295,22 +306,33 @@ public class Runner
         }
     }
 
-    private static void runCarnivore( Carnivore carn, Animal a )
+    private static void runCarnivore( Carnivore carn )
     {
-        if( carn instanceof ArcticFox )
+        int numTries = 0;
+        int index = 0;
+
+        while( numTries < HUNTS_PER_DAY )
         {
-            ArcticFox fox = ( ArcticFox )( carn );
-            fox.eat( a );
+            if( !carn.eat( animals[ index ][ 0 ] ) )
+            {
+                index++;
+                continue;
+            }
+            break;
         }
-        else if( carn instanceof PolarBear )
+    }
+
+    private static void runHerbivore( Herbivore herb )
+    {
+        int index = 0;
+        while( index < plants.length )
         {
-            PolarBear bear = ( PolarBear )( carn );
-            bear.eat( a );
-        }
-        else if( carn instanceof TundraWolf )
-        {
-            TundraWolf wolf = ( TundraWolf )( carn );
-            wolf.eat( a );
+            if( !herb.eat( plants[ index ] ) )
+            {
+                index++;
+                continue;
+            }
+            break;
         }
     }
 }
