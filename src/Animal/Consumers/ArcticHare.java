@@ -7,8 +7,8 @@ import src.Plants.Plant;
 /**
  * The Arctic Hare in the tundra biome
  *
- * @author Nate Johnson, Avi D.
- * @version 5/27/2025
+ * @author Nate Johnson, Avi D., Austin Benedicto
+ * @version 6/5/2025
  */
 public class ArcticHare extends Animal implements Herbivore
 {

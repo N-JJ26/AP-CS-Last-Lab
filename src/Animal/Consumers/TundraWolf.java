@@ -7,8 +7,8 @@ import src.Animal.Carnivore;
  * TundraWolf class represents a carnivorous animal that can be found in the Arctic region.
  * It extends the Animal class and implements the Carnivore interface.
  * 
- * @author Austin Benedicto, Avi Dasgupta, Nathaniel Johnspon
- * @version 5/27/2025
+ * @author Austin Benedicto, Avi Dasgupta, Nathaniel Johnson
+ * @version 6/5/2025
  */
 public class TundraWolf extends Animal implements Carnivore
 {
