@@ -9,7 +9,7 @@ import src.Plants.Plant;
  * It extends the Animal class and implements the Herbivore interface.
  * 
  * @author Austin Benedicto, Nate Johnson, Avi D.
- * @version 5/27/2025
+ * @version 6/5/2025
  */
 public class Caribou extends Animal implements Herbivore
 {
@@ -54,7 +54,8 @@ public class Caribou extends Animal implements Herbivore
      */
     public boolean eat( Plant p )
     {
-        if( p.consumed( GRAMS_PER_DAY ) ) {
+        if( p.consumed( GRAMS_PER_DAY ) )
+        {
             hasEaten = true;
             return true;
         }
