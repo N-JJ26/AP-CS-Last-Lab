@@ -9,7 +9,9 @@ import src.Plants.Producers.ArcticWillow;
 
 
 /**
- * The Arctic Fox in the Tundra biome
+ * Represents an Arctic Fox in the Tundra biome.
+ * This class models the biological and behavioral characteristics of the Arctic Fox,
+ * including its omnivorous diet, hunting efficiency, and survival logic.
  *
  * @author Nate Johnson, Austin Benedicto, Avi D.
  * @version 6/5/2025
@@ -20,8 +22,8 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     private static final int BODY_MASS_ADULT = 5200;
     private static final int WEANING_AGE = 14;
     private static final int ONSET_FERTILITY_MALE = 304;
-    private static final double MAX_LIFE_SPAN = 9999.9; //TODO
-    private static final int DAYS_WITHOUT_FOOD = 99; //TODO
+    private static final double MAX_LIFE_SPAN = 1642.5;
+    private static final int DAYS_WITHOUT_FOOD = 28;
 
     private static final double HUNTING_EFFICIENCY = 0.6;
     private static final double HUNTING_EFFICIENCY_RANGE = 0.14;
@@ -35,7 +37,10 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
 
     private int gramsEaten;
 
-    /** The two choices for an arctic fox in th eating phase of the simulation */
+    /**
+     * The two choices for an Arctic Fox in the eating phase of the simulation.
+     * Determines whether the fox will act as a herbivore or carnivore during feeding.
+     */
     public enum Choice
     {
         HERBIVORE,
@@ -43,7 +48,8 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     }
 
     /**
-     * Constructs an Arctic Fox object via Animal().
+     * Constructs a new ArcticFox with randomized newborn values for mass and weaning age.
+     * Initializes the fox's biological parameters and daily food requirements.
      */
     public ArcticFox()
     {
@@ -55,7 +61,10 @@ public class ArcticFox extends Animal implements Carnivore, Herbivore
     }
 
     /**
-     * Initializes an ArcticFox with an age input
+     * Initializes an ArcticFox with a specified initial age.
+     * Ages the fox by the given number of days without consequences.
+     *
+     * @param age the initial age (in days) of the Arctic Fox
      */
     public ArcticFox(int age)
     {

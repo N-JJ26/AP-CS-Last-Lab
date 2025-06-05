@@ -5,7 +5,9 @@ import src.Animal.Herbivore;
 import src.Plants.Plant;
 
 /**
- * The Arctic Hare in the tundra biome
+ * Represents an Arctic Hare in the tundra biome.
+ * This class models the biological and behavioral characteristics of the Arctic Hare,
+ * including its growth, eating habits, and survival logic.
  *
  * @author Nate Johnson, Avi D., Austin Benedicto
  * @version 6/5/2025
@@ -25,7 +27,8 @@ public class ArcticHare extends Animal implements Herbivore
     private int daysWithoutEating;
 
     /**
-     * Creates a new ArcticHare object via Animal().
+     * Constructs a new ArcticHare with default newborn values.
+     * Initializes the hare's mass, age, and other biological parameters.
      */
     public ArcticHare()
     {
@@ -37,7 +40,10 @@ public class ArcticHare extends Animal implements Herbivore
     }
 
     /**
-     * Initializes an ArcticHare with an age input
+     * Constructs a new ArcticHare with a specified initial age.
+     * Ages the hare by the given number of days without consequences.
+     *
+     * @param age the initial age (in days) of the Arctic Hare
      */
     public ArcticHare(int age)
     {

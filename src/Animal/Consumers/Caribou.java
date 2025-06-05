@@ -26,7 +26,8 @@ public class Caribou extends Animal implements Herbivore
     private int daysWithoutEating;
 
     /**
-     * Creates a new Caribou object via Animal().
+     * Constructs a new Caribou with default newborn values.
+     * Initializes the caribou's mass, age, and other biological parameters.
      */
     public Caribou()
     {
@@ -38,7 +39,10 @@ public class Caribou extends Animal implements Herbivore
     }
 
     /**
-     * Initializes a Caribou with an age input
+     * Constructs a new Caribou with a specified initial age.
+     * Ages the caribou by the given number of days without consequences.
+     *
+     * @param age the initial age (in days) of the Caribou
      */
     public Caribou(int age)
     {
