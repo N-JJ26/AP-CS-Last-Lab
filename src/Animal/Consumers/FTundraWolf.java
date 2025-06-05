@@ -4,10 +4,10 @@ import src.Animal.Animal;
 import src.Animal.Female;
 
 /**
- * FTundraWolf TODO: Fix this java doc
+ * FTundraWolf is the Female extension of TundraWolf
  * 
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/29/2025
+ * @version 6/5/2025
  */
 public class FTundraWolf extends TundraWolf implements Female
 {
@@ -36,7 +36,6 @@ public class FTundraWolf extends TundraWolf implements Female
 
     /**
      * Initializes an FTundraWolf with an age input
-     * TODO: get rid of
      */
     public FTundraWolf(int age)
     {
@@ -107,6 +106,9 @@ public class FTundraWolf extends TundraWolf implements Female
         return pregnant;
     }
 
+    /**
+     * Aging method, also increments counts gestationCount/interBirthCount
+     */
     public void aging()
     {
         super.aging();
@@ -117,8 +119,13 @@ public class FTundraWolf extends TundraWolf implements Female
             interBirthCount++;
     }
 
+    /**
+     * The String "Pregnant true/false female + the super toString call
+     *
+     * @return true/false if it is Pregnant, and the animal's toString.
+     */
     public String toString()
     {
-        return "Pregnant " + pregnant + " female " + super.toString();
+        return "Pregnant: " + pregnant + " female " + super.toString();
     }
 }

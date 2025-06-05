@@ -4,7 +4,7 @@ import src.Animal.Animal;
 import src.Animal.Female;
 
 /**
- * FArcticFox
+ * FArcticFox  is the Female extension of ArcticFox
  * 
  * @author Nate Johnson, Austin Benedicto, Avi D.
  * @version 5/29/2025
@@ -110,6 +110,9 @@ public class FArcticFox extends ArcticFox implements Female
         return pregnant;
     }
 
+    /**
+     * Aging method, also increments counts gestationCount/interBirthCount
+     */
     public void aging()
     {
         super.aging();
@@ -120,6 +123,11 @@ public class FArcticFox extends ArcticFox implements Female
             interbirthCount++;
     }
 
+    /**
+     * The String "Pregnant true/false female + the super toString call
+     *
+     * @return true/false if it is Pregnant, and the animal's toString.
+     */
     public String toString()
     {
         return "Pregnant " + pregnant + " female " + super.toString();

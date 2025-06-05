@@ -4,10 +4,10 @@ import src.Animal.Animal;
 import src.Animal.Female;
 
 /**
- * FPolarBear
+ * FPolarBear is the Female extension of PolarBear
  * 
  * @author Nate Johnson, Austin Benedicto, Avi D.
- * @version 5/29/2025
+ * @version 6/5/2025
  */
 public class FPolarBear extends PolarBear implements Female
 {
@@ -105,6 +105,9 @@ public class FPolarBear extends PolarBear implements Female
         return( pregnant );
     }
 
+    /**
+     * Aging method, also increments counts gestationCount/interBirthCount
+     */
     public void aging()
     {
         super.aging();
@@ -115,6 +118,11 @@ public class FPolarBear extends PolarBear implements Female
             interbirthCount++;
     }
 
+    /**
+     * The String "Pregnant true/false female + the super toString call
+     *
+     * @return true/false if it is Pregnant, and the animal's toString.
+     */
     public String toString()
     {
         return "Pregnant " + pregnant + " female " + super.toString();
