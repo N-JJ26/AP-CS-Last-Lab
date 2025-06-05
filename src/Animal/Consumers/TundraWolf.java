@@ -57,7 +57,7 @@ public class TundraWolf extends Animal implements Carnivore
      */
     public boolean eat(Animal a)
     {
-        if(wasHuntSuccessful() && isHungry() &&
+        if(isAlive() && wasHuntSuccessful() && isHungry() &&
             (a instanceof Caribou || a instanceof ArcticHare || a instanceof ArcticFox))
         {
             gramsEaten += TROPHIC_EFFICIENCY_RULE * a.getCarcass() / PACK_SIZE;

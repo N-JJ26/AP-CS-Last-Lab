@@ -51,7 +51,7 @@ public class PolarBear extends Animal implements Carnivore
      */
     public boolean eat(Animal a)
     {
-        if(wasHuntSuccessful() && isHungry() && (a instanceof TundraWolf || a instanceof ArcticFox ||
+        if(a.isAlive() && wasHuntSuccessful() && isHungry() && (a instanceof TundraWolf || a instanceof ArcticFox ||
                         a instanceof ArcticHare || a instanceof Caribou))
         {
             gramsEaten = TROPHIC_EFFICIENCY_RULE * a.getCarcass();
