@@ -160,11 +160,11 @@ public class Runner
     }
 
     private static void printInformation() {
-        System.out.printf("Daisies: %d percent; Willows: %d percent; Moss %d percent\n",
+        System.out.printf("\nDaisies: %d percent; Willows: %d percent; Moss %d percent\n",
                         plants[daisyIndex].getPercentRemaining(),
                         plants[willowIndex].getPercentRemaining(),
                         plants[mossIndex].getPercentRemaining());
-        System.out.printf("Foxes %d; Hares %d; Caribous %d; Polar Bears %d; Wolves %d\n",
+        System.out.printf("Foxes %d; Hares %d; Caribous %d; Polar Bears %d; Wolves %d\n\n",
                         animals[foxIndex].length,
                         animals[hareIndex].length,
                         animals[caribouIndex].length,
@@ -213,49 +213,64 @@ public class Runner
     private static void reassignIndex()
     {
         int index = 0;
-        while( animals[index][0] instanceof ArcticFox && index < animals.length )
+        foxIndex = 0;
+        while( animals[index][0] instanceof ArcticFox )
         {
             foxIndex++;
             index++;
         }
+
         index = 0;
-        while( animals[index][0] instanceof ArcticHare && index < animals.length )
+        hareIndex = 0;
+        while( animals[index][0] instanceof ArcticHare )
         {
             hareIndex++;
             index++;
         }
+
         index = 0;
-        while( animals[index][0] instanceof Caribou && index < animals.length )
+        caribouIndex = 0;
+        while( animals[index][0] instanceof Caribou )
         {
             caribouIndex++;
             index++;
         }
+
         index = 0;
-        while( animals[index][0] instanceof PolarBear && index < animals.length )
+        polarBearIndex = 0;
+        while( animals[index][0] instanceof PolarBear )
         {
             polarBearIndex++;
             index++;
         }
+
         index = 0;
-        while( animals[index][0] instanceof TundraWolf && index < animals.length )
+        wolfIndex = 0;
+        while( animals[index][0] instanceof TundraWolf )
         {
             wolfIndex++;
             index++;
         }
+
         index = 0;
-        while( plants[index] instanceof ArcticDaisy && index < animals.length )
+        daisyIndex = 0;
+        while( plants[index] instanceof ArcticDaisy )
         {
             daisyIndex++;
             index++;
         }
+
         index = 0;
-        while( plants[index] instanceof ArcticWillow && index < animals.length )
+        willowIndex = 0;
+        while( plants[index] instanceof ArcticWillow )
         {
             willowIndex++;
             index++;
         }
+
         index = 0;
-        while( plants[index] instanceof CaribouMoss && index < animals.length )
+        mossIndex = 0;
+        while( plants[index] instanceof CaribouMoss )
         {
             mossIndex++;
             index++;
