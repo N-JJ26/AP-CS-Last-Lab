@@ -20,6 +20,9 @@ public class Runner
 
     private static final int HUNTS_PER_DAY = 3;
 
+    private static final int DAYS_PER_MONTH = 30;
+    private static final int MONTHS_PER_YEAR = 12;
+
     private static Plant[] plants = new Plant[NUM_PLANTS];
     private static Animal[][] animals = new Animal[NUM_ANIMALS][];
 
@@ -34,7 +37,6 @@ public class Runner
     private static int wolfIndex = 4;
 
     private static int months = 1;
-    private static int years = 1;
 
     private static Scanner in = new Scanner(System.in);
 
@@ -45,8 +47,46 @@ public class Runner
     public static void main(String[] args)
     {
         beginningSequence();
-        shuffleAll();
-        runSimulation();
+
+        System.out.println("Year 1:\n");
+        for ( int i = 0; i < MONTHS_PER_YEAR; i++ ) {
+            System.out.println("Month " + months + ":");
+            for ( int j = 0; j < DAYS_PER_MONTH; j++ ) {
+                for( int k = 0; k < animals.length; k++ )
+                {
+                    Animal[] setOfAnimals = animals[ k ];
+
+                    eat(setOfAnimals);
+                    allReproduce(setOfAnimals);
+                    allBirths(setOfAnimals);
+                    ageAll(setOfAnimals);
+                    removeDead(setOfAnimals);
+                }
+                shuffleAll();
+            }
+            printInformation();
+            months++;
+        }
+
+        System.out.println("Year 2:");
+        for ( int i = 0; i < MONTHS_PER_YEAR; i++ ) {
+            System.out.println("Month " + months + ":");
+            for ( int j = 0; j < DAYS_PER_MONTH; j++ ) {
+                for( int k = 0; k < animals.length; k++ )
+                {
+                    Animal[] setOfAnimals = animals[ k ];
+
+                    eat(setOfAnimals);
+                    allReproduce(setOfAnimals);
+                    allBirths(setOfAnimals);
+                    ageAll(setOfAnimals);
+                    removeDead(setOfAnimals);
+                }
+                shuffleAll();
+            }
+            printInformation();
+            months++;
+        }
     }
 
     private static void beginningSequence()
@@ -75,19 +115,51 @@ public class Runner
         System.out.print("Polar Bears = ");
         animals[polarBearIndex] = new PolarBear[in.nextInt()];
 
-        System.out.print("Tundra Wolves (multiple of 6) = ");
+        System.out.print("Tundra Wolves = ");
         animals[wolfIndex] = new TundraWolf[in.nextInt()];
 
         System.out.println();
 
-        information();
+        printInformation();
+        initialFill();
+
+        shuffleAll();
     }
 
-    private static void runSimulation() {
-        
+    private static void initialFill()
+    {
+        for( int i = 0; i < animals[foxIndex].length; i++ )
+            if( Math.random() < 0.5 )
+                animals[foxIndex][i] = new ArcticFox(304);
+            else
+                animals[foxIndex][i] = new FArcticFox(304);
+
+        for( int i = 0; i < animals[hareIndex].length; i++ )
+            if( Math.random() < 0.5 )
+                animals[hareIndex][i] = new ArcticHare(680);
+            else
+                animals[hareIndex][i] = new FArcticHare(680);
+
+        for( int i = 0; i < animals[caribouIndex].length; i++ )
+            if( Math.random() < 0.5 )
+                animals[caribouIndex][i] = new Caribou(120);
+            else
+                animals[caribouIndex][i] = new FCaribou(120);
+
+        for( int i = 0; i < animals[polarBearIndex].length; i++ )
+            if( Math.random() < 0.5 )
+                animals[polarBearIndex][i] = new PolarBear(900);
+            else
+                animals[polarBearIndex][i] = new FPolarBear(900);
+
+        for( int i = 0; i < animals[wolfIndex].length; i++ )
+            if( Math.random() < 0.5 )
+                animals[wolfIndex][i] = new TundraWolf(669);
+            else
+                animals[wolfIndex][i] = new FTundraWolf(669);
     }
 
-    private static void information() {
+    private static void printInformation() {
         System.out.printf("Daisies: %d percent; Willows: %d percent; Moss %d percent\n",
                         plants[daisyIndex].getPercentRemaining(),
                         plants[willowIndex].getPercentRemaining(),
@@ -198,6 +270,12 @@ public class Runner
         reassignIndex();
     }
 
+    private static void ageAll( Animal[] animals )
+    {
+        for( int i = 0; i < animals.length; i++ )
+            animals[ i ].aging();
+    }
+
     private static Animal[] removeDead(Animal[] deadAnimals)
     {
         ArrayList<Animal> a = new ArrayList<Animal>();
@@ -210,7 +288,10 @@ public class Runner
                 a.remove(i);
         }
 
-        deadAnimals = (Animal[])a.toArray();
+        deadAnimals = new Animal[a.size()];
+
+        for(int i = 0; i < deadAnimals.length; i++)
+            deadAnimals[i] = a.get(i);
 
         return deadAnimals;
     }
@@ -239,7 +320,10 @@ public class Runner
             }
         }
 
-        birthingAnimals = (Animal[])allAnimals.toArray();
+        birthingAnimals = new Animal[allAnimals.size()];
+
+        for(int i = 0; i < birthingAnimals.length; i++)
+            birthingAnimals[i] = allAnimals.get(i);
 
         return birthingAnimals;
     }
@@ -269,6 +353,7 @@ public class Runner
             }
         }
     }
+
     /**
      * Note that this is untested as hell (but so is half of runner lmao)
      * 
@@ -278,7 +363,7 @@ public class Runner
     {
         for( int i = 0; i < animals.length; i++ ) 
         {
-            if(animals instanceof ArcticFox[]) 
+            if(animals instanceof ArcticFox[])
             {
                 int index = 0;
                 while(index < plants.length)
@@ -311,14 +396,14 @@ public class Runner
         int numTries = 0;
         int index = 0;
 
-        while( numTries < HUNTS_PER_DAY )
+        while( index < animals.length || numTries < HUNTS_PER_DAY )
         {
             if( !carn.eat( animals[ index ][ 0 ] ) )
             {
                 index++;
-                continue;
             }
-            break;
+            else
+                break;
         }
     }
 

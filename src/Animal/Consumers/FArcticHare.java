@@ -82,7 +82,6 @@ public class FArcticHare extends ArcticHare implements Female
     public Animal[] giveBirth()
     {
         if(!isAlive() || !pregnant || gestationCount <= GESTATION_DURATION){
-            System.out.println( "worked!" );
             return null;
         }
         for(int i = 0; i < litter.length; i++)
