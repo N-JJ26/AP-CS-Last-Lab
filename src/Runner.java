@@ -50,7 +50,7 @@ public class Runner
 
         System.out.println("Year 1:\n");
         for ( int i = 0; i < MONTHS_PER_YEAR; i++ ) {
-            System.out.println("Month " + months + ":");
+            System.out.println("Month " + months % 12 + ":");
             for ( int j = 0; j < DAYS_PER_MONTH; j++ ) {
                 for( int k = 0; k < animals.length; k++ )
                 {
@@ -70,7 +70,7 @@ public class Runner
 
         System.out.println("Year 2:");
         for ( int i = 0; i < MONTHS_PER_YEAR; i++ ) {
-            System.out.println("Month " + months + ":");
+            System.out.println("Month " + months % 12 + ":");
             for ( int j = 0; j < DAYS_PER_MONTH; j++ ) {
                 for( int k = 0; k < animals.length; k++ )
                 {
