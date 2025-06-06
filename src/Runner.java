@@ -396,11 +396,12 @@ public class Runner
         int numTries = 0;
         int index = 0;
 
-        while( index < animals.length || numTries < HUNTS_PER_DAY )
+        while( numTries < HUNTS_PER_DAY )
         {
             if( !carn.eat( animals[ index ][ 0 ] ) )
             {
                 index++;
+                numTries++;
             }
             else
                 break;
